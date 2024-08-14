@@ -1,7 +1,9 @@
 import os
 
-CIPHERS=["AES", "ASCON-128a", "ASCON-128", "No Encryption"]
-TX_POWERS=["0 dBm", "9 dBm", "20 dBm"]
+CIPHERS = ["AES", "ASCON-128a", "ASCON-128", "No Encryption"]
+TX_POWERS = ["0 dBm", "9 dBm", "20 dBm"]
+
+RESULTS_PATH = os.path.join()
 
 """These files hold the Final Average Delays for each experiment.
 """
