@@ -31,9 +31,6 @@ DATA_FILEPATHS={
 }
 
 def getAverages():
-  return
-
-if __name__ == "__main__":
   for cipher in DATA_FILEPATHS.keys():
     for txPower in DATA_FILEPATHS[cipher].keys():
       filepath = DATA_FILEPATHS[cipher][txPower]
@@ -43,3 +40,7 @@ if __name__ == "__main__":
           for line in file:
             if "Final Average Delay under" in line:
               print(line.strip("\n"))
+  return
+
+if __name__ == "__main__":
+  getAverages()
