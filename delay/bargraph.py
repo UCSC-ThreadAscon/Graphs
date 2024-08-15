@@ -20,7 +20,8 @@ def bargraph():
 
   for cipher, delaysUs in toDisplay.items():
 
-    delaysMs = [usToMs(delay) for delay in delaysUs]
+    print(delaysUs)
+    delaysMs = [(usToMs(delay) if delay != None else 0) for delay in delaysUs]
     offset = width * multiplier
     rects = axis.bar(xAxisValues + offset, delaysMs, width, label=cipher,
                   color=cipherColors[cipher])
