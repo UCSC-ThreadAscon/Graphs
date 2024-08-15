@@ -10,7 +10,7 @@ RESULTS_PATH = Path(Path.home(), "Desktop", "Repositories", "Experiments", "dela
 DATA_FILEPATHS={
   "No Encryption": {
     "20 dBm": Path(RESULTS_PATH, "NoEncrypt-20dbm-trial-1", "delay-final-average-No Encrypt-20dbm.txt"),
-    "9 dBm": Path(RESULTS_PATH, "NoEncrypt-9dbm-trial-1", "delay-final-average-No Encrypt-9dbm.txt"),
+    "9 dBm": Path(RESULTS_PATH, "NoEncrypt-9dbm-trial-2", "delay-final-average-No Encrypt-9dbm.txt"),
     "0 dBm": None
   },
   "AES": {
@@ -20,12 +20,12 @@ DATA_FILEPATHS={
   },
   "ASCON-128a": {
     "20 dBm": Path(RESULTS_PATH, "LibAscon-128a-20dbm-trial-1", "delay-final-average-ASCON-128a-20dbm.txt"),
-    "9 dBm": None,
+    "9 dBm": Path(RESULTS_PATH, "LibAscon-128a-9dbm-trial-2", "delay-final-average-ASCON-128a-9dbm.txt"),
     "0 dBm": None
   },
   "ASCON-128": {
     "20 dBm": Path(RESULTS_PATH, "LibAscon-128-20dbm-trial-1", "delay-final-average-ASCON-128-20dbm.txt"),
-    "9 dBm": None,
+    "9 dBm": Path(RESULTS_PATH, "LibAscon-128-9dbm-trial-1", "delay-final-average-ASCON-128-9dbm.txt"),
     "0 dBm": None
   }
 }
