@@ -32,26 +32,30 @@ DATA_FILEPATHS={
 }
 
 def getAverages():
+  """This dictionary needs to be in the order of increasing TX power,
+     as the exact order in which the data is organized in the dictionary
+     will be used when displaying data across the x-axis.
+  """
   averagesDict = {
     "No Encryption": {
-      "20 dBm": None,
+      "0 dBm": None,
       "9 dBm": None,
-      "0 dBm": None
+      "20 dBm": None
     },
     "AES": {
-      "20 dBm": None,
+      "0 dBm": None,
       "9 dBm": None,
-      "0 dBm": None
+      "20 dBm": None
     },
     "ASCON-128a": {
-      "20 dBm": None,
+      "0 dBm": None,
       "9 dBm": None,
-      "0 dBm": None
+      "20 dBm": None
     },
     "ASCON-128": {
-      "20 dBm": None,
+      "0 dBm": None,
       "9 dBm": None,
-      "0 dBm": None
+      "20 dBm": None
     }
   }
 

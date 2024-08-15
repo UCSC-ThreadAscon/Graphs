@@ -6,6 +6,7 @@ from get_data import *
 SHOW_BAR_LABELS = True
 
 toDisplay = getAverages()
+print(toDisplay)
 
 def bargraph():
   xAxisValues = np.arange(len(TX_POWERS))
