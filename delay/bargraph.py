@@ -18,10 +18,9 @@ def bargraph():
     figure.set_figwidth(THESIS_PAPER_WIDTH_IN / 1.2)
     figure.set_figheight(THESIS_PAPER_HEIGHT_IN / 3)
 
-  for cipher, delaysUs in toDisplay.items():
+  for cipher, delaysDict in toDisplay.items():
 
-    print(delaysUs)
-    delaysMs = [(usToMs(delay) if delay != None else 0) for delay in delaysUs]
+    delaysMs = [(usToMs(delay) if delay != None else 0) for delay in delaysDict.values()]
     offset = width * multiplier
     rects = axis.bar(xAxisValues + offset, delaysMs, width, label=cipher,
                   color=cipherColors[cipher])

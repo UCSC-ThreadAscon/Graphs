@@ -21,7 +21,7 @@ TX_POWERS = ["0 dBm", "9 dBm", "20 dBm"]
 
 cipherColors = \
 {
-  'AES-CCM': 'deepskyblue',
+  'AES': 'deepskyblue',
   'ASCON-128a': 'plum',
   'ASCON-128': 'orange',
   'No Encryption': 'mediumaquamarine'
