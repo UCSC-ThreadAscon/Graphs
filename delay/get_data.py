@@ -1,7 +1,6 @@
 from pathlib import Path
 
-CIPHERS = ["AES", "ASCON-128a", "ASCON-128", "No Encryption"]
-TX_POWERS = ["0 dBm", "9 dBm", "20 dBm"]
+from common import *
 
 RESULTS_PATH = Path(Path.home(), "Desktop", "Repositories", "Experiments", "delay", "data")
 
