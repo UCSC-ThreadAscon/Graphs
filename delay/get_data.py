@@ -4,6 +4,8 @@ from common import *
 
 RESULTS_PATH = Path(Path.home(), "Desktop", "Repositories", "Experiments", "delay", "data")
 
+PRINT_AVERAGES = True
+
 """These paths for the files which hold the Final Average Delays for each experiment.
 """
 DATA_FILEPATHS={
@@ -61,8 +63,10 @@ def getAverages():
         with filepath.open("r") as file:
           for line in file:
             if "Final Average Delay under" in line:
-              words = line.strip("\n").split(" ")
+              if PRINT_AVERAGES:
+                print(line)
 
+              words = line.strip("\n").split(" ")
               if "No Encrypt" in line:
                 # The final average is the 9th word (assuming 0 index) in the sentence.
                 averagesDict[cipher][txPower] = float(words[9])
