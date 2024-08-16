@@ -12,7 +12,7 @@ DATA_FILEPATHS={
   "No Encryption": {
     "20 dBm": Path(RESULTS_PATH, "NoEncrypt-20dbm-trial-1", "delay-final-average-No Encrypt-20dbm.txt"),
     "9 dBm": Path(RESULTS_PATH, "NoEncrypt-9dbm-trial-2", "delay-final-average-No Encrypt-9dbm.txt"),
-    "0 dBm": None
+    "0 dBm": Path(RESULTS_PATH, "NoEncrypt-0dbm-trial-1", "delay-final-average-No Encrypt-0dbm.txt")
   },
   "AES": {
     "20 dBm": Path(RESULTS_PATH, "AES-20dbm-trial-1", "delay-final-average-AES-20dbm.txt"),
