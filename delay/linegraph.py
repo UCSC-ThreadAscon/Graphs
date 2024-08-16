@@ -20,7 +20,7 @@ def linegraph():
   # fig.set_figwidth(THESIS_PAPER_WIDTH_IN / 1.2)
   # fig.set_figheight(THESIS_PAPER_HEIGHT_IN / 3)
 
-  aes_lines = plt.plot(TX_POWERS, aes, 'o', color=cipherColors['AES'], label='AES')
+  aes_lines = plt.plot(TX_POWERS, aes, 'o--', color=cipherColors['AES'], label='AES')
   ascon128a_lines = plt.plot(TX_POWERS, ascon128a, 'o:', color=cipherColors['ASCON-128a'], label='ASCON-128a')
   ascon128a_lines = plt.plot(TX_POWERS, ascon128, 'o-.', color=cipherColors['ASCON-128'],label='ASCON-128')
 
