@@ -17,12 +17,13 @@ def linegraph():
 
   fig, ax = plt.subplots()
 
-  # fig.set_figwidth(THESIS_PAPER_WIDTH_IN / 1.2)
-  # fig.set_figheight(THESIS_PAPER_HEIGHT_IN / 3)
+  if RENDER_PGF:
+    fig.set_figwidth(THESIS_PAPER_WIDTH_IN / 1.2)
+    fig.set_figheight(THESIS_PAPER_HEIGHT_IN / 3)
 
-  aes_lines = plt.plot(TX_POWERS, aes, 'o--', color=cipherColors['AES'], label='AES')
-  ascon128a_lines = plt.plot(TX_POWERS, ascon128a, 'o:', color=cipherColors['ASCON-128a'], label='ASCON-128a')
-  ascon128a_lines = plt.plot(TX_POWERS, ascon128, 'o-.', color=cipherColors['ASCON-128'],label='ASCON-128')
+  plt.plot(TX_POWERS, aes, 'o--', color=cipherColors['AES'], label='AES')
+  plt.plot(TX_POWERS, ascon128a, 'o:', color=cipherColors['ASCON-128a'], label='ASCON-128a')
+  plt.plot(TX_POWERS, ascon128, 'o-.', color=cipherColors['ASCON-128'],label='ASCON-128')
 
   y_ticks = np.arange(y_min, y_lim, y_interval)
   y_ticks = np.append(y_ticks, [100])
@@ -37,8 +38,9 @@ def linegraph():
 
   plt.axhline(linestyle='dotted', lw=1, color='gainsboro')
 
-  # plt.savefig(os.path.join(THESIS_FIGURES_PATH, f'{location}-ratio-throughput.pgf'))
-
+  if RENDER_PGF:
+    plt.savefig(os.path.join(THESIS_FIGURES_PATH, f'{location}-ratio-throughput.pgf'))
+  return
 
 if __name__ == "__main__":
   linegraph()
