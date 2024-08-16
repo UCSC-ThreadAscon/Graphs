@@ -1,9 +1,5 @@
 from common import *
 from get_data import *
-"""TODO
-   Create a dictionary for AES, ASCON-128a, and ASCON-128, for each of the TX powers,
-   to store the % increases (or decreases) relative to No Encryption.
-"""
 
 """Given the final average delay between encryption vs. delay with no encryption,
    this functionc calculates the % INCREASE in delay when using encryption vs. no encryption,
