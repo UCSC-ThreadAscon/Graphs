@@ -2,6 +2,9 @@
 bargraph:
 	python3 ./bargraph.py
 
+linegraph:
+	python3 ./linegraph.py
+
 get_data:
 	python3 ./get_data.py
 
