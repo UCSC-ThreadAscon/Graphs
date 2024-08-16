@@ -19,7 +19,25 @@ def getPercentIncrease(delayCipher, delayPlaintext):
   percentDiff = ratioDiff * 100
   return percentDiff
 
-if __name__ == "__main__":
+def getDelayRatios():
+  ratiosDict = {
+    "AES": {
+      "0 dBm": None,
+      "9 dBm": None,
+      "20 dBm": None
+    },
+    "ASCON-128a": {
+      "0 dBm": None,
+      "9 dBm": None,
+      "20 dBm": None
+    },
+    "ASCON-128": {
+      "0 dBm": None,
+      "9 dBm": None,
+      "20 dBm": None
+    }
+  }
+
   algorithms = ["AES", "ASCON-128a", "ASCON-128"]
   averages = getAverages()
 
@@ -29,5 +47,10 @@ if __name__ == "__main__":
       plaintextAverage = averages["No Encryption"][txPower]
 
       if (cipherAverage != None) and (plaintextAverage != None):
-        percentIncrease = getPercentIncrease(cipherAverage, plaintextAverage)
-        print(f"{algorithm} % INCREASE relative to No Encryption @ {txPower}: {percentIncrease} %.")
+        ratiosDict[algorithm][txPower] = getPercentIncrease(cipherAverage, plaintextAverage)
+        print(f"{algorithm} % INCREASE relative to No Encryption @ {txPower}: {ratiosDict[algorithm][txPower]} %.")
+
+  return ratiosDict
+
+if __name__ == "__main__":
+  print(getDelayRatios())
