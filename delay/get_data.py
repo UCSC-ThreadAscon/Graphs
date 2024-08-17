@@ -21,7 +21,7 @@ DATA_FILEPATHS={
   },
   "ASCON-128a": {
     "20 dBm": Path(RESULTS_PATH, "LibAscon-128a-20dbm-trial-1", "delay-final-average-ASCON-128a-20dbm.txt"),
-    "9 dBm": Path(RESULTS_PATH, "LibAscon-128a-9dbm-trial-2", "delay-final-average-ASCON-128a-9dbm.txt"),
+    "9 dBm": Path(RESULTS_PATH, "LibAscon-128a-9dbm-trial-3", "delay-final-average-ASCON-128a-9dbm.txt"),
     "0 dBm": Path(RESULTS_PATH, "LibAscon-128a-0dbm-trial-1", "delay-final-average-ASCON-128a-0dbm.txt")
   },
   "ASCON-128": {
