@@ -11,7 +11,7 @@ def linegraph():
   ascon128 = RATIOS["ASCON-128"].values()
   ascon128a = RATIOS["ASCON-128a"].values()
 
-  y_interval = 0.5
+  y_interval = 1
   y_lim = 23
   y_min = -2
 
