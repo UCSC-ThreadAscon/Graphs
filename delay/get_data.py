@@ -6,9 +6,9 @@ RESULTS_PATH = Path(Path.home(), "Desktop", "Repositories", "Experiments", "dela
 
 PRINT_AVERAGES = True
 
-"""These paths for the files which hold the Final Average Delays for each experiment.
+"""These files hold the Delay averages that I will use in the Thesis Writeup.
 """
-DATA_FILEPATHS={
+THESIS_DELAY_AVERAGES={
   "No Encryption": {
     "20 dBm": Path(RESULTS_PATH, "NoEncrypt-20dbm-trial-1", "delay-final-average-No Encrypt-20dbm.txt"),
     "9 dBm": Path(RESULTS_PATH, "NoEncrypt-9dbm-trial-2", "delay-final-average-No Encrypt-9dbm.txt"),
@@ -59,9 +59,9 @@ def getAverages():
     }
   }
 
-  for cipher in DATA_FILEPATHS.keys():
-    for txPower in DATA_FILEPATHS[cipher].keys():
-      filepath = DATA_FILEPATHS[cipher][txPower]
+  for cipher in THESIS_DELAY_AVERAGES.keys():
+    for txPower in THESIS_DELAY_AVERAGES[cipher].keys():
+      filepath = THESIS_DELAY_AVERAGES[cipher][txPower]
 
       if filepath != None:
         with filepath.open("r") as file:
