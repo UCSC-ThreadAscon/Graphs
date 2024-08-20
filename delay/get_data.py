@@ -4,7 +4,7 @@ from common import *
 from data import *
 
 PRINT_AVERAGES = True
-USE_OLD_AVERAGES = True
+USE_OLD_AVERAGES = False
 
 if USE_OLD_AVERAGES:
   AVERAGES_DICT = PREV_DELAY_AVERAGES
