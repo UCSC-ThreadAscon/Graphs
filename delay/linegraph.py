@@ -12,7 +12,7 @@ def linegraph():
   ascon128a = RATIOS["ASCON-128a"].values()
 
   y_interval = 1
-  y_lim = 23
+  y_lim = 8
   y_min = -2
 
   fig, ax = plt.subplots()
@@ -26,7 +26,7 @@ def linegraph():
   plt.plot(TX_POWERS, ascon128, 'o-.', color=cipherColors['ASCON-128'],label='ASCON-128')
 
   y_ticks = np.arange(y_min, y_lim, y_interval)
-  y_ticks = np.append(y_ticks, [100])
+  y_ticks = np.append(y_ticks, [y_lim])
   ax.set_yticks(y_ticks)
   ax.set_xticks(TX_POWERS)
   ax.set_ylim(y_min, y_lim)
