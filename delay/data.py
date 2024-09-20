@@ -9,7 +9,7 @@ THESIS_DELAY_AVERAGES = {
   "No Encryption": {
     "20 dBm": Path(RESULTS_PATH, "NoEncrypt-20dbm-trial-1", "delay-final-average-No Encrypt-20dbm.txt"),
     "9 dBm": Path(RESULTS_PATH, "NoEncrypt-9dbm-trial-1", "delay-final-average-No Encrypt-9dbm.txt"),
-    "0 dBm": None
+    "0 dBm": Path(RESULTS_PATH, "NoEncrypt-0dbm-trial-1", "delay-final-average-No Encrypt-0dbm.txt")
   },
   "AES": {
     "20 dBm": Path(RESULTS_PATH, "AES-20dbm-trial-1", "delay-final-average-AES-20dbm.txt"),
@@ -19,11 +19,11 @@ THESIS_DELAY_AVERAGES = {
   "ASCON-128a": {
     "20 dBm": Path(RESULTS_PATH, "ASCON-128a-20dbm-trial-1", "delay-final-average-ASCON-128a-20dbm.txt"),
     "9 dBm": Path(RESULTS_PATH, "ASCON-128a-9dbm-trial-1", "delay-final-average-ASCON-128a-9dbm.txt"),
-    "0 dBm": None
+    "0 dBm": Path(RESULTS_PATH, "ASCON-128a-0dbm-trial-1", "delay-final-average-ASCON-128a-0dbm.txt")
   },
   "ASCON-128": {
     "20 dBm": Path(RESULTS_PATH, "ASCON-128-20dbm-trial-1", "delay-final-average-ASCON-128-20dbm.txt"),
     "9 dBm": Path(RESULTS_PATH, "ASCON-128-9dbm-trial-1", "delay-final-average-ASCON-128-9dbm.txt"),
-    "0 dBm": None
+    "0 dBm": Path(RESULTS_PATH, "ASCON-128-0dbm-trial-1", "delay-final-average-ASCON-128-0dbm.txt")
   }
 }
