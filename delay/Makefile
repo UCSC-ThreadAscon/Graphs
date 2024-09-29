@@ -1,4 +1,5 @@
-
+average:
+	python3 ./average.py
 bargraph:
 	python3 ./bargraph.py
 

@@ -4,6 +4,8 @@ import re
 import os
 import sys
 
+from data import *
+
 NUM_TRIALS = 1000
 
 def getAverageDelays(filepath):
@@ -68,7 +70,7 @@ def writeFinalAverage(averageDelays, finalAverage, delayExpLog):
   words = line.split(" ")
   txPower = words[7]
 
-  outputFile = os.path.join(os.getcwd(), "queue", f"delay-final-average-{cipher}-{txPower}dbm.txt")
+  outputFile = os.path.join(os.getcwd(), "final-averages", f"delay-final-average-FIRST-1000-{cipher}-{txPower}dbm.txt")
 
   with open(outputFile, "w") as file:
     file.write(f"Final Average Delay under {cipher} at {txPower} dBm: {finalAverage} us.\n")
@@ -82,21 +84,13 @@ def writeFinalAverage(averageDelays, finalAverage, delayExpLog):
         file.write("\n")
   return
 
-def getLogFilePath():
-  def isLogFile(filename):
-    return ("delay-client" in filename) and (".txt" in filename)
-
-  queueDir = os.path.join(os.getcwd(), "queue")
-  filesQueueDir = os.listdir(queueDir)
-
-  logFiles = list(filter(isLogFile, filesQueueDir))
-  if len(logFiles) == 1:
-    return os.path.join(queueDir, logFiles[0])
-  else:
-    if len(logFiles) == 0:
-      raise Exception("Can't find the Delay Client log (.txt) file to parse.")
-    else:
-      raise Exception("There is more than one Delay Client log (.txt) file.")
+def getAllAverages():
+  for filesDict in THESIS_DELAY_LOGS.values():
+    for logFile in filesDict.values():
+      averages = getAverageDelays(logFile)
+      finalAverage = getFinalAverage(averages)
+      writeFinalAverage(averages, finalAverage, logFile)
+  return
 
 if __name__ == "__main__":
-  pass
+  getAllAverages()
