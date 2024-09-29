@@ -47,6 +47,6 @@ THESIS_DELAY_LOGS = {
   "ASCON-128": {
     "20 dBm": Path(RESULTS_PATH, "ASCON-128-20dbm-trial-1", "delay-client-LibAscon-128-20dbm.txt"),
     "9 dBm": Path(RESULTS_PATH, "ASCON-128-9dbm-trial-1", "delay-client-LibAscon-128-9dbm.txt"),
-    "0 dBm": Path(RESULTS_PATH, "ASCON-128-0dbm-trial-1", "delay-client-LibAscon-128a-0dbm.txt")
+    "0 dBm": Path(RESULTS_PATH, "ASCON-128-0dbm-trial-1", "delay-client-LibAscon-128-0dbm.txt")
   }
 }
