@@ -22,7 +22,9 @@ def getAverageDelays(filepath):
         words = line.split(" ")
         average = float(words[7])
         averages.append(average)
-  return averages
+
+  # Only return the first NUM_TRIALS trials.
+  return averages[0:NUM_TRIALS:]
 
 """ https://stackoverflow.com/a/35833387/6621292
 """
