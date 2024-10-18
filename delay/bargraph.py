@@ -32,7 +32,7 @@ def bargraph():
     multiplier += 1
 
   axis.set_ylabel('Delay (ms)')
-  axis.set_title('Average Delay')
+  axis.set_title(f'Average Delay ({LOCATION_STRING})')
 
   xWidthOffset = 0.30
   axis.set_xticks(xAxisValues + xWidthOffset, TX_POWERS_LABELS.values())

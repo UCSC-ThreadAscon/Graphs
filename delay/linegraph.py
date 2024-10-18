@@ -34,12 +34,12 @@ def linegraph():
   ax.legend(loc='best', ncols=3)
   ax.set_ylabel('Percentage (%)')
   ax.set_xlabel('TX Power (dBm)')
-  ax.set_title('Delay Percentage (%) Increase Relative to No Encryption')
+  ax.set_title(f'Delay Percentage (%) Increase Relative to No Encryption ({LOCATION_STRING})')
 
   plt.axhline(linestyle='dotted', lw=1, color='gainsboro')
 
   if RENDER_PGF:
-    plt.savefig(os.path.join(THESIS_FIGURES_PATH, f'{location}-ratio-throughput.pgf'))
+    plt.savefig(os.path.join(THESIS_FIGURES_PATH, f'delay-ratio-throughput.pgf'))
   return
 
 if __name__ == "__main__":
