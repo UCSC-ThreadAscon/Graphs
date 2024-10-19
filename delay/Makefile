@@ -11,3 +11,6 @@ get_data:
 
 get_ratios:
 	python3 ./ratios.py
+
+get_num_restarts:
+	python3 ./restarts.py

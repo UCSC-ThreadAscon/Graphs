@@ -1,8 +1,12 @@
 from pathlib import Path
 
 SCRIPTS_PATH = Path(Path.home(), "Desktop", "Repositories", "graphs", "delay")
+
 RESULTS_PATH_HOME = Path(Path.home(), "Desktop", "Repositories", "graphs", "delay", "data", "home-experiments")
 RESULTS_PATH_UCSC = Path(Path.home(), "Desktop", "Repositories", "graphs", "delay", "data", "ucsc-experiments")
+
+RESTARTS_PATH_HOME = Path(Path.home(), "Desktop", "Repositories", "graphs", "delay", "restarts", "home-experiments")
+RESTARTS_PATH_UCSC = Path(Path.home(), "Desktop", "Repositories", "graphs", "delay", "restarts", "ucsc-experiments")
 
 """These files hold the Delay averages for the experiments I ran at home.
 """
@@ -101,13 +105,15 @@ THESIS_DELAY_LOGS_UCSC = {
 }
 
 
-LOCATION = "ucsc"
+LOCATION = "home"
 
 if LOCATION == "home":
   THESIS_DELAY_AVERAGES = THESIS_DELAY_AVERAGES_HOME
   THESIS_DELAY_LOGS = THESIS_DELAY_LOGS_HOME
   LOCATION_STRING = "Home"
+  RESTARTS_PATH = RESTARTS_PATH_HOME
 elif LOCATION == "ucsc":
   THESIS_DELAY_AVERAGES = THESIS_DELAY_AVERAGES_UCSC
   THESIS_DELAY_LOGS = THESIS_DELAY_LOGS_UCSC
   LOCATION_STRING = "UCSC"
+  RESTARTS_PATH = RESTARTS_PATH_UCSC
