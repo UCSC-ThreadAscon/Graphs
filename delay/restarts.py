@@ -60,7 +60,7 @@ def getNumRestarts(filepath):
       elif "restart" in line:
         if DEBUG:
           print(line)
-        num_restarts_dict[cipher][txPower] += 1
+        NUM_RESTARTS_DICT[cipher][txPower] += 1
   return
 
 def getAllNumRestarts():
@@ -71,4 +71,4 @@ def getAllNumRestarts():
 
 if __name__ == "__main__":
   getAllNumRestarts()
-  print(num_restarts_dict)
+  print(NUM_RESTARTS_DICT)
