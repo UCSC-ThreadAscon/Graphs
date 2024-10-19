@@ -1,7 +1,7 @@
 from data import *
 from average import findFirstLine, removeAnsi
 
-DEBUG = False
+DEBUG = True
 
 # Stop looking for restarts after the 1000th trial has run.
 TERMINAL_STRING = "Finished running 1000 trials for current experiment."
@@ -66,8 +66,10 @@ def getNumRestarts(filepath):
 def getAllNumRestarts():
   for filesDict in THESIS_DELAY_LOGS.values():
     for logFile in filesDict.values():
+      print(logFile)
       getNumRestarts(logFile)
   return
 
 if __name__ == "__main__":
   getAllNumRestarts()
+  print(NUM_RESTARTS)
