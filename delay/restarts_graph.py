@@ -2,18 +2,16 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 from common import *
-from ratios import *
-
-RATIOS = getDelayRatios()
+from restarts import *
 
 def linegraph():
-  aes = RATIOS['AES'].values()
-  ascon128 = RATIOS["ASCON-128"].values()
-  ascon128a = RATIOS["ASCON-128a"].values()
+  aes = NUM_RESTARTS['AES'].values()
+  ascon128 = NUM_RESTARTS["ASCON-128"].values()
+  ascon128a = NUM_RESTARTS["ASCON-128a"].values()
 
   y_interval = 1
-  y_lim = 20
-  y_min = 0
+  y_lim = 17
+  y_min = -2
 
   fig, ax = plt.subplots()
 
@@ -32,16 +30,19 @@ def linegraph():
   ax.set_ylim(y_min, y_lim)
 
   ax.legend(loc='best', ncols=3)
-  ax.set_ylabel('Percentage (%)')
+  ax.set_ylabel('Number of Restarts')
   ax.set_xlabel('TX Power (dBm)')
-  ax.set_title(f'Delay Percentage (%) Increase Relative to No Encryption ({LOCATION_STRING})')
+  ax.set_title(f'Number of Experimental Trial Restarts ({LOCATION_STRING})')
 
   plt.axhline(linestyle='dotted', lw=1, color='gainsboro')
 
   if RENDER_PGF:
-    plt.savefig(os.path.join(THESIS_FIGURES_PATH, f'delay-ratio.pgf'))
+    plt.savefig(os.path.join(THESIS_FIGURES_PATH, f'delay-num-restarts.pgf'))
   return
 
 if __name__ == "__main__":
+  getAllNumRestarts()
+  print(NUM_RESTARTS)
+
   linegraph()
   plt.show()

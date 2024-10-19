@@ -1,31 +1,31 @@
 from data import *
 from average import findFirstLine, removeAnsi
 
-DEBUG = True
+DEBUG = False
 
 # Stop looking for restarts after the 1000th trial has run.
 TERMINAL_STRING = "Finished running 1000 trials for current experiment."
 
-NUM_RESTARTS_DICT = {
+NUM_RESTARTS = {
   "No Encryption": {
-    "20 dBm": 0,
+    "0 dBm": 0,
     "9 dBm": 0,
-    "0 dBm": 0
+    "20 dBm": 0
   },
   "AES": {
-    "20 dBm": 0,
+    "0 dBm": 0,
     "9 dBm": 0,
-    "0 dBm": 0
+    "20 dBm": 0
   },
   "ASCON-128a": {
-    "20 dBm": 0,
+    "0 dBm": 0,
     "9 dBm": 0,
-    "0 dBm": 0
+    "20 dBm": 0
   },
   "ASCON-128": {
-    "20 dBm": 0,
+    "0 dBm": 0,
     "9 dBm": 0,
-    "0 dBm": 0
+    "20 dBm": 0
   }
 }
 
@@ -60,7 +60,7 @@ def getNumRestarts(filepath):
       elif "restart" in line:
         if DEBUG:
           print(line)
-        NUM_RESTARTS_DICT[cipher][txPower] += 1
+        NUM_RESTARTS[cipher][txPower] += 1
   return
 
 def getAllNumRestarts():
@@ -71,4 +71,3 @@ def getAllNumRestarts():
 
 if __name__ == "__main__":
   getAllNumRestarts()
-  print(NUM_RESTARTS_DICT)

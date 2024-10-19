@@ -6,6 +6,9 @@ bargraph:
 linegraph:
 	python3 ./linegraph.py
 
+restarts_graph:
+	python3 ./restarts_graph.py
+
 get_data:
 	python3 ./get_data.py
 

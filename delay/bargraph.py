@@ -51,7 +51,7 @@ def bargraph():
   axis.set_xlabel('TX Power (dBm)')
 
   if RENDER_PGF:
-    plt.savefig(os.path.join(THESIS_FIGURES_PATH, 'delay-bar-graph-mA.pgf'))
+    plt.savefig(os.path.join(THESIS_FIGURES_PATH, 'delay-bar-graph.pgf'))
   return
 
 if __name__ == "__main__":
