@@ -6,7 +6,7 @@ DEBUG = True
 # Stop looking for restarts after the 1000th trial has run.
 TERMINAL_STRING = "Finished running 1000 trials for current experiment."
 
-num_restarts_dict = {
+NUM_RESTARTS_DICT = {
   "No Encryption": {
     "20 dBm": 0,
     "9 dBm": 0,
