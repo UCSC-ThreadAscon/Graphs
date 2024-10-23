@@ -12,13 +12,11 @@ def getAverageThroughputs(filepath):
   averages = []
   with open(filepath, 'r') as file:
     for line in file:
-      if "The AVERAGE delay is:" in line:
-        words = line.split(" ")
-        average = float(words[7])
-        averages.append(average)
+      if "bytes/second, or" in line:
+        print(line)
 
   # Only return the first NUM_TRIALS trials.
-  return averages[0:NUM_TRIALS:]
+  return
 
 """ https://stackoverflow.com/a/35833387/6621292
 """
@@ -89,4 +87,4 @@ def getAllAverages():
   return
 
 if __name__ == "__main__":
-  getAllAverages()
+  getAverageThroughputs(THESIS_DELAY_LOGS["AES"]["20 dBm"])
