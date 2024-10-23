@@ -6,8 +6,6 @@ from data import *
 PRINT_AVERAGES = True
 USE_OLD_AVERAGES = False
 
-AVERAGES_DICT = THESIS_DELAY_AVERAGES
-
 def getAverages():
   """This dictionary needs to be in the order of increasing TX power,
      as the exact order in which the data is organized in the dictionary
@@ -36,9 +34,9 @@ def getAverages():
     }
   }
 
-  for cipher in AVERAGES_DICT.keys():
-    for txPower in AVERAGES_DICT[cipher].keys():
-      filepath = AVERAGES_DICT[cipher][txPower]
+  for cipher in THESIS_DELAY_AVERAGES.keys():
+    for txPower in THESIS_DELAY_AVERAGES[cipher].keys():
+      filepath = THESIS_DELAY_AVERAGES[cipher][txPower]
 
       if filepath != None:
         with filepath.open("r") as file:
