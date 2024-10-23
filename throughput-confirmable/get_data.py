@@ -46,11 +46,11 @@ def getAverages():
 
               words = line.strip("\n").split(" ")
               if "No Encrypt" in line:
-                # The final average is the 8th word (assuming 0 index) in the sentence.
-                averagesDict[cipher][txPower] = float(words[8])
+                # The final average is the 10th word (assuming 0 index) in the sentence.
+                averagesDict[cipher][txPower] = float(words[10])
               else:
-                # The final average is the 7th word (assuming 0 index) in the sentence.
-                averagesDict[cipher][txPower] = float(words[7])
+                # The final average is the 9th word (assuming 0 index) in the sentence.
+                averagesDict[cipher][txPower] = float(words[9])
 
   return averagesDict
 
