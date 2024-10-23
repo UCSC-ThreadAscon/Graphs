@@ -4,7 +4,6 @@ from common import *
 from data import *
 
 PRINT_AVERAGES = True
-USE_OLD_AVERAGES = False
 
 def getAverages():
   """This dictionary needs to be in the order of increasing TX power,
