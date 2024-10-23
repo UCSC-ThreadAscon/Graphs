@@ -1,6 +1,6 @@
 .DS_Store
 .vscode
 __pycache__
-delay/final-averages
+final-averages
 delay/restarts
 data
