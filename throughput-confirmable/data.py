@@ -3,21 +3,19 @@ from pathlib import Path
 SCRIPTS_PATH = Path(Path.home(), "Desktop", "Repositories", "graphs", "throughput-confirmable")
 RESULTS_PATH = Path(Path.home(), "Desktop", "Repositories", "graphs", "throughput-confirmable", "data")
 
-"""These files hold the Delay averages for the experiments I ran at home.
-"""
-THESIS_DELAY_AVERAGES = {
+THESIS_TP_CON_AVERAGES = {
   "No Encryption": {
-    "20 dBm": Path(SCRIPTS_PATH, "final-averages", "home", "tp-con-final-average-No Encrypt-20dbm.txt"),
+    "20 dBm": Path(SCRIPTS_PATH, "final-averages", "tp-con-final-average-No Encrypt-20dbm.txt"),
     "9 dBm": None,
     "0 dBm": None
   },
   "AES": {
-    "20 dBm": Path(SCRIPTS_PATH, "final-averages", "home", "tp-con-final-average-AES-20dbm.txt"),
+    "20 dBm": Path(SCRIPTS_PATH, "final-averages", "tp-con-final-average-AES-20dbm.txt"),
     "9 dBm": None,
     "0 dBm": None
   },
   "ASCON-128a": {
-    "20 dBm": Path(SCRIPTS_PATH, "final-averages", "home", "tp-con-final-average-ASCON-128a-20dbm.txt"),
+    "20 dBm": Path(SCRIPTS_PATH, "final-averages", "tp-con-final-average-ASCON-128a-20dbm.txt"),
     "9 dBm": None,
     "0 dBm": None
   },
@@ -28,7 +26,7 @@ THESIS_DELAY_AVERAGES = {
   }
 }
 
-THESIS_DELAY_LOGS = {
+THESIS_TP_CON_LOGS = {
   "No Encryption": {
     "20 dBm": Path(SCRIPTS_PATH, "data", "NoEncrypt-20dbm-trial-1", "tp-con-FTD-NoEncrypt-20dbm.txt"),
     "9 dBm": None,
@@ -40,7 +38,7 @@ THESIS_DELAY_LOGS = {
     "0 dBm": None
   },
   "ASCON-128a": {
-    "20 dBm": Path(SCRIPTS_PATH, "data", "LibAscon-128a-20dbm-trial-1", "tp-con-LibAscon-128a-20dbm.txt"),
+    "20 dBm": Path(SCRIPTS_PATH, "data", "ASCON-128a-20dbm-trial-1", "tp-con-FTD-LibAscon-128a-20dbm.txt"),
     "9 dBm": None,
     "0 dBm": None
   },

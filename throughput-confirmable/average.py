@@ -13,10 +13,12 @@ def getAverageThroughputs(filepath):
   with open(filepath, 'r') as file:
     for line in file:
       if "bytes/second, or" in line:
-        print(line)
+        words = line.split(" ")
+        average = float(words[3])
+        averages.append(average)
 
   # Only return the first NUM_TRIALS trials.
-  return
+  return averages[0:NUM_TRIALS:]
 
 """ https://stackoverflow.com/a/35833387/6621292
 """
@@ -48,7 +50,7 @@ def removeAnsi(line):
   result = ansiEscapes.sub(b'', bytes(line, "utf-8"))
   return str(result, encoding="utf-8")
 
-def writeFinalAverage(averageDelays, finalAverage, delayExpLog):
+def writeFinalAverage(averageThroughputs, finalAverage, delayExpLog):
   line = findFirstLine("Cipher Suite:", delayExpLog)
   words = line.split(" ")
   cipher = removeAnsi(words[5]).replace('\n', '')
@@ -64,27 +66,28 @@ def writeFinalAverage(averageDelays, finalAverage, delayExpLog):
   words = line.split(" ")
   txPower = words[7]
 
-  outputFile = os.path.join(os.getcwd(), "final-averages", LOCATION, f"delay-final-average-FIRST-1000-{cipher}-{txPower}dbm.txt")
+  outputFile = os.path.join(os.getcwd(), "final-averages", f"tp-con-final-average-{cipher}-{txPower}dbm.txt")
 
   with open(outputFile, "w") as file:
-    file.write(f"Final Average Delay under {cipher} at {txPower} dBm: {finalAverage} us.\n")
-    file.write("List of Average Delays used to create the Final Average:\n")
+    file.write(f"Final Average Throughput (Confirmable) under {cipher} at {txPower} dBm: {finalAverage} us.\n")
+    file.write("List of Average (Confirmable) Throughputs used to create the Final Average:\n")
 
     trialNum = 1
-    for average in averageDelays:
+    for average in averageThroughputs:
       file.write(f"Trial {trialNum}: {average} us")
       trialNum += 1
-      if trialNum <= len(averageDelays):
+      if trialNum <= len(averageThroughputs):
         file.write("\n")
   return
 
 def getAllAverages():
-  for filesDict in THESIS_DELAY_LOGS.values():
+  for filesDict in THESIS_TP_CON_LOGS.values():
     for logFile in filesDict.values():
-      averages = getAverageThroughputs(logFile)
-      finalAverage = getFinalAverage(averages)
-      writeFinalAverage(averages, finalAverage, logFile)
+      if logFile != None:
+        averages = getAverageThroughputs(logFile)
+        finalAverage = getFinalAverage(averages)
+        writeFinalAverage(averages, finalAverage, logFile)
   return
 
 if __name__ == "__main__":
-  getAverageThroughputs(THESIS_DELAY_LOGS["AES"]["20 dBm"])
+  getAllAverages()
