@@ -2,7 +2,7 @@ from common import *
 from get_data import *
 
 """Given the final average delay between encryption vs. delay with no encryption,
-   this functionc calculates the % INCREASE in delay when using encryption vs. no encryption,
+   this function calculates the % INCREASE in delay when using encryption vs. no encryption,
    RELATIVE to no encryption.
 
    NOTE that if the value returned is negative, the delay under encryption is LESS than
