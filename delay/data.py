@@ -1,11 +1,11 @@
 from pathlib import Path
 
-SCRIPTS_PATH = Path(Path.home(), "Desktop", "Repositories", "graphs", "delay")
-RESULTS_PATH = Path(Path.home(), "Desktop", "Repositories", "graphs", "delay", "data", "Santa-Cruz-Dec-2024")
+LOCATION = "Santa-Cruz-Dec-2024"
+LOCATION_STRING = "UCSC December 2024"
+
 RESTARTS_PATH = Path(Path.home(), "Desktop", "Repositories", "graphs", "delay", "restarts", "Santa-Cruz-Dec-2024")
 
-LOCATION = "ucsc-dec-2024"
-LOCATION_STRING = "UCSC December 2024"
+SCRIPTS_PATH = Path(Path.home(), "Desktop", "Repositories", "graphs", "delay")
 
 THESIS_DELAY_AVERAGES = {
   "No Encryption": {
@@ -29,6 +29,8 @@ THESIS_DELAY_AVERAGES = {
     "0 dBm": Path(SCRIPTS_PATH, "final-averages", "Santa-Cruz-Dec-2024", "delay-final-average-FIRST-1000-ASCON-128-0dbm.txt")
   }
 }
+
+RESULTS_PATH = Path(Path.home(), "Desktop", "Repositories", "graphs", "delay", "data", "Santa-Cruz-Dec-2024")
 
 THESIS_DELAY_LOGS = {
   "No Encryption": {
