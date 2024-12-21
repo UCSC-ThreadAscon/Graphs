@@ -9,8 +9,8 @@ def linegraph():
   ascon128 = NUM_RESTARTS["ASCON-128"].values()
   ascon128a = NUM_RESTARTS["ASCON-128a"].values()
 
-  y_interval = 1
-  y_lim = 17
+  y_interval = 10
+  y_lim = 50
   y_min = -2
 
   fig, ax = plt.subplots()
