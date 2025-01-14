@@ -39,7 +39,7 @@ THESIS_DELAY_LOGS = {
     "0 dBm": None
   },
   "AES": {
-    "20 dBm": Path(RESULTS_PATH, "AES-20dbm-trial-3", "delay-FTD-AES-20dbm.txt"),
+    "20 dBm": Path(RESULTS_PATH, "AES-20dbm-trial-2", "delay-FTD-AES-20dbm.txt"),
     "9 dBm": Path(RESULTS_PATH, "AES-9dbm-trial-2", "delay-FTD-AES-9dbm.txt"),
     "0 dBm": None
   },
