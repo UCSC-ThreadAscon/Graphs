@@ -89,9 +89,10 @@ def writeFinalAverage(averageDelays, finalAverage, delayExpLog):
 def getAllAverages():
   for filesDict in THESIS_DELAY_LOGS.values():
     for logFile in filesDict.values():
-      averages = getAverageDelays(logFile)
-      finalAverage = getFinalAverage(averages)
-      writeFinalAverage(averages, finalAverage, logFile)
+      if logFile != None:
+        averages = getAverageDelays(logFile)
+        finalAverage = getFinalAverage(averages)
+        writeFinalAverage(averages, finalAverage, logFile)
   return
 
 if __name__ == "__main__":
