@@ -66,8 +66,9 @@ def getNumRestarts(filepath):
 def getAllNumRestarts():
   for filesDict in THESIS_DELAY_LOGS.values():
     for logFile in filesDict.values():
-      print(logFile)
-      getNumRestarts(logFile)
+      if logFile != None:
+        print(logFile)
+        getNumRestarts(logFile)
   return
 
 if __name__ == "__main__":
