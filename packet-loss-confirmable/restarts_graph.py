@@ -32,7 +32,7 @@ def linegraph():
   ax.legend(loc='best', ncols=3)
   ax.set_ylabel('Number of Restarts')
   ax.set_xlabel('TX Power (dBm)')
-  ax.set_title(f'Number of Experimental Trial Restarts (Throughput Confirmable)')
+  ax.set_title(f'Number of Experimental Trial Restarts (Packet Loss)')
 
   plt.axhline(linestyle='dotted', lw=1, color='gainsboro')
 
