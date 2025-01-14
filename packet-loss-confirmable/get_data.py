@@ -33,14 +33,14 @@ def getAverages():
     }
   }
 
-  for cipher in THESIS_TP_CON_AVERAGES.keys():
-    for txPower in THESIS_TP_CON_AVERAGES[cipher].keys():
-      filepath = THESIS_TP_CON_AVERAGES[cipher][txPower]
+  for cipher in THESIS_PL_CON_AVERAGES.keys():
+    for txPower in THESIS_PL_CON_AVERAGES[cipher].keys():
+      filepath = THESIS_PL_CON_AVERAGES[cipher][txPower]
 
       if filepath != None:
         with filepath.open("r") as file:
           for line in file:
-            if "Final Average Throughput (Confirmable) under" in line:
+            if "Final Average Packet Loss Percentage (Confirmable) under" in line:
               if PRINT_AVERAGES:
                 print(line)
 
