@@ -40,17 +40,18 @@ def getAverages():
       if filepath != None:
         with filepath.open("r") as file:
           for line in file:
-            if "Final Average Packet Loss Percentage (Confirmable) under" in line:
+            if "Final Average Packet Loss (Confirmable) under" in line:
               if PRINT_AVERAGES:
                 print(line)
 
               words = line.strip("\n").split(" ")
+              print(words)
               if "No Encrypt" in line:
-                # The final average is the 10th word (assuming 0 index) in the sentence.
-                averagesDict[cipher][txPower] = float(words[10])
+                # The final average is the 12th word (assuming 0 index) in the sentence.
+                averagesDict[cipher][txPower] = float(words[11])
               else:
-                # The final average is the 9th word (assuming 0 index) in the sentence.
-                averagesDict[cipher][txPower] = float(words[9])
+                # The final average is the 11th word (assuming 0 index) in the sentence.
+                averagesDict[cipher][txPower] = float(words[10])
 
   return averagesDict
 
