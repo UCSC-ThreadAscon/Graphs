@@ -10,8 +10,8 @@ from get_data import *
         in throughput.
 """
 def getPercentIncrease(throughputCipher, throughputPlaintext):
-  usDiff = throughputCipher - throughputPlaintext
-  ratioDiff = usDiff / throughputPlaintext
+  diff = throughputCipher - throughputPlaintext
+  ratioDiff = diff / throughputPlaintext
   percentDiff = ratioDiff * 100
   return percentDiff
 

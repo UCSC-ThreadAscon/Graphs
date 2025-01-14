@@ -33,6 +33,3 @@ TX_POWERS_LABELS = \
   "9dbm": "9 dBm",
   "20dbm": "20 dBm"
 }
-
-def usToMs(us):
-  return us / 1000

@@ -69,12 +69,12 @@ def writeFinalAverage(averageThroughputs, finalAverage, delayExpLog):
   outputFile = os.path.join(os.getcwd(), "final-averages", f"tp-con-final-average-{cipher}-{txPower}dbm.txt")
 
   with open(outputFile, "w") as file:
-    file.write(f"Final Average Throughput (Confirmable) under {cipher} at {txPower} dBm: {finalAverage} us.\n")
+    file.write(f"Final Average Throughput (Confirmable) under {cipher} at {txPower} dBm: {finalAverage} bytes/second.\n")
     file.write("List of Average (Confirmable) Throughputs used to create the Final Average:\n")
 
     trialNum = 1
     for average in averageThroughputs:
-      file.write(f"Trial {trialNum}: {average} us")
+      file.write(f"Trial {trialNum}: {average} bytes/second")
       trialNum += 1
       if trialNum <= len(averageThroughputs):
         file.write("\n")
