@@ -8,9 +8,10 @@ def linegraph():
   aes = NUM_RESTARTS['AES'].values()
   ascon128 = NUM_RESTARTS["ASCON-128"].values()
   ascon128a = NUM_RESTARTS["ASCON-128a"].values()
+  noEncrypt = ascon128a = NUM_RESTARTS["No Encryption"].values()
 
-  y_interval = 10
-  y_lim = 50
+  y_interval = 11
+  y_lim = 10
   y_min = -2
 
   fig, ax = plt.subplots()
@@ -22,6 +23,7 @@ def linegraph():
   plt.plot(TX_POWERS, aes, 'o--', color=cipherColors['AES'], label='AES')
   plt.plot(TX_POWERS, ascon128a, 'o:', color=cipherColors['ASCON-128a'], label='ASCON-128a')
   plt.plot(TX_POWERS, ascon128, 'o-.', color=cipherColors['ASCON-128'],label='ASCON-128')
+  plt.plot(TX_POWERS, noEncrypt, 'o-.', color=cipherColors['No Encryption'],label='No Encryption')
 
   y_ticks = np.arange(y_min, y_lim, y_interval)
   y_ticks = np.append(y_ticks, [y_lim])
