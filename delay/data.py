@@ -41,7 +41,7 @@ THESIS_DELAY_LOGS = {
   "AES": {
     "20 dBm": Path(RESULTS_PATH, "AES-20dbm-trial-2", "delay-FTD-AES-20dbm.txt"),
     "9 dBm": Path(RESULTS_PATH, "AES-9dbm-trial-2", "delay-FTD-AES-9dbm.txt"),
-    "0 dBm": Path(RESULTS_PATH, "AES-0dbm-trial-3", "delay-FTD-AES-0dbm.txt")
+    "0 dBm": Path(RESULTS_PATH, "AES-0dbm-trial-4", "delay-FTD-AES-0dbm.txt")
   },
   "ASCON-128a": {
     "20 dBm": Path(RESULTS_PATH, "LibAscon-128a-20dbm-trial-2", "delay-FTD-LibAscon-128a-20dbm.txt"),
@@ -50,7 +50,7 @@ THESIS_DELAY_LOGS = {
   },
   "ASCON-128": {
     "20 dBm": Path(RESULTS_PATH, "LibAscon-128-20dbm-trial-2", "delay-FTD-LibAscon-128-20dbm.txt"),
-    "9 dBm": Path(RESULTS_PATH, "LibAscon-128-9dbm-trial-3", "delay-FTD-LibAscon-128-9dbm.txt"),
+    "9 dBm": Path(RESULTS_PATH, "LibAscon-128-9dbm-trial-7", "delay-FTD-LibAscon-128-9dbm.txt"),
     "0 dBm": Path(RESULTS_PATH, "LibAscon-128-0dbm-trial-2", "delay-FTD-LibAscon-128-0dbm.txt")
   }
 }
