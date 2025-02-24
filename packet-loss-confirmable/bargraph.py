@@ -15,9 +15,9 @@ def bargraph():
 
   figure, axis = plt.subplots(layout='constrained')
 
-  if RENDER_PGF:
-    figure.set_figwidth(THESIS_PAPER_WIDTH_IN / 1.2)
-    figure.set_figheight(THESIS_PAPER_HEIGHT_IN / 3)
+  # if RENDER_PGF:
+  #   figure.set_figwidth(THESIS_PAPER_WIDTH_IN / 1.2)
+  #   figure.set_figheight(THESIS_PAPER_HEIGHT_IN / 3)
 
   for cipher, avgPacketLossDict in toDisplay.items():
 
