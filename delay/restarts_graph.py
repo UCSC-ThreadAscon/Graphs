@@ -62,9 +62,9 @@ def linegraph():
 
   fig, ax = plt.subplots()
 
-  if RENDER_PGF:
-    fig.set_figwidth(THESIS_PAPER_WIDTH_IN / 1.2)
-    fig.set_figheight(THESIS_PAPER_HEIGHT_IN / 3)
+  # if RENDER_PGF:
+  #   fig.set_figwidth(THESIS_PAPER_WIDTH_IN / 1.2)
+  #   fig.set_figheight(THESIS_PAPER_HEIGHT_IN / 3)
 
   plt.plot(TX_POWERS, aes, 'o--', color=cipherColors['AES'], label='AES')
   plt.plot(TX_POWERS, ascon128a, 'o:', color=cipherColors['ASCON-128a'], label='ASCON-128a')
