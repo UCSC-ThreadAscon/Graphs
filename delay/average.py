@@ -72,7 +72,7 @@ def writeFinalAverage(averageDelays, finalAverage, delayExpLog):
   words = line.split(" ")
   txPower = words[7]
 
-  outputFile = os.path.join(os.getcwd(), "final-averages", LOCATION, f"delay-final-average-FIRST-1000-{cipher}-{txPower}dbm.txt")
+  outputFile = os.path.join(os.getcwd(), "final-averages", f"delay-final-average-FIRST-1000-{cipher}-{txPower}dbm.txt")
 
   with open(outputFile, "w") as file:
     file.write(f"Final Average Delay under {cipher} at {txPower} dBm: {finalAverage} us.\n")

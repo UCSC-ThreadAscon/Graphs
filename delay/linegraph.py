@@ -34,7 +34,7 @@ def linegraph():
   ax.legend(loc='best', ncols=3)
   ax.set_ylabel('Percentage (%)')
   ax.set_xlabel('TX Power (dBm)')
-  ax.set_title(f'Delay Percentage (%) Increase Relative to No Encryption ({LOCATION_STRING})')
+  ax.set_title(f'Delay Percentage (%) Increase Relative to No Encryption')
 
   plt.axhline(linestyle='dotted', lw=1, color='gainsboro')
 
