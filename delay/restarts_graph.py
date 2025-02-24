@@ -47,7 +47,7 @@ def bargraph():
   axis.set_ylim(y_min, y_lim)
 
   if RENDER_PGF:
-    plt.savefig(os.path.join(THESIS_FIGURES_PATH, 'delay-bar-graph.pgf'))
+    plt.savefig(os.path.join(THESIS_FIGURES_PATH, 'delay-restarts.pgf'))
   return
 
 def linegraph():
