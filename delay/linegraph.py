@@ -11,15 +11,15 @@ def linegraph():
   ascon128 = RATIOS["ASCON-128"].values()
   ascon128a = RATIOS["ASCON-128a"].values()
 
-  y_interval = 1
+  y_interval = 4
   y_lim = 20
   y_min = 0
 
   fig, ax = plt.subplots()
 
-  if RENDER_PGF:
-    fig.set_figwidth(THESIS_PAPER_WIDTH_IN / 1.2)
-    fig.set_figheight(THESIS_PAPER_HEIGHT_IN / 3)
+  # if RENDER_PGF:
+  #   fig.set_figwidth(THESIS_PAPER_WIDTH_IN / 1.2)
+  #   fig.set_figheight(THESIS_PAPER_HEIGHT_IN / 3)
 
   plt.plot(TX_POWERS, aes, 'o--', color=cipherColors['AES'], label='AES')
   plt.plot(TX_POWERS, ascon128a, 'o:', color=cipherColors['ASCON-128a'], label='ASCON-128a')
@@ -39,7 +39,7 @@ def linegraph():
   plt.axhline(linestyle='dotted', lw=1, color='gainsboro')
 
   if RENDER_PGF:
-    plt.savefig(os.path.join(THESIS_FIGURES_PATH, f'delay-ratio.pgf'))
+    plt.savefig(os.path.join(THESIS_FIGURES_PATH, f'delay-ratio.pgf'), bbox_inches="tight")
   return
 
 if __name__ == "__main__":

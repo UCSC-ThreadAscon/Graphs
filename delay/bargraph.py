@@ -15,9 +15,9 @@ def bargraph():
 
   figure, axis = plt.subplots(layout='constrained')
 
-  if RENDER_PGF:
-    figure.set_figwidth(THESIS_PAPER_WIDTH_IN / 1.2)
-    figure.set_figheight(THESIS_PAPER_HEIGHT_IN / 3)
+  # if RENDER_PGF:
+  #   figure.set_figwidth(THESIS_PAPER_WIDTH_IN / 1.2)
+  #   figure.set_figheight(THESIS_PAPER_HEIGHT_IN / 3)
 
   for cipher, delaysDict in toDisplay.items():
 
@@ -45,7 +45,7 @@ def bargraph():
   # ticks = np.append(ticks, [y_lim])
 
   axis.set_yticks(ticks)
-  axis.legend(loc='best', ncols=2, fontsize=9)
+  axis.legend(loc='best', ncols=4)
   axis.set_ylim(y_min, y_lim)
 
   axis.set_xlabel('TX Power (dBm)')
