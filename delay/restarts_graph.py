@@ -4,7 +4,7 @@ import numpy as np
 from common import *
 from restarts import *
 
-SHOW_BAR_LABELS = True
+SHOW_BAR_LABELS = False
 
 def bargraph():
   xAxisValues = np.arange(len(TX_POWERS))
