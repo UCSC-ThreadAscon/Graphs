@@ -3,7 +3,7 @@ import numpy as np
 
 from get_data import *
 
-SHOW_BAR_LABELS = True
+SHOW_BAR_LABELS = False
 
 toDisplay = getAverages()
 print(toDisplay)
@@ -15,9 +15,9 @@ def bargraph():
 
   figure, axis = plt.subplots(layout='constrained')
 
-  if RENDER_PGF:
-    figure.set_figwidth(THESIS_PAPER_WIDTH_IN / 1.2)
-    figure.set_figheight(THESIS_PAPER_HEIGHT_IN / 3)
+  # if RENDER_PGF:
+  #   figure.set_figwidth(THESIS_PAPER_WIDTH_IN / 1.2)
+  #   figure.set_figheight(THESIS_PAPER_HEIGHT_IN / 3)
 
   for cipher, avgThroughputsDict in toDisplay.items():
 
@@ -41,7 +41,7 @@ def bargraph():
   axis.set_xticks(xAxisValues + xWidthOffset, TX_POWERS_LABELS.values())
 
   y_min = 80
-  y_lim = 93
+  y_lim = 100
 
   num_ticks = abs(y_lim - y_min) / 12
   ticks = np.arange(0, y_lim, num_ticks)

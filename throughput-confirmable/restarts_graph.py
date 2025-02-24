@@ -4,7 +4,7 @@ import numpy as np
 from common import *
 from restarts import *
 
-SHOW_BAR_LABELS = True
+SHOW_BAR_LABELS = False
 
 def bargraph():
   xAxisValues = np.arange(len(TX_POWERS))
@@ -13,9 +13,9 @@ def bargraph():
 
   figure, axis = plt.subplots(layout='constrained')
 
-  if RENDER_PGF:
-    figure.set_figwidth(THESIS_PAPER_WIDTH_IN / 1.2)
-    figure.set_figheight(THESIS_PAPER_HEIGHT_IN / 3)
+  # if RENDER_PGF:
+  #   figure.set_figwidth(THESIS_PAPER_WIDTH_IN / 1.2)
+  #   figure.set_figheight(THESIS_PAPER_HEIGHT_IN / 3)
 
   for cipher, restartsDict in NUM_RESTARTS.items():
     numRestarts = restartsDict.values()
@@ -47,7 +47,7 @@ def bargraph():
   axis.set_ylim(y_min, y_lim)
 
   if RENDER_PGF:
-    plt.savefig(os.path.join(THESIS_FIGURES_PATH, 'delay-bar-graph.pgf'))
+    plt.savefig(os.path.join(THESIS_FIGURES_PATH, 'throughput-confirmable-restarts.pgf'))
   return
 
 def linegraph():
@@ -85,7 +85,7 @@ def linegraph():
   plt.axhline(linestyle='dotted', lw=1, color='gainsboro')
 
   if RENDER_PGF:
-    plt.savefig(os.path.join(THESIS_FIGURES_PATH, f'throughput-confirmable-num-restarts.pgf'))
+    plt.savefig(os.path.join(THESIS_FIGURES_PATH, f'throughput-confirmable-restarts.pgf'))
   return
 
 if __name__ == "__main__":
