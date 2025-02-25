@@ -52,8 +52,8 @@ def findFirstLine(expression, filepath):
         return line
   raise Exception(f"Can't find expression '{expression}' in '{filepath}'.")
 
-def writeFinalAverage(averagePacketLossRatios, finalAverage, delayExpLog):
-  line = findFirstLine("Cipher Suite:", delayExpLog)
+def writeFinalAverage(averagePacketLossRatios, finalAverage, packetLossExpLog):
+  line = findFirstLine("Cipher Suite:", packetLossExpLog)
   words = line.split(" ")
   cipher = removeAnsi(words[5]).replace('\n', '')
 
@@ -64,7 +64,7 @@ def writeFinalAverage(averagePacketLossRatios, finalAverage, delayExpLog):
   if cipher == "No":
     cipher = "No Encrypt"
 
-  line = findFirstLine("Max TX Power is:", delayExpLog)
+  line = findFirstLine("Max TX Power is:", packetLossExpLog)
   words = line.split(" ")
   txPower = words[7]
 
