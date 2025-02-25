@@ -50,8 +50,8 @@ def removeAnsi(line):
   result = ansiEscapes.sub(b'', bytes(line, "utf-8"))
   return str(result, encoding="utf-8")
 
-def writeFinalAverage(averageThroughputs, finalAverage, tpExpLog):
-  line = findFirstLine("Cipher Suite:", tpExpLog)
+def writeFinalAverage(averageThroughputs, finalAverage, throughputExpLog):
+  line = findFirstLine("Cipher Suite:", throughputExpLog)
   words = line.split(" ")
   cipher = removeAnsi(words[5]).replace('\n', '')
 
@@ -62,7 +62,7 @@ def writeFinalAverage(averageThroughputs, finalAverage, tpExpLog):
   if cipher == "No":
     cipher = "No Encrypt"
 
-  line = findFirstLine("Max TX Power is:", tpExpLog)
+  line = findFirstLine("Max TX Power is:", throughputExpLog)
   words = line.split(" ")
   txPower = words[7]
 
