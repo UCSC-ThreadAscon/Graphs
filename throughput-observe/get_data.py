@@ -35,24 +35,24 @@ def getAverages():
 
   standDevsDict = {
     "No Encryption": {
-      "0 dBm": None,
-      "9 dBm": None,
-      "20 dBm": None
+      "0 dBm": 0,
+      "9 dBm": 0,
+      "20 dBm": 0
     },
     "AES": {
-      "0 dBm": None,
-      "9 dBm": None,
-      "20 dBm": None
+      "0 dBm": 0,
+      "9 dBm": 0,
+      "20 dBm": 0
     },
     "ASCON-128a": {
-      "0 dBm": None,
-      "9 dBm": None,
-      "20 dBm": None
+      "0 dBm": 0,
+      "9 dBm": 0,
+      "20 dBm": 0
     },
     "ASCON-128": {
-      "0 dBm": None,
-      "9 dBm": None,
-      "20 dBm": None
+      "0 dBm": 0,
+      "9 dBm": 0,
+      "20 dBm": 0
     }
   }
 
@@ -79,8 +79,8 @@ def getAverages():
               if PRINT_AVERAGES:
                 print(line)
 
-              stdStr = line.strip("\n").split(" ")[4].replace(".", "")
-              standDevsDict[cipher][txPower] = float(stdStr)
+              stdStr = line.strip("\n").split(" ")[4]
+              standDevsDict[cipher][txPower] = float(stdStr[0:len(stdStr)-1])
 
   return averagesDict, standDevsDict
 
