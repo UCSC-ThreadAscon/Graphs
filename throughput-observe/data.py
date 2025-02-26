@@ -6,6 +6,29 @@ from pathlib import Path
 SCRIPTS_PATH = Path(Path.home(), "Desktop", "Repositories", "graphs", "throughput-observe")
 RESULTS_PATH = Path(Path.home(), "Desktop", "Repositories", "graphs", "throughput-observe", "data")
 
+THESIS_TP_OBSERVE_AVERAGES = {
+  "No Encryption": {
+    "20 dBm": Path(SCRIPTS_PATH, "final-averages", "tp-observe-final-average-No Encryption-20dbm.txt"),
+    "9 dBm": None,
+    "0 dBm": None
+  },
+  "AES": {
+    "20 dBm": Path(SCRIPTS_PATH, "final-averages", "tp-observe-final-average-AES-20dbm.txt"),
+    "9 dBm": None,
+    "0 dBm": None
+  },
+  "ASCON-128a": {
+    "20 dBm": Path(SCRIPTS_PATH, "final-averages", "tp-observe-final-average-ASCON-128a-20dbm.txt"),
+    "9 dBm": None,
+    "0 dBm": None
+  },
+  "ASCON-128": {
+    "20 dBm": Path(SCRIPTS_PATH, "final-averages", "tp-observe-final-average-ASCON-128-20dbm.txt"),
+    "9 dBm": None,
+    "0 dBm": None
+  }
+}
+
 THESIS_TP_OBSERVE_LOGS = {
   "No Encryption": {
     "20 dBm": [
