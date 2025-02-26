@@ -41,7 +41,7 @@ def writeFinalAverage(averages, finalAverage, delayExpLog):
   words = line.split(" ")
   txPower = words[7]
 
-  outputFile = os.path.join(os.getcwd(), "final-averages", f"tp-con-final-average-{cipher}-{txPower}dbm.txt")
+  outputFile = os.path.join(os.getcwd(), "final-averages", f"tp-observe-final-average-{cipher}-{txPower}dbm.txt")
 
   with open(outputFile, "w") as file:
     file.write(f"Final Average Throughput (Observe) under {cipher} at {txPower} dBm: {finalAverage} bytes/second.\n")
@@ -55,9 +55,14 @@ def writeFinalAverage(averages, finalAverage, delayExpLog):
         file.write("\n")
   return
 
-if __name__ == "__main__":
-  averages = getAverages(THESIS_TP_OBSERVE_LOGS["ASCON-128"]["20 dBm"])
-  finalAverage = getFinalAverage(averages)
+def getAllAverages():
+  for filesDict in THESIS_TP_OBSERVE_LOGS.values():
+    for logsList in filesDict.values():
+      if len(logsList) > 0:
+        averages = getAverages(logsList)
+        finalAverage = getFinalAverage(averages)
+        writeFinalAverage(averages, finalAverage, logFile)
+  return
 
-  print(averages)
-  print(f"The final average for ASCON-128 20 dBm is {finalAverage} bytes/second.")
+if __name__ == "__main__":
+  getAllAverages()

@@ -11,8 +11,8 @@ THESIS_TP_OBSERVE_LOGS = {
     "20 dBm": [
       Path(SCRIPTS_PATH, "data", "NoEncrypt-20dbm-trial-1", "tp-observe-BR-NoEncrypt-20dbm.txt")
     ],
-    "9 dBm": [],
-    "0 dBm": []
+    "9 dBm": None,
+    "0 dBm": None
   },
   "AES": {
     "20 dBm": [
