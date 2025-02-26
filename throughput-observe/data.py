@@ -30,9 +30,9 @@ THESIS_TP_OBSERVE_LOGS = {
   },
   "ASCON-128": {
     "20 dBm": [
-      Path(SCRIPTS_PATH, "data", "LibAscon-128-20dbm-trial-1", "tp-observe-BR-LibAscon-128-20dbm.txt"),
       Path(SCRIPTS_PATH, "data", "LibAscon-128-20dbm-Partial-1", "tp-observe-BR-LibAscon-128-20dbm.txt"),
-      Path(SCRIPTS_PATH, "data", "LibAscon-128-20dbm-Partial-2", "tp-observe-BR-LibAscon-128-20dbm.txt")
+      Path(SCRIPTS_PATH, "data", "LibAscon-128-20dbm-Partial-2", "tp-observe-BR-LibAscon-128-20dbm.txt"),
+      Path(SCRIPTS_PATH, "data", "LibAscon-128-20dbm-trial-1", "tp-observe-BR-LibAscon-128-20dbm.txt")
     ],
     "9 dBm": [],
     "0 dBm": []
