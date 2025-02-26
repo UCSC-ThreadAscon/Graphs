@@ -19,14 +19,14 @@ def bargraph():
   #   figure.set_figwidth(THESIS_PAPER_WIDTH_IN / 1.2)
   #   figure.set_figheight(THESIS_PAPER_HEIGHT_IN / 3)
 
-  for cipher, avgThroughputsDict in toDisplay.items():
+  for cipher, averagesDict in toDisplay.items():
 
-    avgThroughputs = [
+    averages = [
       (avgThroughput if avgThroughput != None else 0)
-      for avgThroughput in avgThroughputsDict.values()
+      for avgThroughput in averagesDict.values()
     ]
     offset = width * multiplier
-    rects = axis.bar(xAxisValues + offset, avgThroughputs, width, label=cipher,
+    rects = axis.bar(xAxisValues + offset, averages, width, label=cipher,
                   color=cipherColors[cipher])
 
     if SHOW_BAR_LABELS:
@@ -35,13 +35,13 @@ def bargraph():
     multiplier += 1
 
   axis.set_ylabel('Throughput (bytes/second)')
-  axis.set_title(f'Average Throughput (Confirmable)')
+  axis.set_title(f'Average Throughput (Observe)')
 
   xWidthOffset = 0.30
   axis.set_xticks(xAxisValues + xWidthOffset, TX_POWERS_LABELS.values())
 
-  y_min = 80
-  y_lim = 100
+  y_min = 0.99
+  y_lim = 1.010
 
   num_ticks = abs(y_lim - y_min) / 12
   ticks = np.arange(0, y_lim, num_ticks)
@@ -54,7 +54,7 @@ def bargraph():
   axis.set_xlabel('TX Power (dBm)')
 
   if RENDER_PGF:
-    plt.savefig(os.path.join(THESIS_FIGURES_PATH, 'throughput-confirmable-bar-graph.pgf'))
+    plt.savefig(os.path.join(THESIS_FIGURES_PATH, 'throughput-observe-bar-graph.pgf'))
   return
 
 if __name__ == "__main__":
