@@ -33,13 +33,14 @@ def getFinalAverage(averages):
 
   return listSum / len(averages)
 
-def writeFinalAverage(averages, finalAverage, cipher, txPower):
+def writeFinalAverage(averages, finalAverage, cipher, txPower, std):
   outputFile = os.path.join(os.getcwd(),
                             "final-averages", 
                             f"tp-observe-final-average-{cipher}-{txPower.split()[0]}dbm.txt")
 
   with open(outputFile, "w") as file:
     file.write(f"Final Average Throughput (Observe) under {cipher} at {txPower}: {finalAverage} bytes/second.\n")
+    file.write(f"The Standard Deviation is: {std}.\n")
     file.write("List of Average Throughputs (Observe) used to create the Final Average:\n")
 
     trialNum = 1
@@ -57,12 +58,10 @@ def getAllAverages():
 
       if len(logsList) > 0:
         averages = getAverages(logsList)
-
         std = np.std(averages)
-        print(f"The standard deviation for {cipher} at {txPower} is {std}.")
-
         finalAverage = getFinalAverage(averages)
-        writeFinalAverage(averages, finalAverage, cipher, txPower)
+
+        writeFinalAverage(averages, finalAverage, cipher, txPower, std)
   return
 
 if __name__ == "__main__":
