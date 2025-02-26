@@ -3,7 +3,7 @@ import numpy as np
 
 from get_data import *
 
-SHOW_BAR_LABELS = False
+SHOW_BAR_LABELS = True
 
 toDisplay = getAverages()
 print(toDisplay)
