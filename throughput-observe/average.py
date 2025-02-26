@@ -4,6 +4,8 @@ import sys
 from data import *
 from common import *
 
+NUM_TRIALS = 100
+
 def getAverages(filepaths):
   averages = []
 
@@ -15,7 +17,8 @@ def getAverages(filepaths):
           average = float(words[3])
           averages.append(average)
 
-  return averages
+  # Only return the first NUM_TRIALS trials.
+  return averages[0:NUM_TRIALS:]
 
 """ https://stackoverflow.com/a/35833387/6621292
 """
