@@ -1,5 +1,6 @@
 import os
 import sys
+import numpy as np
 
 from data import *
 from common import *
@@ -56,6 +57,10 @@ def getAllAverages():
 
       if len(logsList) > 0:
         averages = getAverages(logsList)
+
+        std = np.std(averages)
+        print(f"The standard deviation for {cipher} at {txPower} is {std}.")
+
         finalAverage = getFinalAverage(averages)
         writeFinalAverage(averages, finalAverage, cipher, txPower)
   return
