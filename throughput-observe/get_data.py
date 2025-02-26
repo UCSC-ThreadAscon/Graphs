@@ -33,6 +33,29 @@ def getAverages():
     }
   }
 
+  standDevsDict = {
+    "No Encryption": {
+      "0 dBm": None,
+      "9 dBm": None,
+      "20 dBm": None
+    },
+    "AES": {
+      "0 dBm": None,
+      "9 dBm": None,
+      "20 dBm": None
+    },
+    "ASCON-128a": {
+      "0 dBm": None,
+      "9 dBm": None,
+      "20 dBm": None
+    },
+    "ASCON-128": {
+      "0 dBm": None,
+      "9 dBm": None,
+      "20 dBm": None
+    }
+  }
+
   for cipher in THESIS_TP_OBSERVE_LOGS.keys():
     for txPower in THESIS_TP_OBSERVE_LOGS[cipher].keys():
       filepath = THESIS_TP_OBSERVE_AVERAGES[cipher][txPower]
@@ -51,8 +74,15 @@ def getAverages():
               else:
                 # The final average is the 9th word (assuming 0 index) in the sentence.
                 averagesDict[cipher][txPower] = float(words[9])
+            
+            elif "The Standard Deviation is:" in line:
+              if PRINT_AVERAGES:
+                print(line)
 
-  return averagesDict
+              stdStr = line.strip("\n").split(" ")[4].replace(".", "")
+              standDevsDict[cipher][txPower] = float(stdStr)
+
+  return averagesDict, standDevsDict
 
 if __name__ == "__main__":
-  print(getAverages())
+  averagesDict, standDevsDict = getAverages()
