@@ -1,8 +1,8 @@
-import re
 import os
 import sys
 
 from data import *
+from common import *
 
 def getAverages(filepaths):
   averages = []
@@ -29,22 +29,13 @@ def getFinalAverage(averages):
 
   return listSum / len(averages)
 
-def writeFinalAverage(averages, finalAverage, delayExpLog):
-  line = findFirstLine("Cipher Suite:", delayExpLog)
-  words = line.split(" ")
-  cipher = removeAnsi(words[5]).replace('\n', '')
-
-  if cipher == "No":
-    cipher = "No Encrypt"
-
-  line = findFirstLine("Max TX Power is:", delayExpLog)
-  words = line.split(" ")
-  txPower = words[7]
-
-  outputFile = os.path.join(os.getcwd(), "final-averages", f"tp-observe-final-average-{cipher}-{txPower}dbm.txt")
+def writeFinalAverage(averages, finalAverage, cipher, txPower):
+  outputFile = os.path.join(os.getcwd(),
+                            "final-averages", 
+                            f"tp-observe-final-average-{cipher}-{txPower.split()[0]}dbm.txt")
 
   with open(outputFile, "w") as file:
-    file.write(f"Final Average Throughput (Observe) under {cipher} at {txPower} dBm: {finalAverage} bytes/second.\n")
+    file.write(f"Final Average Throughput (Observe) under {cipher} at {txPower}: {finalAverage} bytes/second.\n")
     file.write("List of Average Throughputs (Observe) used to create the Final Average:\n")
 
     trialNum = 1
@@ -56,12 +47,14 @@ def writeFinalAverage(averages, finalAverage, delayExpLog):
   return
 
 def getAllAverages():
-  for filesDict in THESIS_TP_OBSERVE_LOGS.values():
-    for logsList in filesDict.values():
+  for cipher in CIPHERS:
+    for txPower in TX_POWERS:
+      logsList = THESIS_TP_OBSERVE_LOGS[cipher][txPower]
+
       if len(logsList) > 0:
         averages = getAverages(logsList)
         finalAverage = getFinalAverage(averages)
-        writeFinalAverage(averages, finalAverage, logFile)
+        writeFinalAverage(averages, finalAverage, cipher, txPower)
   return
 
 if __name__ == "__main__":
