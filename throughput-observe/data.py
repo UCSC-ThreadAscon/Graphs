@@ -14,7 +14,7 @@ THESIS_TP_OBSERVE_AVERAGES = {
   },
   "AES": {
     "20 dBm": Path(SCRIPTS_PATH, "final-averages", "tp-observe-final-average-AES-20dbm.txt"),
-    "9 dBm": None,
+    "9 dBm": Path(SCRIPTS_PATH, "final-averages", "tp-observe-final-average-AES-9dbm.txt"),
     "0 dBm": None
   },
   "ASCON-128a": {
@@ -41,7 +41,10 @@ THESIS_TP_OBSERVE_LOGS = {
     "20 dBm": [
       Path(SCRIPTS_PATH, "data", "AES-20dbm-trial-3", "tp-observe-BR-AES-20dbm.txt")
     ],
-    "9 dBm": [],
+    "9 dBm": [
+      Path(SCRIPTS_PATH, "data", "AES-9dbm-Partial-1", "tp-observe-BR-AES-9dbm.txt"),
+      Path(SCRIPTS_PATH, "data", "AES-9dbm-trial-2", "tp-observe-BR-AES-9dbm.txt")
+    ],
     "0 dBm": []
   },
   "ASCON-128a": {
