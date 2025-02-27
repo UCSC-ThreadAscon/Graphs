@@ -9,7 +9,7 @@ RESULTS_PATH = Path(Path.home(), "Desktop", "Repositories", "graphs", "throughpu
 THESIS_TP_OBSERVE_AVERAGES = {
   "No Encryption": {
     "20 dBm": Path(SCRIPTS_PATH, "final-averages", "tp-observe-final-average-No Encryption-20dbm.txt"),
-    "9 dBm": None,
+    "9 dBm": Path(SCRIPTS_PATH, "final-averages", "tp-observe-final-average-No Encryption-9dbm.txt"),
     "0 dBm": None
   },
   "AES": {
@@ -34,7 +34,12 @@ THESIS_TP_OBSERVE_LOGS = {
     "20 dBm": [
       Path(SCRIPTS_PATH, "data", "NoEncrypt-20dbm-trial-1", "tp-observe-BR-NoEncrypt-20dbm.txt")
     ],
-    "9 dBm": [],
+    "9 dBm": [
+      Path(SCRIPTS_PATH, "data", "NoEncrypt-9dbm-Partial-1", "tp-observe-BR-NoEncrypt-9dbm.txt"),
+      Path(SCRIPTS_PATH, "data", "NoEncrypt-9dbm-Partial-2", "tp-observe-BR-NoEncrypt-9dbm.txt"),
+      Path(SCRIPTS_PATH, "data", "NoEncrypt-9dbm-Partial-3", "tp-observe-BR-NoEncrypt-9dbm.txt"),
+      Path(SCRIPTS_PATH, "data", "NoEncrypt-9dbm-trial-2", "tp-observe-BR-NoEncrypt-9dbm.txt")
+    ],
     "0 dBm": []
   },
   "AES": {
