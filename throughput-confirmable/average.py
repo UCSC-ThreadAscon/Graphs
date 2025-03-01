@@ -3,6 +3,7 @@
 import re
 import os
 import sys
+import numpy as np
 
 from data import *
 
@@ -50,7 +51,7 @@ def removeAnsi(line):
   result = ansiEscapes.sub(b'', bytes(line, "utf-8"))
   return str(result, encoding="utf-8")
 
-def writeFinalAverage(averageThroughputs, finalAverage, throughputExpLog):
+def writeFinalAverage(averageThroughputs, finalAverage, throughputExpLog, std):
   line = findFirstLine("Cipher Suite:", throughputExpLog)
   words = line.split(" ")
   cipher = removeAnsi(words[5]).replace('\n', '')
@@ -70,6 +71,7 @@ def writeFinalAverage(averageThroughputs, finalAverage, throughputExpLog):
 
   with open(outputFile, "w") as file:
     file.write(f"Final Average Throughput (Confirmable) under {cipher} at {txPower} dBm: {finalAverage} bytes/second.\n")
+    file.write(f"The Standard Deviation is: {std}.\n")
     file.write("List of Average (Confirmable) Throughputs used to create the Final Average:\n")
 
     trialNum = 1
@@ -85,8 +87,10 @@ def getAllAverages():
     for logFile in filesDict.values():
       if logFile != None:
         averages = getAverageThroughputs(logFile)
+        std = np.std(averages)
         finalAverage = getFinalAverage(averages)
-        writeFinalAverage(averages, finalAverage, logFile)
+
+        writeFinalAverage(averages, finalAverage, logFile, std)
   return
 
 if __name__ == "__main__":

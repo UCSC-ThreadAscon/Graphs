@@ -5,7 +5,7 @@ from get_data import *
 
 SHOW_BAR_LABELS = False
 
-toDisplay = getAverages()
+toDisplay, stds = getAverages()
 print(toDisplay)
 
 def bargraph():
@@ -25,9 +25,11 @@ def bargraph():
       (avgThroughput if avgThroughput != None else 0)
       for avgThroughput in avgThroughputsDict.values()
     ]
+    print(stds[cipher].values())
+
     offset = width * multiplier
     rects = axis.bar(xAxisValues + offset, avgThroughputs, width, label=cipher,
-                  color=cipherColors[cipher])
+                  color=cipherColors[cipher], yerr=list(stds[cipher].values()))
 
     if SHOW_BAR_LABELS:
       axis.bar_label(rects, padding=3)
@@ -40,8 +42,10 @@ def bargraph():
   xWidthOffset = 0.30
   axis.set_xticks(xAxisValues + xWidthOffset, TX_POWERS_LABELS.values())
 
-  y_min = 80
-  y_lim = 100
+  # y_min = 80
+  # y_lim = 100
+  y_min = 40
+  y_lim = 120
 
   num_ticks = abs(y_lim - y_min) / 12
   ticks = np.arange(0, y_lim, num_ticks)
