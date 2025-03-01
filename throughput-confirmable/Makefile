@@ -6,7 +6,7 @@ bargraph: average
 linegraph: average get_ratios
 	python3 ./linegraph.py
 
-restarts_graph: average get-num_restarts
+restarts_graph: average get_num_restarts
 	python3 ./restarts_graph.py
 
 get_data:
