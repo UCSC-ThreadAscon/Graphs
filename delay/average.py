@@ -3,6 +3,7 @@
 import re
 import os
 import sys
+import numpy as np
 
 from data import *
 
@@ -56,7 +57,7 @@ def removeAnsi(line):
   result = ansiEscapes.sub(b'', bytes(line, "utf-8"))
   return str(result, encoding="utf-8")
 
-def writeFinalAverage(averageDelays, finalAverage, delayExpLog):
+def writeFinalAverage(averageDelays, finalAverage, delayExpLog, std):
   line = findFirstLine("Cipher Suite:", delayExpLog)
   words = line.split(" ")
   cipher = removeAnsi(words[5]).replace('\n', '')
@@ -76,6 +77,7 @@ def writeFinalAverage(averageDelays, finalAverage, delayExpLog):
 
   with open(outputFile, "w") as file:
     file.write(f"Final Average Delay under {cipher} at {txPower} dBm: {finalAverage} us.\n")
+    file.write(f"The Standard Deviation is: {std}.\n")
     file.write("List of Average Delays used to create the Final Average:\n")
 
     trialNum = 1
@@ -91,8 +93,10 @@ def getAllAverages():
     for logFile in filesDict.values():
       if logFile != None:
         averages = getAverageDelays(logFile)
+        std = np.std(averages)
         finalAverage = getFinalAverage(averages)
-        writeFinalAverage(averages, finalAverage, logFile)
+
+        writeFinalAverage(averages, finalAverage, logFile, std)
   return
 
 if __name__ == "__main__":
