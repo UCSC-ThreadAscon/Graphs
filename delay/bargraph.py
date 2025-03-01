@@ -24,9 +24,11 @@ def bargraph():
     delaysMs = [(usToMs(delay) if delay != None else 0) for delay in delaysDict.values()]
     print(stds[cipher].values())
 
+    stdsMs = [usToMs(std) for std in stds[cipher].values()]
+
     offset = width * multiplier
     rects = axis.bar(xAxisValues + offset, delaysMs, width, label=cipher,
-                     color=cipherColors[cipher], yerr=list(stds[cipher].values()))
+                     color=cipherColors[cipher], yerr=stdsMs)
 
     if SHOW_BAR_LABELS:
       axis.bar_label(rects, padding=3)
