@@ -5,7 +5,7 @@ from get_data import *
 
 SHOW_BAR_LABELS = False
 
-toDisplay = getAverages()
+toDisplay, stds = getAverages()
 print(toDisplay)
 
 def bargraph():
@@ -22,9 +22,11 @@ def bargraph():
   for cipher, delaysDict in toDisplay.items():
 
     delaysMs = [(usToMs(delay) if delay != None else 0) for delay in delaysDict.values()]
+    print(stds[cipher].values())
+
     offset = width * multiplier
     rects = axis.bar(xAxisValues + offset, delaysMs, width, label=cipher,
-                  color=cipherColors[cipher])
+                     color=cipherColors[cipher], yerr=list(stds[cipher].values()))
 
     if SHOW_BAR_LABELS:
       axis.bar_label(rects, padding=3)
