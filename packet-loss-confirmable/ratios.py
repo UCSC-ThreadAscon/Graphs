@@ -24,7 +24,7 @@ def getPacketLossRatios():
   }
 
   algorithms = ["AES", "ASCON-128a", "ASCON-128"]
-  averages = getAverages()
+  averages, _ = getAverages()
 
   for algorithm in algorithms:
     for txPower in TX_POWERS:
