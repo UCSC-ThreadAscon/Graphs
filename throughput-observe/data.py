@@ -25,7 +25,7 @@ THESIS_TP_OBSERVE_AVERAGES = {
   "ASCON-128": {
     "20 dBm": Path(SCRIPTS_PATH, "final-averages", "tp-observe-final-average-ASCON-128-20dbm.txt"),
     "9 dBm": Path(SCRIPTS_PATH, "final-averages", "tp-observe-final-average-ASCON-128-9dbm.txt"),
-    "0 dBm": None
+    "0 dBm": Path(SCRIPTS_PATH, "final-averages", "tp-observe-final-average-ASCON-128-0dbm.txt")
   }
 }
 
@@ -80,6 +80,8 @@ THESIS_TP_OBSERVE_LOGS = {
       Path(SCRIPTS_PATH, "data", "LibAscon-128-9dbm-Partial-1", "tp-observe-BR-LibAscon-128-9dbm.txt"),
       Path(SCRIPTS_PATH, "data", "LibAscon-128-9dbm-trial-1", "tp-observe-BR-LibAscon-128-9dbm.txt")
     ],
-    "0 dBm": []
+    "0 dBm": [
+      Path(SCRIPTS_PATH, "data", "LibAscon-128-0dbm-trial-1", "tp-observe-BR-LibAscon-128-0dbm.txt"),
+    ]
   },
 }
