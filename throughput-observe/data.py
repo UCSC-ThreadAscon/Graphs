@@ -1,6 +1,3 @@
-""" TODO: Create a data structure to hold all files containing trial data to parse for
-          each individual experiment.
-"""
 from pathlib import Path
 
 SCRIPTS_PATH = Path(Path.home(), "Desktop", "Repositories", "graphs", "throughput-observe")
