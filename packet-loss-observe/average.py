@@ -39,13 +39,13 @@ def writeFinalAverage(averages, finalAverage, cipher, txPower, std):
                             f"pl-observe-final-average-{cipher}-{txPower.split()[0]}dbm.txt")
 
   with open(outputFile, "w") as file:
-    file.write(f"Final Average Packet Loss Ratio (Observe) under {cipher} at {txPower}: {finalAverage} bytes/second.\n")
+    file.write(f"Final Average Packet Loss Ratio (Observe) under {cipher} at {txPower}: {finalAverage} %.\n")
     file.write(f"The Standard Deviation is: {std}.\n")
     file.write("List of Average Packet Loss Ratios (Observe) used to create the Final Average:\n")
 
     trialNum = 1
     for average in averages:
-      file.write(f"Trial {trialNum}: {average} bytes/second")
+      file.write(f"Trial {trialNum}: {average} %")
       trialNum += 1
       if trialNum <= len(averages):
         file.write("\n")
