@@ -3,7 +3,7 @@ from pathlib import Path
 SCRIPTS_PATH = Path(Path.home(), "Desktop", "Repositories", "graphs", "packet-loss-observe")
 RESULTS_PATH = Path(Path.home(), "Desktop", "Repositories", "graphs", "packet-loss-observe", "data")
 
-THESIS_PL_CON_AVERAGES = {
+THESIS_PL_OBSERVE_AVERAGES = {
   "No Encryption": {
     "20 dBm": Path(SCRIPTS_PATH, "final-averages", "pl-observe-final-average-No Encrypt-20dbm.txt"),
     "9 dBm": Path(SCRIPTS_PATH, "final-averages", "pl-observe-final-average-No Encrypt-9dbm.txt"),
@@ -26,7 +26,7 @@ THESIS_PL_CON_AVERAGES = {
   }
 }
 
-THESIS_PL_CON_LOGS = {
+THESIS_PL_OBSERVE_LOGS = {
   "No Encryption": {
     "20 dBm": [
       Path(SCRIPTS_PATH, "data", "NoEncrypt-20dbm-Partial-1", "pl-observe-BR-NoEncrypt-20dbm.txt"),
@@ -37,7 +37,6 @@ THESIS_PL_CON_LOGS = {
       Path(SCRIPTS_PATH, "data", "NoEncrypt-9dbm-trial-1", "pl-observe-BR-NoEncrypt-9dbm.txt")
     ],
     "0 dBm": [
-      Path(SCRIPTS_PATH, "data", "NoEncrypt-0dbm-Partial-1", "pl-observe-BR-NoEncrypt-0dbm.txt"),
       Path(SCRIPTS_PATH, "data", "NoEncrypt-0dbm-trial-1", "pl-observe-BR-NoEncrypt-0dbm.txt")
     ]
   },
@@ -48,9 +47,7 @@ THESIS_PL_CON_LOGS = {
     "9 dBm": [
       Path(SCRIPTS_PATH, "data", "AES-9dbm-trial-1", "pl-observe-BR-AES-9dbm.txt")
     ],
-    "0 dBm": [
-      Path(SCRIPTS_PATH, "data", "AES-0dbm-trial-1", "pl-observe-BR-AES-0dbm.txt")
-    ]
+    "0 dBm": []
   },
   "ASCON-128a": {
     "20 dBm": [
