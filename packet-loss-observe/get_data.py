@@ -33,27 +33,56 @@ def getAverages():
     }
   }
 
-  for cipher in THESIS_PL_CON_AVERAGES.keys():
-    for txPower in THESIS_PL_CON_AVERAGES[cipher].keys():
-      filepath = THESIS_PL_CON_AVERAGES[cipher][txPower]
+  standDevsDict = {
+    "No Encryption": {
+      "0 dBm": 0,
+      "9 dBm": 0,
+      "20 dBm": 0
+    },
+    "AES": {
+      "0 dBm": 0,
+      "9 dBm": 0,
+      "20 dBm": 0
+    },
+    "ASCON-128a": {
+      "0 dBm": 0,
+      "9 dBm": 0,
+      "20 dBm": 0
+    },
+    "ASCON-128": {
+      "0 dBm": 0,
+      "9 dBm": 0,
+      "20 dBm": 0
+    }
+  }
+
+  for cipher in THESIS_PL_OBSERVE_LOGS.keys():
+    for txPower in THESIS_PL_OBSERVE_LOGS[cipher].keys():
+      filepath = THESIS_PL_OBSERVE_AVERAGES[cipher][txPower]
 
       if filepath != None:
         with filepath.open("r") as file:
           for line in file:
-            if "Final Average Packet Loss (Confirmable) under" in line:
+            if "Final Average Packet Loss (Observe) under" in line:
               if PRINT_AVERAGES:
                 print(line)
 
               words = line.strip("\n").split(" ")
-              print(words)
               if "No Encrypt" in line:
-                # The final average is the 12th word (assuming 0 index) in the sentence.
-                averagesDict[cipher][txPower] = float(words[11])
-              else:
-                # The final average is the 11th word (assuming 0 index) in the sentence.
+                # The final average is the 10th word (assuming 0 index) in the sentence.
                 averagesDict[cipher][txPower] = float(words[10])
+              else:
+                # The final average is the 9th word (assuming 0 index) in the sentence.
+                averagesDict[cipher][txPower] = float(words[9])
+            
+            elif "The Standard Deviation is:" in line:
+              if PRINT_AVERAGES:
+                print(line)
 
-  return averagesDict
+              stdStr = line.strip("\n").split(" ")[4]
+              standDevsDict[cipher][txPower] = float(stdStr[0:len(stdStr)-1])
+
+  return averagesDict, standDevsDict
 
 if __name__ == "__main__":
-  print(getAverages())
+  averagesDict, standDevsDict = getAverages()
