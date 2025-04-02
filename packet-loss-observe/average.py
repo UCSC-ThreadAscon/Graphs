@@ -71,8 +71,8 @@ def writeFinalAverage(averagePacketLossRatios, finalAverage, packetLossExpLog):
   outputFile = os.path.join(os.getcwd(), "final-averages", f"pl-con-final-average-{cipher}-{txPower}dbm.txt")
 
   with open(outputFile, "w") as file:
-    file.write(f"Final Average Packet Loss (Confirmable) under {cipher} at {txPower} dBm: {finalAverage} %.\n")
-    file.write("List of Average (Confirmable) Packet Loss Percentages used to create the Final Average:\n")
+    file.write(f"Final Average Packet Loss (Observe) under {cipher} at {txPower} dBm: {finalAverage} %.\n")
+    file.write("List of Average (Observe) Packet Loss Percentages used to create the Final Average:\n")
 
     trialNum = 1
     for average in averagePacketLossRatios:
