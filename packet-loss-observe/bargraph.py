@@ -5,7 +5,7 @@ from get_data import *
 
 SHOW_BAR_LABELS = True
 
-toDisplay = getAverages()
+toDisplay, stds = getAverages()
 print(toDisplay)
 
 def bargraph():
@@ -19,29 +19,32 @@ def bargraph():
   #   figure.set_figwidth(THESIS_PAPER_WIDTH_IN / 1.2)
   #   figure.set_figheight(THESIS_PAPER_HEIGHT_IN / 3)
 
-  for cipher, avgPacketLossDict in toDisplay.items():
+  for cipher, averagesDict in toDisplay.items():
 
-    avgPacketLosses = [
-      (avgPacketLoss if avgPacketLoss != None else 0)
-      for avgPacketLoss in avgPacketLossDict.values()
+    averages = [
+      (avgThroughput if avgThroughput != None else 0)
+      for avgThroughput in averagesDict.values()
     ]
+    print(stds[cipher].values())
+
     offset = width * multiplier
-    rects = axis.bar(xAxisValues + offset, avgPacketLosses, width, label=cipher,
-                  color=cipherColors[cipher])
+    rects = axis.bar(xAxisValues + offset, averages, width, label=cipher,
+                     color=cipherColors[cipher])
+    #                color=cipherColors[cipher], yerr=list(stds[cipher].values()))
 
     if SHOW_BAR_LABELS:
       axis.bar_label(rects, padding=3)
 
     multiplier += 1
 
-  axis.set_ylabel('Packet Loss (%)')
+  axis.set_ylabel('Packet Loss Ratio (%)')
   axis.set_title(f'Average Packet Loss (Observe)')
 
   xWidthOffset = 0.30
   axis.set_xticks(xAxisValues + xWidthOffset, TX_POWERS_LABELS.values())
 
   y_min = 0
-  y_lim = 100
+  y_lim = 0.001
 
   num_ticks = abs(y_lim - y_min) / 12
   ticks = np.arange(0, y_lim, num_ticks)

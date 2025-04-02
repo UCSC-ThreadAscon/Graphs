@@ -63,17 +63,17 @@ def getAverages():
       if filepath != None:
         with filepath.open("r") as file:
           for line in file:
-            if "Final Average Packet Loss (Observe) under" in line:
+            if "Final Average Packet Loss Ratio (Observe) under" in line:
               if PRINT_AVERAGES:
                 print(line)
 
               words = line.strip("\n").split(" ")
               if "No Encrypt" in line:
+                # The final average is the 13th word (assuming 0 index) in the sentence.
+                averagesDict[cipher][txPower] = float(words[12])
+              else:
                 # The final average is the 12th word (assuming 0 index) in the sentence.
                 averagesDict[cipher][txPower] = float(words[11])
-              else:
-                # The final average is the 11th word (assuming 0 index) in the sentence.
-                averagesDict[cipher][txPower] = float(words[10])
             
             elif "The Standard Deviation is:" in line:
               if PRINT_AVERAGES:
@@ -86,3 +86,4 @@ def getAverages():
 
 if __name__ == "__main__":
   averagesDict, standDevsDict = getAverages()
+  print(averagesDict)
