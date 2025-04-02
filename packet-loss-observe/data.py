@@ -5,14 +5,14 @@ RESULTS_PATH = Path(Path.home(), "Desktop", "Repositories", "graphs", "packet-lo
 
 THESIS_PL_OBSERVE_AVERAGES = {
   "No Encryption": {
-    "20 dBm": Path(SCRIPTS_PATH, "final-averages", "pl-observe-final-average-No Encrypt-20dbm.txt"),
-    "9 dBm": Path(SCRIPTS_PATH, "final-averages", "pl-observe-final-average-No Encrypt-9dbm.txt"),
-    "0 dBm": Path(SCRIPTS_PATH, "final-averages", "pl-observe-final-average-No Encrypt-0dbm.txt")
+    "20 dBm": Path(SCRIPTS_PATH, "final-averages", "pl-observe-final-average-No Encryption-20dbm.txt"),
+    "9 dBm": Path(SCRIPTS_PATH, "final-averages", "pl-observe-final-average-No Encryption-9dbm.txt"),
+    "0 dBm": Path(SCRIPTS_PATH, "final-averages", "pl-observe-final-average-No Encryption-0dbm.txt")
   },
   "AES": {
     "20 dBm": Path(SCRIPTS_PATH, "final-averages", "pl-observe-final-average-AES-20dbm.txt"),
     "9 dBm": Path(SCRIPTS_PATH, "final-averages", "pl-observe-final-average-AES-9dbm.txt"),
-    "0 dBm": Path(SCRIPTS_PATH, "final-averages", "pl-observe-final-average-AES-0dbm.txt")
+    "0 dBm": None
   },
   "ASCON-128a": {
     "20 dBm": Path(SCRIPTS_PATH, "final-averages", "pl-observe-final-average-ASCON-128a-20dbm.txt"),
