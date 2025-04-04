@@ -12,7 +12,7 @@ THESIS_PL_OBSERVE_AVERAGES = {
   "AES": {
     "20 dBm": Path(SCRIPTS_PATH, "final-averages", "pl-observe-final-average-AES-20dbm.txt"),
     "9 dBm": Path(SCRIPTS_PATH, "final-averages", "pl-observe-final-average-AES-9dbm.txt"),
-    "0 dBm": None
+    "0 dBm": Path(SCRIPTS_PATH, "final-averages", "pl-observe-final-average-AES-0dbm.txt")
   },
   "ASCON-128a": {
     "20 dBm": Path(SCRIPTS_PATH, "final-averages", "pl-observe-final-average-ASCON-128a-20dbm.txt"),
@@ -47,7 +47,9 @@ THESIS_PL_OBSERVE_LOGS = {
     "9 dBm": [
       Path(SCRIPTS_PATH, "data", "AES-9dbm-trial-1", "pl-observe-BR-AES-9dbm.txt")
     ],
-    "0 dBm": []
+    "0 dBm": [
+      Path(SCRIPTS_PATH, "data", "AES-0dbm-trial-2", "pl-observe-BR-AES-0dbm.txt")
+    ]
   },
   "ASCON-128a": {
     "20 dBm": [
