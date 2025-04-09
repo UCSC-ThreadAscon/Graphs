@@ -44,4 +44,5 @@ def linegraph():
 
 if __name__ == "__main__":
   linegraph()
-  plt.show()
+  if not RENDER_PGF:
+    plt.show()
