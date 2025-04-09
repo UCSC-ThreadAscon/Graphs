@@ -93,4 +93,5 @@ if __name__ == "__main__":
   print(NUM_RESTARTS)
 
   bargraph()
-  plt.show()
+  if not RENDER_PGF:
+    plt.show()
