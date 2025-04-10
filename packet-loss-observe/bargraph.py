@@ -3,7 +3,7 @@ import numpy as np
 
 from get_data import *
 
-SHOW_BAR_LABELS = False
+SHOW_BAR_LABELS = True
 
 toDisplay, stds = getAverages()
 print(toDisplay)
@@ -45,18 +45,10 @@ def bargraph():
   axis.set_xticks(xAxisValues + xWidthOffset, TX_POWERS_LABELS.values())
 
   y_min = 0
-  y_lim = 0.001
-  tick_step = (y_lim - y_min) / 2
+  y_lim = 100
 
-  ticks = np.arange(0, y_lim, tick_step)
-  ticks = list(ticks) + [1, 10, 25, 50, 100]
-  print("--- Ticks ---")
-  print(ticks)
-  # ticks = np.append(ticks, [y_lim])
-
-  axis.set_yticks(ticks)
   axis.legend(loc='best', ncols=4)
-  axis.set_ylim(y_min, 100)
+  axis.set_ylim(y_min, y_lim)
 
   axis.set_xlabel('TX Power (dBm)')
 
