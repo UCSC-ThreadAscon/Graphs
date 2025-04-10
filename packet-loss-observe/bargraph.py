@@ -14,6 +14,7 @@ def bargraph():
   multiplier = 0
 
   figure, axis = plt.subplots(layout='constrained')
+  axis.set_yscale('log')
 
   # if RENDER_PGF:
   #   figure.set_figwidth(THESIS_PAPER_WIDTH_IN / 1.2)
@@ -44,17 +45,18 @@ def bargraph():
   axis.set_xticks(xAxisValues + xWidthOffset, TX_POWERS_LABELS.values())
 
   y_min = 0
-  y_lim = 100
+  y_lim = 0.001
+  tick_step = (y_lim - y_min) / 2
 
-  num_ticks = abs(y_lim - y_min) / 12
-  ticks = np.arange(0, y_lim, num_ticks)
-  ticks = np.append(ticks, [y_lim])
+  ticks = np.arange(0, y_lim, tick_step)
+  ticks = list(ticks) + [1, 10, 25, 50, 100]
+  print("--- Ticks ---")
+  print(ticks)
+  # ticks = np.append(ticks, [y_lim])
 
-  # axis.set_yticks(ticks)
+  axis.set_yticks(ticks)
   axis.legend(loc='best', ncols=4)
-  # axis.set_ylim(y_min, y_lim)
-
-  axis.set_yscale('linear')
+  axis.set_ylim(y_min, 100)
 
   axis.set_xlabel('TX Power (dBm)')
 

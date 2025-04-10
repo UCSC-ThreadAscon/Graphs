@@ -47,8 +47,8 @@ def bargraph():
   y_min = 40
   y_lim = 120
 
-  num_ticks = abs(y_lim - y_min) / 12
-  ticks = np.arange(0, y_lim, num_ticks)
+  tick_step = abs(y_lim - y_min) / 12
+  ticks = np.arange(0, y_lim, tick_step)
   ticks = np.append(ticks, [y_lim])
 
   axis.set_yticks(ticks)
