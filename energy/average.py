@@ -66,30 +66,29 @@ def getAvgUa(samples):
   average = accumulator / length
   return average
 
-def getAllAvgs(cipher, txPower):
-  filepath = THESIS_ENERGY_CSV[cipher][txPower]
-  uAList, uAWakeupList = getSamples(filepath)
+def getAllAvgs():
+  for cipher in CIPHERS:
+    for txPower in TX_POWERS:
+      filepath = THESIS_ENERGY_CSV[cipher][txPower]
+      uAList, uAWakeupList = getSamples(filepath)
 
-  avgUa = getAvgUa(uAList)
-  avgMa = uAtoMa(avgUa)
-  avgMah = mAtoMah(avgMa)
+      avgUa = getAvgUa(uAList)
+      avgMa = uAtoMa(avgUa)
+      avgMah = mAtoMah(avgMa)
 
-  avgUaWakeup = getAvgUa(uAWakeupList)
-  avgMaWakeup = uAtoMa(avgUaWakeup)
-  avgMahWakeup = mAtoMah(avgMaWakeup)
+      avgUaWakeup = getAvgUa(uAWakeupList)
+      avgMaWakeup = uAtoMa(avgUaWakeup)
+      avgMahWakeup = mAtoMah(avgMaWakeup)
 
-  print(f"---------- {cipher} {txPower} ----------")
-  print(f"The average uA, deep sleep included, is {avgUa} uA.")
-  print(f"The average mA, deep sleep included, is {avgMa} mA.")
-  print(f"The average mAh, deep sleep included, is {avgMah} mAh.")
-  print(f"The average uA on wakeup is {avgUaWakeup} uA.")
-  print(f"The average mA on wakeup is {avgMaWakeup} mA.")
-  print(f"The average mAh on wakeup is {avgMahWakeup} mAh.")
-  print("-------------------------------------------")
+      print(f"---------- {cipher} {txPower} ----------")
+      print(f"The average uA, deep sleep included, is {avgUa} uA.")
+      print(f"The average mA, deep sleep included, is {avgMa} mA.")
+      print(f"The average mAh, deep sleep included, is {avgMah} mAh.")
+      print(f"The average uA on wakeup is {avgUaWakeup} uA.")
+      print(f"The average mA on wakeup is {avgMaWakeup} mA.")
+      print(f"The average mAh on wakeup is {avgMahWakeup} mAh.")
+      print("-------------------------------------------")
   return
 
 if __name__ == "__main__":
-  getAllAvgs("AES", "20 dBm")
-
-  # print(getAvgUa([100, math.inf, 100]))
-  # print(getSamples(THESIS_ENERGY_CSV["AES"]["20 dBm"]))
+  getAllAvgs()
