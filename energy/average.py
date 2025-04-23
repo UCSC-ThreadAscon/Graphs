@@ -15,10 +15,10 @@ def getAvgUa(filename):
 
   with open(filename) as file:
     for row in csv.DictReader(file):
-      if powerOn:
-        timestamp = float(row["Timestamp(ms)"])
-        uA = float(row["Current(uA)"])
+      timestamp = float(row["Timestamp(ms)"])
+      uA = float(row["Current(uA)"])
 
+      if tsPowerOn is not None:
         # Only measure power consumption for `EXPERIMENT_DURATION_MS` milliseconds
         # after the device first powers on.
         #
@@ -36,7 +36,7 @@ def getAvgUa(filename):
         #
         if uA >= 1:
           tsPowerOn = timestamp
-          print(f"Device powered detected @ {timestamp} ms with current {uA} uA.")
+          print(f"Device power on detected @ {timestamp} ms with current {uA} uA.")
   return
 
 if __name__ == "__main__":
