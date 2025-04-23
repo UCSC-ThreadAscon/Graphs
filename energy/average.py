@@ -30,21 +30,13 @@ def getSamples(filepath, wakeupOnly):
       timestamp = float(row["Timestamp(ms)"])
       uA = float(row["Current(uA)"])
 
-      # When the ESP32 is powered off, the power consumption is at nA.
-      # The moment the ESP32 is powered on, the power consumption will increase
-      # from nA scale to uA/mA scale.
-      #
-      # Thus, to detect when the ESP32 is powered on, we look for the first spike
-      # in power consumption that was recorded by the PPK2.
-      #
-      if uA >= 1:
+      if (tsPowerOn is None) and (uA >= 1): # Power on spike of ESP32-H2.
         tsPowerOn = timestamp
         print(f"Device power on detected @ {timestamp} ms with current {uA} uA.")
 
       if tsPowerOn is not None:
-        # Only measure power consumption for `EXPERIMENT_DURATION_MS` milliseconds
-        # after the device first powers on.
-        #
+        print(timestamp)
+        print(uA)
         if (not wakeupOnly) or (uA >= UA_WAKEUP_MINIMUM):
           uAList.append(uA)
 
@@ -84,7 +76,7 @@ def showAvgs(filepath, wakeupOnly):
   return
 
 if __name__ == "__main__":
-  showAvgs(THESIS_ENERGY_CSV["AES"]["20 dBm"], True)
+  showAvgs(THESIS_ENERGY_CSV["AES"]["20 dBm"], False)
 
   # print(getAvgUa([100, math.inf, 100]))
   # print(getSamples(THESIS_ENERGY_CSV["AES"]["20 dBm"]))
