@@ -38,6 +38,7 @@ def getSamples(filepath, wakeupOnly):
         print(timestamp)
         print(uA)
         if (not wakeupOnly) or (uA >= UA_WAKEUP_MINIMUM):
+          print(f"Appending {uA}")
           uAList.append(uA)
 
         if len(uAList) >= sys.maxsize:
