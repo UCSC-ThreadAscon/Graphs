@@ -34,7 +34,7 @@ def getSamples(filepath, wakeupOnly):
         # Only measure power consumption for `EXPERIMENT_DURATION_MS` milliseconds
         # after the device first powers on.
         #
-        if (not wakeupOnly) or (uA >= MA_WAKEUP_MINIMUM):
+        if (not wakeupOnly) or (uA >= UA_WAKEUP_MINIMUM):
           uAList.append(uA)
 
         if len(uAList) >= sys.maxsize:
