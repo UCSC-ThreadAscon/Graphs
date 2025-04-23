@@ -30,6 +30,17 @@ def getSamples(filepath, wakeupOnly):
       timestamp = float(row["Timestamp(ms)"])
       uA = float(row["Current(uA)"])
 
+      # When the ESP32 is powered off, the power consumption is at nA.
+      # The moment the ESP32 is powered on, the power consumption will increase
+      # from nA scale to uA/mA scale.
+      #
+      # Thus, to detect when the ESP32 is powered on, we look for the first spike
+      # in power consumption that was recorded by the PPK2.
+      #
+      if uA >= 1:
+        tsPowerOn = timestamp
+        print(f"Device power on detected @ {timestamp} ms with current {uA} uA.")
+
       if tsPowerOn is not None:
         # Only measure power consumption for `EXPERIMENT_DURATION_MS` milliseconds
         # after the device first powers on.
@@ -44,17 +55,6 @@ def getSamples(filepath, wakeupOnly):
         if (elapsed >= EXPERIMENT_DURATION_MS):
           print(f"Stop post-processing @ {timestamp} ms with current {uA} uA.")
           break
-      else:
-        # When the ESP32 is powered off, the power consumption is at nA.
-        # The moment the ESP32 is powered on, the power consumption will increase
-        # from nA scale to uA/mA scale.
-        #
-        # Thus, to detect when the ESP32 is powered on, we look for the first spike
-        # in power consumption that was recorded by the PPK2.
-        #
-        if uA >= 1:
-          tsPowerOn = timestamp
-          print(f"Device power on detected @ {timestamp} ms with current {uA} uA.")
 
   return uAList
 
