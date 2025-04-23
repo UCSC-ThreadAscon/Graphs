@@ -68,12 +68,18 @@ def getAvgUa(samples):
   average = accumulator / length
   return average
 
-avgUa = lambda filepath : getAvgUa(getSamples(filepath))
-avgMa = lambda filepath : uAtoMa(avgUa(filepath))
-avgMah = lambda filepath : mAtoMah(avgMa(filepath))
+def showAvgs(filepath):
+  avgUa = getAvgUa(getSamples(filepath))
+  avgMa = uAtoMa(avgUa)
+  avgMah = mAtoMah(avgMa)
+
+  print(f"The average uA is {avgUa} uA.")
+  print(f"The average mA is {avgMa} mA.")
+  print(f"The average mAh is {avgMah} mAh.")
+  return
 
 if __name__ == "__main__":
-  print(avgMah(THESIS_ENERGY_CSV["AES"]["20 dBm"]))
+  showAvgs(THESIS_ENERGY_CSV["AES"]["20 dBm"])
 
   # print(getAvgUa([100, math.inf, 100]))
   # print(getSamples(THESIS_ENERGY_CSV["AES"]["20 dBm"]))
