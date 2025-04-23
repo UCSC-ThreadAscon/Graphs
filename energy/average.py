@@ -78,7 +78,7 @@ def getAllAvgs(cipher, txPower):
   avgMaWakeup = uAtoMa(avgUaWakeup)
   avgMahWakeup = mAtoMah(avgMaWakeup)
 
-  print(f" ---------- {cipher} {txPower} ----------")
+  print(f"---------- {cipher} {txPower} ----------")
   print(f"The average uA, deep sleep included, is {avgUa} uA.")
   print(f"The average mA, deep sleep included, is {avgMa} mA.")
   print(f"The average mAh, deep sleep included, is {avgMah} mAh.")
