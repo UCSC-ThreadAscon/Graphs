@@ -63,6 +63,10 @@ def getAvgUa(samples):
   average = accumulator / length
   return average
 
+avgUa = lambda filename : getAvgUa(getSamples(filename))
+
 if __name__ == "__main__":
-  print(getAvgUa([100, math.inf, 100]))
+  print(avgUa(THESIS_ENERGY_CSV["AES"]["20 dBm"]))
+
+  # print(getAvgUa([100, math.inf, 100]))
   # print(getSamples(THESIS_ENERGY_CSV["AES"]["20 dBm"]))
