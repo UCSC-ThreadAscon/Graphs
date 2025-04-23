@@ -25,8 +25,9 @@ UA_WAKEUP_MINIMUM = mAtoUa(MA_WAKEUP_MINIMUM)
           why not do both at the same time?
 """
 
-def getSamples(filepath, wakeupOnly):
+def getSamples(filepath):
   uAList = []
+  uAWakeupList = []
   tsPowerOn = None
 
   with open(filepath) as file:
@@ -39,8 +40,9 @@ def getSamples(filepath, wakeupOnly):
         print(f"Device power on detected @ {timestamp} ms with current {uA} uA.")
 
       if tsPowerOn is not None:
-        if (not wakeupOnly) or (uA >= UA_WAKEUP_MINIMUM):
-          uAList.append(uA)
+        uAList.append(uA)
+        if uA >= UA_WAKEUP_MINIMUM:
+          uAWakeupList.append(uA)
 
         if len(uAList) >= sys.maxsize:
           raise OverflowError("The list is too big.")
@@ -50,10 +52,8 @@ def getSamples(filepath, wakeupOnly):
           print(f"Stop post-processing @ {timestamp} ms with current {uA} uA.")
           break
 
-  return uAList
+  return uAList, uAWakeupList
 
-""" TODO: Calculate the average given the list of samples.
-"""
 def getAvgUa(samples):
   length = len(samples)
   accumulator = 0
@@ -67,18 +67,27 @@ def getAvgUa(samples):
   average = accumulator / length
   return average
 
-def showAvgs(filepath, wakeupOnly):
-  avgUa = getAvgUa(getSamples(filepath, wakeupOnly))
+def showAvgs(filepath):
+  uAList, uAWakeupList = getSamples(filepath)
+
+  avgUa = getAvgUa(uAList)
   avgMa = uAtoMa(avgUa)
   avgMah = mAtoMah(avgMa)
 
-  print(f"The average uA is {avgUa} uA.")
-  print(f"The average mA is {avgMa} mA.")
-  print(f"The average mAh is {avgMah} mAh.")
+  avgUaWakeup = getAvgUa(uAWakeupList)
+  avgMaWakeup = uAtoMa(avgUaWakeup)
+  avgMahWakeup = mAtoMah(avgMaWakeup)
+
+  print(f"The average uA, deep sleep included, is {avgUa} uA.")
+  print(f"The average mA, deep sleep included, is {avgMa} mA.")
+  print(f"The average mAh, deep sleep included, is {avgMah} mAh.", end="\n\n")
+  print(f"The average uA on wakeup is {avgUaWakeup} uA.")
+  print(f"The average mA on wakeup is {avgMaWakeup} mA.")
+  print(f"The average mAh on wakeup is {avgMahWakeup} mAh.", end="\n\n")
   return
 
 if __name__ == "__main__":
-  showAvgs(THESIS_ENERGY_CSV["AES"]["20 dBm"], False)
+  showAvgs(THESIS_ENERGY_CSV["AES"]["20 dBm"])
 
   # print(getAvgUa([100, math.inf, 100]))
   # print(getSamples(THESIS_ENERGY_CSV["AES"]["20 dBm"]))
