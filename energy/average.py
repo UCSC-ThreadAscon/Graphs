@@ -21,6 +21,10 @@ mAtoUa = lambda mA : mA * 1000
 MA_WAKEUP_MINIMUM = 0.5
 UA_WAKEUP_MINIMUM = mAtoUa(MA_WAKEUP_MINIMUM)
 
+""" TODO: Instead of choosing whether or not to only count average for wakeups or not,
+          why not do both at the same time?
+"""
+
 def getSamples(filepath, wakeupOnly):
   uAList = []
   tsPowerOn = None
