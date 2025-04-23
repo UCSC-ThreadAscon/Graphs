@@ -14,7 +14,8 @@ EXPERIMENT_DURATION_MS = minToMs(EXPERIMENT_DURATION_MINUTES)
 """ TODO: Determine when the device gets powered on, and print out the timestamp
           and current the moment it powers on.
 """
-def getAvgUa(filename):
+def getUaList(filename):
+  uAList = []
   tsPowerOn = None
 
   with open(filename) as file:
@@ -26,6 +27,8 @@ def getAvgUa(filename):
         # Only measure power consumption for `EXPERIMENT_DURATION_MS` milliseconds
         # after the device first powers on.
         #
+        uAList.append(uA)
+
         elapsed = timestamp - tsPowerOn
         if (elapsed >= EXPERIMENT_DURATION_MS):
           print(f"Stop post-porcessing @ {timestamp} ms with current {uA} uA.")
@@ -41,7 +44,7 @@ def getAvgUa(filename):
         if uA >= 1:
           tsPowerOn = timestamp
           print(f"Device power on detected @ {timestamp} ms with current {uA} uA.")
-  return
+  return uAList
 
 if __name__ == "__main__":
   getAvgUa(THESIS_ENERGY_CSV["AES"]["20 dBm"])
