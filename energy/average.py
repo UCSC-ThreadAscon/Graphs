@@ -73,7 +73,7 @@ avgMa = lambda filepath : uAtoMa(avgUa(filepath))
 avgMah = lambda filepath : mAtoMah(avgMa(filepath))
 
 if __name__ == "__main__":
-  print(avgMa(THESIS_ENERGY_CSV["AES"]["20 dBm"]))
+  print(avgMah(THESIS_ENERGY_CSV["AES"]["20 dBm"]))
 
   # print(getAvgUa([100, math.inf, 100]))
   # print(getSamples(THESIS_ENERGY_CSV["AES"]["20 dBm"]))
