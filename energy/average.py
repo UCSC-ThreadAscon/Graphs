@@ -4,26 +4,39 @@ import csv
 from common import *
 from data import *
 
-MA_WAKEUP_MINIMUM = 2
-UA_WAKEUP_MINIMUM = MA_WAKEUP_MINIMUM * 1000
+# 190 minutes expressed as milliseconds.
+EXPERIMENT_DURATION_MS = (190 * 60 * 1000)
 
-""" TODO: Print the first 1000 entries of the PPK2 file.
+""" TODO: Determine when the device gets powered on, and print out the timestamp
+          and current the moment it powers on.
 """
-
 def getAvgUa(filename):
-  with open(filename) as file:
-    reader = csv.DictReader(file)
+  tsPowerOn = None
 
-    i = 0
-    for row in reader:
-      if i >= 100:
-        break
-      else:
+  with open(filename) as file:
+    for row in csv.DictReader(file):
+      if powerOn:
         timestamp = float(row["Timestamp(ms)"])
         uA = float(row["Current(uA)"])
-        print(f"At {timestamp} ms current was {uA} uA.")
-      i += 1
 
+        # Only measure power consumption for `EXPERIMENT_DURATION_MS` milliseconds
+        # after the device first powers on.
+        #
+        elapsed = timestamp - tsPowerOn
+        if (elapsed >= EXPERIMENT_DURATION_MS):
+          print(f"Stop post-porcessing @ {timestamp} ms with current {uA} uA.")
+          break
+      else:
+        # When the ESP32 is powered off, the power consumption is at nA.
+        # The moment the ESP32 is powered on, the power consumption will increase
+        # from nA scale to uA/mA scale.
+        #
+        # Thus, to detect when the ESP32 is powered on, we look for the first spike
+        # in power consumption that was recorded by the PPK2.
+        #
+        if uA >= 1:
+          tsPowerOn = timestamp
+          print(f"Device powered detected @ {timestamp} ms with current {uA} uA.")
   return
 
 if __name__ == "__main__":
