@@ -35,10 +35,7 @@ def getSamples(filepath, wakeupOnly):
         print(f"Device power on detected @ {timestamp} ms with current {uA} uA.")
 
       if tsPowerOn is not None:
-        print(timestamp)
-        print(uA)
         if (not wakeupOnly) or (uA >= UA_WAKEUP_MINIMUM):
-          print(f"Appending {uA}")
           uAList.append(uA)
 
         if len(uAList) >= sys.maxsize:
