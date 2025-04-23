@@ -66,7 +66,7 @@ def getAvgUa(samples):
   average = accumulator / length
   return average
 
-def getAllAvgs():
+def printAllAvgs():
   for cipher in CIPHERS:
     for txPower in TX_POWERS:
       filepath = THESIS_ENERGY_CSV[cipher][txPower]
@@ -91,4 +91,4 @@ def getAllAvgs():
   return
 
 if __name__ == "__main__":
-  getAllAvgs()
+  printAllAvgs()
