@@ -16,8 +16,12 @@ EXPERIMENT_DURATION_HRS = minToHrs(EXPERIMENT_DURATION_MINUTES)
 
 uAtoMa = lambda uA : uA * 0.001
 mAtoMah = lambda mA : mA * EXPERIMENT_DURATION_HRS
+mAtoUa = lambda mA : mA * 1000
 
-def getSamples(filepath):
+MA_WAKEUP_MINIMUM = 0.5
+UA_WAKEUP_MINIMUM = mAtoUa(MA_WAKEUP_MINIMUM)
+
+def getSamples(filepath, wakeupOnly):
   uAList = []
   tsPowerOn = None
 
@@ -30,7 +34,8 @@ def getSamples(filepath):
         # Only measure power consumption for `EXPERIMENT_DURATION_MS` milliseconds
         # after the device first powers on.
         #
-        uAList.append(uA)
+        if (not wakeupOnly) or (uA >= MA_WAKEUP_MINIMUM):
+          uAList.append(uA)
 
         if len(uAList) >= sys.maxsize:
           raise OverflowError("The list is too big.")
@@ -68,8 +73,8 @@ def getAvgUa(samples):
   average = accumulator / length
   return average
 
-def showAvgs(filepath):
-  avgUa = getAvgUa(getSamples(filepath))
+def showAvgs(filepath, wakeupOnly):
+  avgUa = getAvgUa(getSamples(filepath, wakeupOnly))
   avgMa = uAtoMa(avgUa)
   avgMah = mAtoMah(avgMa)
 
@@ -79,7 +84,7 @@ def showAvgs(filepath):
   return
 
 if __name__ == "__main__":
-  showAvgs(THESIS_ENERGY_CSV["AES"]["20 dBm"])
+  showAvgs(THESIS_ENERGY_CSV["AES"]["20 dBm"], True)
 
   # print(getAvgUa([100, math.inf, 100]))
   # print(getSamples(THESIS_ENERGY_CSV["AES"]["20 dBm"]))
