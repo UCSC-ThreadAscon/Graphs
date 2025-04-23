@@ -4,8 +4,8 @@ import csv
 from common import *
 from data import *
 
-# 190 minutes expressed as milliseconds.
-EXPERIMENT_DURATION_MS = (190 * 60 * 1000)
+# 183 minutes expressed as milliseconds.
+EXPERIMENT_DURATION_MS = (183 * 60 * 1000)
 
 """ TODO: Determine when the device gets powered on, and print out the timestamp
           and current the moment it powers on.
