@@ -12,11 +12,11 @@ minToMs = lambda min : secToMs(minToSec(min))
 EXPERIMENT_DURATION_MINUTES = 183
 EXPERIMENT_DURATION_MS = minToMs(EXPERIMENT_DURATION_MINUTES)
 
-def getSamples(filename):
+def getSamples(filepath):
   uAList = []
   tsPowerOn = None
 
-  with open(filename) as file:
+  with open(filepath) as file:
     for row in csv.DictReader(file):
       timestamp = float(row["Timestamp(ms)"])
       uA = float(row["Current(uA)"])
@@ -54,7 +54,6 @@ def getAvgUa(samples):
   accumulator = 0
 
   for uA in samples:
-    print(accumulator)
     accumulator += uA
     if (accumulator == sys.float_info.max) or \
        (accumulator == math.inf):
@@ -63,7 +62,7 @@ def getAvgUa(samples):
   average = accumulator / length
   return average
 
-avgUa = lambda filename : getAvgUa(getSamples(filename))
+avgUa = lambda filepath : getAvgUa(getSamples(filepath))
 
 if __name__ == "__main__":
   print(avgUa(THESIS_ENERGY_CSV["AES"]["20 dBm"]))
