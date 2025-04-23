@@ -1,4 +1,3 @@
-import os
 import matplotlib
 
 RENDER_PGF = True

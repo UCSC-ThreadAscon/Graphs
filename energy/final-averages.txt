@@ -1,0 +1,2 @@
+Wed Apr 23 16:33:13 PDT 2025
+Device power on detected @ 569.0 ms with current 9925.564 uA.
