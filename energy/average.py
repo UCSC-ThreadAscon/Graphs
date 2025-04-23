@@ -18,8 +18,7 @@ uAtoMa = lambda uA : uA * 0.001
 mAtoMah = lambda mA : mA * EXPERIMENT_DURATION_HRS
 mAtoUa = lambda mA : mA * 1000
 
-MA_WAKEUP_MINIMUM = 0.5
-UA_WAKEUP_MINIMUM = mAtoUa(MA_WAKEUP_MINIMUM)
+UA_WAKEUP_MINIMUM = 9
 
 """ TODO: Instead of choosing whether or not to only count average for wakeups or not,
           why not do both at the same time?
@@ -87,7 +86,7 @@ def showAvgs(filepath):
   return
 
 if __name__ == "__main__":
-  showAvgs(THESIS_ENERGY_CSV["AES"]["20 dBm"])
+  showAvgs(THESIS_ENERGY_CSV["No Encryption"]["20 dBm"])
 
   # print(getAvgUa([100, math.inf, 100]))
   # print(getSamples(THESIS_ENERGY_CSV["AES"]["20 dBm"]))
