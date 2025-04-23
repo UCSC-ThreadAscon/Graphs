@@ -8,9 +8,14 @@ from data import *
 minToSec = lambda min : min * 60
 secToMs = lambda sec : sec * 1000
 minToMs = lambda min : secToMs(minToSec(min))
+minToHrs = lambda min : min / 60
 
 EXPERIMENT_DURATION_MINUTES = 183
 EXPERIMENT_DURATION_MS = minToMs(EXPERIMENT_DURATION_MINUTES)
+EXPERIMENT_DURATION_HRS = minToHrs(EXPERIMENT_DURATION_MINUTES)
+
+uAtoMa = lambda uA : uA / 0.001
+mAtoMah = lambda mA : mA * EXPERIMENT_DURATION_HRS
 
 def getSamples(filepath):
   uAList = []
