@@ -47,4 +47,4 @@ def getUaList(filename):
   return uAList
 
 if __name__ == "__main__":
-  getAvgUa(THESIS_ENERGY_CSV["AES"]["20 dBm"])
+  print(getAvgUa(THESIS_ENERGY_CSV["AES"]["20 dBm"]))
