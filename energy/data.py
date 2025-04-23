@@ -1,6 +1,6 @@
 from pathlib import Path
 
-CSV_PATHS = Path(Path.home(), "Desktop", "Repositories", "graphs", "throughput-observe", "csv")
+CSV_PATH = Path(Path.home(), "Desktop", "Repositories", "graphs", "throughput-observe", "csv")
 
 THESIS_ENERGY_CSV = {
   "No Encryption": {
