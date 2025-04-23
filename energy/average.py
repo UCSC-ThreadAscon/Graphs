@@ -69,6 +69,8 @@ def getAvgUa(samples):
   return average
 
 avgUa = lambda filepath : getAvgUa(getSamples(filepath))
+avgMa = lambda filepath : uAtoMa(avgUa(filepath))
+avgMah = lambda filepath : mAtoMah(avgMa(fielpath))
 
 if __name__ == "__main__":
   print(avgUa(THESIS_ENERGY_CSV["AES"]["20 dBm"]))
