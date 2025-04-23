@@ -45,6 +45,7 @@ def getSamples(filepath):
         if uA >= 1:
           tsPowerOn = timestamp
           print(f"Device power on detected @ {timestamp} ms with current {uA} uA.")
+
   return uAList
 
 """ TODO: Calculate the average given the list of samples.
