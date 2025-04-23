@@ -1,5 +1,6 @@
 import sys
 import csv
+import math
 
 from common import *
 from data import *
@@ -11,9 +12,6 @@ minToMs = lambda min : secToMs(minToSec(min))
 EXPERIMENT_DURATION_MINUTES = 183
 EXPERIMENT_DURATION_MS = minToMs(EXPERIMENT_DURATION_MINUTES)
 
-""" TODO: Determine when the device gets powered on, and print out the timestamp
-          and current the moment it powers on.
-"""
 def getSamples(filename):
   uAList = []
   tsPowerOn = None
@@ -49,5 +47,22 @@ def getSamples(filename):
           print(f"Device power on detected @ {timestamp} ms with current {uA} uA.")
   return uAList
 
+""" TODO: Calculate the average given the list of samples.
+"""
+def getAvgUa(samples):
+  length = len(samples)
+  accumulator = 0
+
+  for uA in samples:
+    print(accumulator)
+    accumulator += uA
+    if (accumulator == sys.float_info.max) or \
+       (accumulator == math.inf):
+      raise OverflowError("Reach maxed float. Can't add anymore.")
+
+  average = accumulator / length
+  return average
+
 if __name__ == "__main__":
-  print(getSamples(THESIS_ENERGY_CSV["AES"]["20 dBm"]))
+  print(getAvgUa([100, math.inf, 100]))
+  # print(getSamples(THESIS_ENERGY_CSV["AES"]["20 dBm"]))
