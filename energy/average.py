@@ -29,6 +29,9 @@ def getSamples(filename):
         #
         uAList.append(uA)
 
+        if len(uAList) >= sys.maxsize:
+          raise OverflowError("The list is too big.")
+
         elapsed = timestamp - tsPowerOn
         if (elapsed >= EXPERIMENT_DURATION_MS):
           print(f"Stop post-porcessing @ {timestamp} ms with current {uA} uA.")
