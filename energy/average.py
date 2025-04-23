@@ -14,7 +14,7 @@ EXPERIMENT_DURATION_MINUTES = 183
 EXPERIMENT_DURATION_MS = minToMs(EXPERIMENT_DURATION_MINUTES)
 EXPERIMENT_DURATION_HRS = minToHrs(EXPERIMENT_DURATION_MINUTES)
 
-uAtoMa = lambda uA : uA / 0.001
+uAtoMa = lambda uA : uA * 0.001
 mAtoMah = lambda mA : mA * EXPERIMENT_DURATION_HRS
 
 def getSamples(filepath):
@@ -73,7 +73,7 @@ avgMa = lambda filepath : uAtoMa(avgUa(filepath))
 avgMah = lambda filepath : mAtoMah(avgMa(filepath))
 
 if __name__ == "__main__":
-  print(avgUa(THESIS_ENERGY_CSV["AES"]["20 dBm"]))
+  print(avgMa(THESIS_ENERGY_CSV["AES"]["20 dBm"]))
 
   # print(getAvgUa([100, math.inf, 100]))
   # print(getSamples(THESIS_ENERGY_CSV["AES"]["20 dBm"]))
