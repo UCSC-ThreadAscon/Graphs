@@ -34,7 +34,7 @@ def getSamples(filename):
 
         elapsed = timestamp - tsPowerOn
         if (elapsed >= EXPERIMENT_DURATION_MS):
-          print(f"Stop post-porcessing @ {timestamp} ms with current {uA} uA.")
+          print(f"Stop post-processing @ {timestamp} ms with current {uA} uA.")
           break
       else:
         # When the ESP32 is powered off, the power consumption is at nA.
