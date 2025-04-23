@@ -1,3 +1,9 @@
+""" RESOURCES UTILIZED:
+    ------------------
+    https://stackoverflow.com/a/35833387/6621292
+    https://electronics.stackexchange.com/a/107078
+    https://docs.python.org/3/library/csv.html
+"""
 import sys
 import csv
 import math
