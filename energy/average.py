@@ -4,8 +4,12 @@ import csv
 from common import *
 from data import *
 
-# 183 minutes expressed as milliseconds.
-EXPERIMENT_DURATION_MS = (183 * 60 * 1000)
+minToSec = lambda min : min * 60
+secToMs = lambda sec : sec * 1000
+minToMs = lambda min : secToMs(minToSec(min))
+
+EXPERIMENT_DURATION_MINUTES = 183
+EXPERIMENT_DURATION_MS = minToMs(EXPERIMENT_DURATION_MINUTES)
 
 """ TODO: Determine when the device gets powered on, and print out the timestamp
           and current the moment it powers on.
