@@ -14,7 +14,7 @@ EXPERIMENT_DURATION_MS = minToMs(EXPERIMENT_DURATION_MINUTES)
 """ TODO: Determine when the device gets powered on, and print out the timestamp
           and current the moment it powers on.
 """
-def getUaList(filename):
+def getSamples(filename):
   uAList = []
   tsPowerOn = None
 
@@ -47,4 +47,4 @@ def getUaList(filename):
   return uAList
 
 if __name__ == "__main__":
-  print(getAvgUa(THESIS_ENERGY_CSV["AES"]["20 dBm"]))
+  print(getSamples(THESIS_ENERGY_CSV["AES"]["20 dBm"]))
