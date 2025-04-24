@@ -1,6 +1,9 @@
 from pathlib import Path
 
+SCRIPTS_PATH = Path(Path.home(), "Desktop", "Repositories", "graphs", "energy")
 CSV_PATH = Path(Path.home(), "Desktop", "Repositories", "graphs", "energy", "csv")
+
+AVERAGES_TEXT_FILE = Path(SCRIPTS_PATH, "final-averages.txt")
 
 THESIS_ENERGY_CSV = {
   "No Encryption": {
