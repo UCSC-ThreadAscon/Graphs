@@ -11,13 +11,6 @@ isTopDelimiter = lambda line : (TOP_DELIMITER_LEFT in line) and \
                                (TOP_DELIMITER_RIGHT in line)
 isBottomDelimiter = lambda line: line == BOTTOM_DELIMITER
 
-initEmptyDict = lambda : { 
-    "No Encryption": { "0 dBm": None, "9 dBm": None, "20 dBm": None},
-    "AES": { "0 dBm": None, "9 dBm": None, "20 dBm": None },
-    "ASCON-128a": { "0 dBm": None, "9 dBm": None, "20 dBm": None },
-    "ASCON-128": { "0 dBm": None, "9 dBm": None, "20 dBm": None }
-  }
-
 def getIndepVars(line):
   cipher = None
   txPower = None

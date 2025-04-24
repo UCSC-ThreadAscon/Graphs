@@ -32,3 +32,10 @@ TX_POWERS_LABELS = \
   "9dbm": "9 dBm",
   "20dbm": "20 dBm"
 }
+
+initEmptyDict = lambda : { 
+    "No Encryption": { "0 dBm": None, "9 dBm": None, "20 dBm": None},
+    "AES": { "0 dBm": None, "9 dBm": None, "20 dBm": None },
+    "ASCON-128a": { "0 dBm": None, "9 dBm": None, "20 dBm": None },
+    "ASCON-128": { "0 dBm": None, "9 dBm": None, "20 dBm": None }
+  }
