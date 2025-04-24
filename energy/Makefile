@@ -13,3 +13,6 @@ get_data:
 
 bargraph:
 	python3 ./bargraph.py
+
+bargraph_wakeup:
+	python3 ./bargraph_wakeup.py

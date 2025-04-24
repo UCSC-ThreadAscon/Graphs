@@ -5,8 +5,8 @@ from get_data import *
 
 SHOW_BAR_LABELS = False
 
-mahDict, _ = getAverages()
-print(mahDict)
+_, mahWakeupDict = getAverages()
+print(mahWakeupDict)
 
 def bargraph():
   xAxisValues = np.arange(len(TX_POWERS))
@@ -19,7 +19,7 @@ def bargraph():
   #   figure.set_figwidth(THESIS_PAPER_WIDTH_IN / 1.2)
   #   figure.set_figheight(THESIS_PAPER_HEIGHT_IN / 3)
 
-  for cipher, averagesDict in mahDict.items():
+  for cipher, averagesDict in mahWakeupDict.items():
 
     averages = [average for average in averagesDict.values()]
     offset = width * multiplier
@@ -32,13 +32,13 @@ def bargraph():
     multiplier += 1
 
   axis.set_ylabel('Energy Consumption (milliampere-hours)')
-  axis.set_title(f'Average Energy Consumption (deep sleep included)')
+  axis.set_title(f'Average Energy Consumption (wakeup only)')
 
   xWidthOffset = 0.30
   axis.set_xticks(xAxisValues + xWidthOffset, TX_POWERS_LABELS.values())
 
-  y_min = 2
-  y_lim = 3
+  y_min = 80
+  y_lim = 100
 
   tick_step = abs(y_lim - y_min) / 12
   ticks = np.arange(0, y_lim, tick_step)
