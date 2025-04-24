@@ -11,8 +11,30 @@ isTopDelimiter = lambda line : (TOP_DELIMITER_LEFT in line) and \
                                (TOP_DELIMITER_RIGHT in line)
 isBottomDelimiter = lambda line: line == BOTTOM_DELIMITER
 
+def getIndepVars(line):
+  cipher = None
+  txPower = None
+
+  if "No Encryption" in line:
+    cipher = "No Encryption"
+  elif "AES" in line:
+    cipher = "AES"
+  elif "ASCON-128a" in line:
+    cipher = "ASCON-128a"
+  elif "ASCON-128" in line:
+    cipher = "ASCON-128"
+
+  if "20 dBm" in line:
+    txPower = "20 dBm"
+  elif "9 dBm" in line:
+    txPower = "9 dBm"
+  elif "0 dBm" in line:
+    txPower = "0 dBm"
+
+  return cipher, txPower
+
 def parse(buffer):
-  print(buffer)
+  print(getIndepVars(buffer[0]))
   return
 
 def getAverage():
