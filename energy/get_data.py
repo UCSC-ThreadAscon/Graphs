@@ -38,10 +38,12 @@ def parse(buffer):
   cipher, txPower = getIndepVars(buffer[0])
 
   # 4th line has average mAh with deep sleep.
+  mah = float(buffer[3].split()[7])
 
   # 7th line has average mAh on wakeup.
+  mahWakeup = float(buffer[6].split()[6])
 
-  return
+  return cipher, txPower, mah, mahWakeup
 
 def getAverage():
   with open(AVERAGES_TEXT_FILE, "r") as file:
@@ -53,7 +55,7 @@ def getAverage():
       buffer.append(line)
 
       if isBottomDelimiter(line):
-        parse(buffer)
+        print(parse(buffer))
   return
 
 if __name__ == "__main__":
