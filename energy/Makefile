@@ -10,3 +10,6 @@ average:
 
 get_data:
 	python3 ./get_data.py
+
+bargraph:
+	python3 ./bargraph.py
