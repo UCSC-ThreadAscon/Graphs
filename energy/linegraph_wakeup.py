@@ -4,8 +4,8 @@ import numpy as np
 from common import *
 from ratios import *
 
-mahDict, _ = getAverages()
-RATIOS = getMahRatios(mahDict)
+_, mahWakeupDict = getAverages()
+RATIOS = getMahRatios(mahWakeupDict)
 
 def linegraph():
   aes = RATIOS['AES'].values()
@@ -35,7 +35,7 @@ def linegraph():
   ax.legend(loc='best', ncols=3)
   ax.set_ylabel('Percentage (%)')
   ax.set_xlabel('TX Power (dBm)')
-  ax.set_title(f'Energy Usage % Increase Relative to No Encryption (deep sleep included)')
+  ax.set_title(f'Energy Usage % Increase Relative to No Encryption (wakeups only)')
 
   plt.axhline(linestyle='dotted', lw=1, color='gainsboro')
 

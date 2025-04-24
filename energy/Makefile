@@ -19,3 +19,9 @@ bargraph_wakeup:
 
 ratios:
 	python3 ./ratios.py
+
+linegraph:
+	python3 ./linegraph.py
+
+linegraph_wakeup:
+	python3 ./linegraph_wakeup.py

@@ -32,7 +32,7 @@ def bargraph():
     multiplier += 1
 
   axis.set_ylabel('Energy Consumption (milliampere-hours)')
-  axis.set_title(f'Average Energy Consumption (wakeup only)')
+  axis.set_title(f'Average Energy Consumption (wakeups only)')
 
   xWidthOffset = 0.30
   axis.set_xticks(xAxisValues + xWidthOffset, TX_POWERS_LABELS.values())
