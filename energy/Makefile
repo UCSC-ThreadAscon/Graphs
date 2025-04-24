@@ -16,3 +16,6 @@ bargraph:
 
 bargraph_wakeup:
 	python3 ./bargraph_wakeup.py
+
+ratios:
+	python3 ./ratios.py
