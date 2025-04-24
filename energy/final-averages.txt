@@ -1,4 +1,4 @@
-Wed Apr 23 16:35:42 PDT 2025
+Wed Apr 23 17:03:39 PDT 2025
 Device power on detected @ 569.0 ms with current 9925.564 uA.
 Stop post-processing @ 10980569.0 ms with current 7.682 uA.
 ---------- No Encryption 0 dBm ----------
@@ -78,4 +78,44 @@ The average mAh, deep sleep included, is 2.616708238227862 mAh.
 The average uA on wakeup is 29708.401684804947 uA.
 The average mA on wakeup is 29.708401684804947 mA.
 The average mAh on wakeup is 90.61062513865508 mAh.
+-------------------------------------------
+Device power on detected @ 739.0 ms with current 13357.236 uA.
+Stop post-processing @ 10980739.0 ms with current 7.522 uA.
+---------- ASCON-128a 20 dBm ----------
+The average uA, deep sleep included, is 872.3536108925045 uA.
+The average mA, deep sleep included, is 0.8723536108925045 mA.
+The average mAh, deep sleep included, is 2.6606785132221384 mAh.
+The average uA on wakeup is 30337.56083845762 uA.
+The average mA on wakeup is 30.33756083845762 mA.
+The average mAh on wakeup is 92.52956055729574 mAh.
+-------------------------------------------
+Device power on detected @ 561.8 ms with current 541.453 uA.
+Stop post-processing @ 10980561.8 ms with current 7.47 uA.
+---------- ASCON-128 0 dBm ----------
+The average uA, deep sleep included, is 850.1334809074382 uA.
+The average mA, deep sleep included, is 0.8501334809074382 mA.
+The average mAh, deep sleep included, is 2.5929071167676865 mAh.
+The average uA on wakeup is 29629.604255426286 uA.
+The average mA on wakeup is 29.629604255426287 mA.
+The average mAh on wakeup is 90.37029297905016 mAh.
+-------------------------------------------
+Device power on detected @ 748.5 ms with current 103.168 uA.
+Stop post-processing @ 10980748.5 ms with current 7.627 uA.
+---------- ASCON-128 9 dBm ----------
+The average uA, deep sleep included, is 856.1571168152233 uA.
+The average mA, deep sleep included, is 0.8561571168152233 mA.
+The average mAh, deep sleep included, is 2.611279206286431 mAh.
+The average uA on wakeup is 29788.010966530994 uA.
+The average mA on wakeup is 29.788010966530994 mA.
+The average mAh on wakeup is 90.85343344791953 mAh.
+-------------------------------------------
+Device power on detected @ 733.3 ms with current 31725.748 uA.
+Stop post-processing @ 10980733.3 ms with current 7.759 uA.
+---------- ASCON-128 20 dBm ----------
+The average uA, deep sleep included, is 869.0815703546339 uA.
+The average mA, deep sleep included, is 0.8690815703546338 mA.
+The average mAh, deep sleep included, is 2.650698789581633 mAh.
+The average uA on wakeup is 30253.21981498481 uA.
+The average mA on wakeup is 30.25321981498481 mA.
+The average mAh on wakeup is 92.27232043570366 mAh.
 -------------------------------------------
