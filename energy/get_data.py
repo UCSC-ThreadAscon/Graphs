@@ -34,7 +34,13 @@ def getIndepVars(line):
   return cipher, txPower
 
 def parse(buffer):
-  print(getIndepVars(buffer[0]))
+  # 1st line has the independent variables.
+  cipher, txPower = getIndepVars(buffer[0])
+
+  # 4th line has average mAh with deep sleep.
+
+  # 7th line has average mAh on wakeup.
+
   return
 
 def getAverage():
