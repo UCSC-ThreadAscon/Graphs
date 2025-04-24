@@ -11,6 +11,13 @@ isTopDelimiter = lambda line : (TOP_DELIMITER_LEFT in line) and \
                                (TOP_DELIMITER_RIGHT in line)
 isBottomDelimiter = lambda line: line == BOTTOM_DELIMITER
 
+initEmptyDict = lambda : { 
+    "No Encryption": { "0 dBm": None, "9 dBm": None, "20 dBm": None},
+    "AES": { "0 dBm": None, "9 dBm": None, "20 dBm": None },
+    "ASCON-128a": { "0 dBm": None, "9 dBm": None, "20 dBm": None },
+    "ASCON-128": { "0 dBm": None, "9 dBm": None, "20 dBm": None }
+  }
+
 def getIndepVars(line):
   cipher = None
   txPower = None
@@ -45,7 +52,14 @@ def parse(buffer):
 
   return cipher, txPower, mah, mahWakeup
 
-def getAverage():
+def getAverages():
+  """The dictionaries needs to be in the order of increasing TX power,
+     as the exact order in which the data is organized in the dictionary
+     will be used when displaying data across the x-axis.
+  """
+  mahDict = initEmptyDict()
+  mahWakeupDict = initEmptyDict()
+
   with open(AVERAGES_TEXT_FILE, "r") as file:
     buffer = []
     for line in file:
@@ -55,8 +69,11 @@ def getAverage():
       buffer.append(line)
 
       if isBottomDelimiter(line):
-        print(parse(buffer))
-  return
+        cipher, txPower, mah, mahWakeup = parse(buffer)
+        mahDict[cipher][txPower] = mah
+        mahWakeupDict[cipher][txPower] = mahWakeup
+
+  return mahDict, mahWakeupDict
 
 if __name__ == "__main__":
-  getAverage()
+  print(getAverages())
