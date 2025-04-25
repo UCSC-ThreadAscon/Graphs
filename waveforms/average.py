@@ -18,17 +18,21 @@ UA_WAKEUP_MINIMUM = 9
 
 def getSamples(filepath):
   uAWakeupList = []
+  timestamps = []
 
   with open(filepath) as file:
     for row in csv.DictReader(file):
+      timestamp = float(row["Timestamp(ms)"])
       uA = float(row["Current(uA)"])
+
       if uA >= UA_WAKEUP_MINIMUM:
         uAWakeupList.append(uA)
+        timestamps.append(timestamp)
 
       if len(uAWakeupList) >= sys.maxsize:
         raise OverflowError("The list is too big.")
 
-  return uAWakeupList
+  return uAWakeupList, timestamps
 
 def getAvgUa(samples):
   length = len(samples)
@@ -44,13 +48,15 @@ def getAvgUa(samples):
   return average
 
 def printAvgs(filepath, cipher, txPower):
-  uAList = getSamples(filepath)
+  uAList, timestamps = getSamples(filepath)
   avgUa = getAvgUa(uAList)
   avgMa = uAtoMa(avgUa)
+  duration = timestamps[-1] - timestamps[0]
 
   print(f"---------- {cipher} {txPower} ----------")
   print(f"The average uA on wakeup is {avgUa} uA.")
   print(f"The average mA on wakeup is {avgMa} mA.")
+  print(f"The wakeup time is: {duration} ms.")
   print("-------------------------------------------")
   return
 
