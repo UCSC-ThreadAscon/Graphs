@@ -49,8 +49,8 @@ def printAvgs(filepath, cipher, txPower):
   avgMa = uAtoMa(avgUa)
 
   print(f"---------- {cipher} {txPower} ----------")
-  print(f"The average uA, deep sleep included, is {avgUa} uA.")
-  print(f"The average mA, deep sleep included, is {avgMa} mA.")
+  print(f"The average uA on wakeup is {avgUa} uA.")
+  print(f"The average mA on wakeup is {avgMa} mA.")
   print("-------------------------------------------")
   return
 
