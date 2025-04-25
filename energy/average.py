@@ -49,6 +49,9 @@ def getSamples(filepath):
         if uA >= UA_WAKEUP_MINIMUM:
           uAWakeupList.append(uA)
 
+        if len(uAWakeupList) >= sys.maxsize:
+          raise OverflowError("The list is too big.")
+
         if len(uAList) >= sys.maxsize:
           raise OverflowError("The list is too big.")
 
