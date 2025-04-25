@@ -4,9 +4,12 @@
     https://electronics.stackexchange.com/a/107078
     https://docs.python.org/3/library/csv.html
 """
+from pathlib import Path
 import sys
 import csv
 import math
+
+CSV_PATH = Path(Path.home(), "Desktop", "Repositories", "graphs", "waveforms", "csv")
 
 uAtoMa = lambda uA : uA * 0.001
 mAtoUa = lambda mA : mA * 1000
@@ -22,7 +25,7 @@ def getSamples(filepath):
       if uA >= UA_WAKEUP_MINIMUM:
         uAWakeupList.append(uA)
 
-      if len(uAList) >= sys.maxsize:
+      if len(uAWakeupList) >= sys.maxsize:
         raise OverflowError("The list is too big.")
 
   return uAWakeupList
@@ -52,4 +55,14 @@ def printAvgs(filepath, cipher, txPower):
   return
 
 if __name__ == "__main__":
-  printAllAvgs()
+  printAvgs(Path(CSV_PATH, "AES-20dbm-last-waveform.csv"),
+               "AES", "20 dBm")
+
+  printAvgs(Path(CSV_PATH, "NoEncrypt-20dbm-last-waveform.csv"),
+               "No Encryption", "20 dBm")
+
+  printAvgs(Path(CSV_PATH, "LibAscon-128a-20dbm-last-waveform.csv"),
+               "ASCON-128a", "20 dBm")
+
+  printAvgs(Path(CSV_PATH, "LibAscon-128-20dbm-last-waveform.csv"),
+               "ASCON-128", "20 dBm")
