@@ -100,4 +100,5 @@ def printAllAvgs():
   return
 
 if __name__ == "__main__":
+  print(f"The uA wakeup minimum threshold is set to {UA_WAKEUP_MINIMUM} uA.")
   printAllAvgs()
