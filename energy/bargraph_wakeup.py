@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
+import os
 
 from get_data import *
 
@@ -51,7 +52,7 @@ def bargraph():
   axis.set_xlabel('TX Power (dBm)')
 
   if RENDER_PGF:
-    plt.savefig(os.path.join(THESIS_FIGURES_PATH, 'energy-bar-graph.pgf'))
+    plt.savefig(os.path.join(THESIS_FIGURES_PATH, 'energy-wakeup-bar-graph.pgf'))
   return
 
 if __name__ == "__main__":

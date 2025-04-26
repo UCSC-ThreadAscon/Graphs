@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
+import os
 
 from common import *
 from ratios import *
@@ -40,7 +41,7 @@ def linegraph():
   plt.axhline(linestyle='dotted', lw=1, color='gainsboro')
 
   if RENDER_PGF:
-    plt.savefig(os.path.join(THESIS_FIGURES_PATH, f'energy-ratio.pgf'))
+    plt.savefig(os.path.join(THESIS_FIGURES_PATH, f'energy-wakeup-ratio.pgf'))
   return
 
 if __name__ == "__main__":
