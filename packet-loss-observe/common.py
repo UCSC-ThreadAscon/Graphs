@@ -1,7 +1,7 @@
 import os
 import matplotlib
 
-RENDER_PGF = True
+RENDER_PGF = False
 
 if RENDER_PGF:
   matplotlib.use("pgf")
