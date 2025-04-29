@@ -28,7 +28,7 @@ def bargraph():
 
     offset = width * multiplier
     rects = axis.bar(xAxisValues + offset, delaysMs, width, label=cipher,
-                     color=cipherColors[cipher], yerr=stdsMs)
+                     color=cipherColors[cipher])
 
     if SHOW_BAR_LABELS:
       axis.bar_label(rects, padding=3)
@@ -43,7 +43,7 @@ def bargraph():
 
   # y_min = 19
   # y_lim = 23
-  y_lim = 30
+  y_lim = 25
   y_min = 10
 
   tick_step = abs(y_lim - y_min) / 12
