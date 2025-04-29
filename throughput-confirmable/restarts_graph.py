@@ -36,7 +36,7 @@ def bargraph():
   axis.set_xticks(xAxisValues + xWidthOffset, TX_POWERS_LABELS.values())
 
   y_min = 0
-  y_lim = 10
+  y_lim = 3
 
   tick_step = abs(y_lim - y_min) / 12
   ticks = np.arange(0, y_lim, tick_step)
