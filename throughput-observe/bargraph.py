@@ -29,7 +29,7 @@ def bargraph():
 
     offset = width * multiplier
     rects = axis.bar(xAxisValues + offset, averages, width, label=cipher,
-                     color=cipherColors[cipher], yerr=list(stds[cipher].values()))
+                     color=cipherColors[cipher])
 
     if SHOW_BAR_LABELS:
       axis.bar_label(rects, padding=3)
@@ -43,9 +43,9 @@ def bargraph():
   axis.set_xticks(xAxisValues + xWidthOffset, TX_POWERS_LABELS.values())
 
   y_min = 0.9
-  y_lim = 1.2
+  y_lim = 1.03
 
-  tick_step = abs(y_lim - y_min) / 12
+  tick_step = abs(y_lim - y_min) / 15
   ticks = np.arange(0, y_lim, tick_step)
   ticks = np.append(ticks, [y_lim])
 

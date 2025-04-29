@@ -12,7 +12,7 @@ def linegraph():
   ascon128a = RATIOS["ASCON-128a"].values()
 
   y_interval = 0.1
-  y_lim = 0.5
+  y_lim = 1
   y_min = -0.5
 
   fig, ax = plt.subplots()
