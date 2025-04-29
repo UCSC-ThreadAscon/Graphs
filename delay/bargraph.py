@@ -48,7 +48,7 @@ def bargraph():
 
   tick_step = abs(y_lim - y_min) / 12
   ticks = np.arange(0, y_lim, tick_step)
-  # ticks = np.append(ticks, [y_lim])
+  ticks = np.append(ticks, [y_lim])
 
   axis.set_yticks(ticks)
   axis.legend(loc='best', ncols=4)
