@@ -33,13 +33,13 @@ def bargraph():
     multiplier += 1
 
   axis.set_ylabel('Energy Consumption (milliampere-hours)')
-  axis.set_title(f'Average Energy Consumption (deep sleep included)')
+  axis.set_title(f'Average Energy Consumption')
 
   xWidthOffset = 0.30
   axis.set_xticks(xAxisValues + xWidthOffset, TX_POWERS_LABELS.values())
 
   y_min = 2
-  y_lim = 3
+  y_lim = 2.75
 
   tick_step = abs(y_lim - y_min) / 12
   ticks = np.arange(0, y_lim, tick_step)

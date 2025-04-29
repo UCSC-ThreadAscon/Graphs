@@ -14,7 +14,7 @@ def linegraph():
   ascon128a = RATIOS["ASCON-128a"].values()
 
   y_interval = 1
-  y_lim = 2
+  y_lim = 3
   y_min = -1.5
 
   fig, ax = plt.subplots()
@@ -36,7 +36,7 @@ def linegraph():
   ax.legend(loc='best', ncols=3)
   ax.set_ylabel('Percentage (%)')
   ax.set_xlabel('TX Power (dBm)')
-  ax.set_title(f'Energy Usage % Increase Relative to No Encryption (deep sleep included)')
+  ax.set_title(f'Energy Usage Increase (%) Relative to No Encryption')
 
   plt.axhline(linestyle='dotted', lw=1, color='gainsboro')
 
