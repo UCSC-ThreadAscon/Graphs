@@ -29,7 +29,7 @@ def bargraph():
 
     offset = width * multiplier
     rects = axis.bar(xAxisValues + offset, avgThroughputs, width, label=cipher,
-                  color=cipherColors[cipher], yerr=list(stds[cipher].values()))
+                  color=cipherColors[cipher])
 
     if SHOW_BAR_LABELS:
       axis.bar_label(rects, padding=3)
@@ -45,9 +45,9 @@ def bargraph():
   # y_min = 80
   # y_lim = 100
   y_min = 40
-  y_lim = 120
+  y_lim = 105
 
-  tick_step = abs(y_lim - y_min) / 12
+  tick_step = abs(y_lim - y_min) / 16
   ticks = np.arange(0, y_lim, tick_step)
   ticks = np.append(ticks, [y_lim])
 
