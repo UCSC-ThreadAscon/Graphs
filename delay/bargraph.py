@@ -31,15 +31,16 @@ def bargraph():
                      color=cipherColors[cipher])
 
     if SHOW_BAR_LABELS:
-      axis.bar_label(rects, padding=3)
+      axis.bar_label(rects, padding=3, fontsize=FONT_SIZE)
 
     multiplier += 1
 
-  axis.set_ylabel('Delay (ms)')
-  axis.set_title(f'Average Delay')
+  axis.set_ylabel('Delay (ms)', fontsize=FONT_SIZE)
+  axis.set_title(f'Average Delay', fontsize=FONT_SIZE)
 
   xWidthOffset = 0.30
-  axis.set_xticks(xAxisValues + xWidthOffset, TX_POWERS_LABELS.values())
+  axis.set_xticks(xAxisValues + xWidthOffset, TX_POWERS_LABELS.values(),
+                  fontsize=FONT_SIZE)
 
   # y_min = 19
   # y_lim = 23
@@ -51,10 +52,11 @@ def bargraph():
   ticks = np.append(ticks, [y_lim])
 
   axis.set_yticks(ticks)
-  axis.legend(loc='best', ncols=4)
+  axis.tick_params(axis='y', labelsize=FONT_SIZE)
+  axis.legend(loc='best', ncols=2, fontsize=FONT_SIZE)
   axis.set_ylim(y_min, y_lim)
 
-  axis.set_xlabel('TX Power (dBm)')
+  axis.set_xlabel('TX Power (dBm)', fontsize=FONT_SIZE)
 
   if RENDER_PGF:
     plt.savefig(os.path.join(THESIS_FIGURES_PATH, 'delay-bar-graph.pgf'))
