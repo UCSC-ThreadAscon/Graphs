@@ -44,10 +44,10 @@ def bargraph():
 
   # y_min = 19
   # y_lim = 23
-  y_lim = 25
+  y_lim = 27
   y_min = 10
 
-  tick_step = abs(y_lim - y_min) / 12
+  tick_step = abs(y_lim - y_min) / 13
   ticks = np.arange(0, y_lim, tick_step)
   ticks = np.append(ticks, [y_lim])
 
