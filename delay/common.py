@@ -1,7 +1,7 @@
 import os
 import matplotlib
 
-RENDER_PGF = True
+RENDER_PGF = False
 
 FONT_SIZE = 'xx-large'
 

@@ -44,12 +44,12 @@ def bargraph():
 
   # y_min = 19
   # y_lim = 23
-  y_lim = 27
+  y_lim = 26
   y_min = 10
 
-  tick_step = abs(y_lim - y_min) / 13
+  tick_step = abs(y_lim - y_min) / 10
   ticks = np.arange(0, y_lim, tick_step)
-  ticks = np.append(ticks, [y_lim])
+  # ticks = np.append(ticks, [y_lim])
 
   axis.set_yticks(ticks)
   axis.tick_params(axis='y', labelsize=FONT_SIZE)
