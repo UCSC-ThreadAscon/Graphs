@@ -3,6 +3,8 @@ import matplotlib
 
 RENDER_PGF = True
 
+FONT_SIZE = 'xx-large'
+
 if RENDER_PGF:
   matplotlib.use("pgf")
   matplotlib.rcParams.update({
