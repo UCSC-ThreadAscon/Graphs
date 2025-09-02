@@ -36,8 +36,11 @@ def bargraph():
 
     multiplier += 1
 
-  axis.set_ylabel('Throughput (bytes/second)')
-  axis.set_title(f'Average Throughput (Confirmable)')
+  axis.set_ylabel('Throughput (bytes/second)', fontsize=FONT_SIZE)
+  axis.set_title(f'Average Throughput (Confirmable)', fontsize=FONT_SIZE)
+
+  axis.tick_params(axis='y', labelsize=FONT_SIZE)
+  axis.tick_params(axis='x', labelsize=FONT_SIZE)
 
   xWidthOffset = 0.30
   axis.set_xticks(xAxisValues + xWidthOffset, TX_POWERS_LABELS.values())
@@ -45,17 +48,17 @@ def bargraph():
   # y_min = 80
   # y_lim = 100
   y_min = 40
-  y_lim = 105
+  y_lim = 110
 
-  tick_step = abs(y_lim - y_min) / 16
+  tick_step = abs(y_lim - y_min) / 13
   ticks = np.arange(0, y_lim, tick_step)
-  ticks = np.append(ticks, [y_lim])
+  # ticks = np.append(ticks, [y_lim])
 
   axis.set_yticks(ticks)
-  axis.legend(loc='best', ncols=4)
+  axis.legend(loc='best', ncols=2, fontsize=FONT_SIZE)
   axis.set_ylim(y_min, y_lim)
 
-  axis.set_xlabel('TX Power (dBm)')
+  axis.set_xlabel('TX Power (dBm)', fontsize=FONT_SIZE)
 
   if RENDER_PGF:
     plt.savefig(os.path.join(THESIS_FIGURES_PATH, 'throughput-confirmable-bar-graph.pgf'))
