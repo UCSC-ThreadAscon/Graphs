@@ -32,7 +32,7 @@ def bargraph():
 
     multiplier += 1
 
-  axis.set_ylabel('Energy Consumption (milliampere-hours)', fontsize=FONT_SIZE)
+  axis.set_ylabel('Energy Consumption (mAh)', fontsize=FONT_SIZE)
   axis.set_title(f'Average Energy Consumption', fontsize=FONT_SIZE)
 
   axis.tick_params(axis='y', labelsize=FONT_SIZE)

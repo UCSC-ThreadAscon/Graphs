@@ -43,6 +43,7 @@ def linegraph():
   ax.tick_params(axis='x', labelsize=FONT_SIZE)
 
   plt.axhline(linestyle='dotted', lw=1, color='gainsboro')
+  plt.tight_layout()
 
   if RENDER_PGF:
     plt.savefig(os.path.join(THESIS_FIGURES_PATH, f'energy-ratio.pgf'))
