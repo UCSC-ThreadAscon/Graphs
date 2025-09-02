@@ -17,6 +17,9 @@ def linegraph():
 
   fig, ax = plt.subplots()
 
+  # https://stackoverflow.com/a/66136599/6621292
+  ax.yaxis.set_major_formatter('{x:.5f}')
+
   # if RENDER_PGF:
   #   fig.set_figwidth(THESIS_PAPER_WIDTH_IN / 1.2)
   #   fig.set_figheight(THESIS_PAPER_HEIGHT_IN / 3)
