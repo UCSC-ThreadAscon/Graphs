@@ -34,12 +34,15 @@ def bargraph():
     #                color=cipherColors[cipher], yerr=list(stds[cipher].values()))
 
     if SHOW_BAR_LABELS:
-      axis.bar_label(rects, padding=3)
+      axis.bar_label(rects, padding=3, fontsize=FONT_SIZE)
 
     multiplier += 1
 
-  axis.set_ylabel('Packet Loss Ratio (%)')
-  axis.set_title(f'Average Packet Loss (Observe)')
+  axis.set_ylabel('Packet Loss Ratio (%)', fontsize=FONT_SIZE)
+  axis.set_title(f'Average Packet Loss (Observe)', fontsize=FONT_SIZE)
+
+  axis.tick_params(axis='y', labelsize=FONT_SIZE)
+  axis.tick_params(axis='x', labelsize=FONT_SIZE)
 
   xWidthOffset = 0.30
   axis.set_xticks(xAxisValues + xWidthOffset, TX_POWERS_LABELS.values())
@@ -47,10 +50,10 @@ def bargraph():
   y_min = 0
   y_lim = 100
 
-  axis.legend(loc='best', ncols=4)
+  axis.legend(loc='best', ncols=2, fontsize=FONT_SIZE)
   axis.set_ylim(y_min, y_lim)
 
-  axis.set_xlabel('TX Power (dBm)')
+  axis.set_xlabel('TX Power (dBm)', fontsize=FONT_SIZE)
 
   if RENDER_PGF:
     plt.savefig(os.path.join(THESIS_FIGURES_PATH, 'packet-loss-observe-bar-graph.pgf'))

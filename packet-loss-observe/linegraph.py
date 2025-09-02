@@ -31,12 +31,17 @@ def linegraph():
   ax.set_xticks(TX_POWERS)
   ax.set_ylim(y_min, y_lim)
 
-  ax.legend(loc='best', ncols=3)
-  ax.set_ylabel('Percentage (%)')
-  ax.set_xlabel('TX Power (dBm)')
-  ax.set_title(f'Packet Loss (Observe) Percentage (%) Increase Relative to No Encryption')
+  ax.tick_params(axis='y', labelsize=FONT_SIZE)
+  ax.tick_params(axis='x', labelsize=FONT_SIZE)
+
+  ax.legend(loc='best', ncols=2, fontsize=FONT_SIZE)
+  ax.set_ylabel('Percentage (%)', fontsize=FONT_SIZE)
+  ax.set_xlabel('TX Power (dBm)', fontsize=FONT_SIZE)
+  ax.set_title(f'Packet Loss Increase Relative to No Encryption \n Observe',
+               fontsize=FONT_SIZE)
 
   plt.axhline(linestyle='dotted', lw=1, color='gainsboro')
+  plt.tight_layout()
 
   if RENDER_PGF:
     plt.savefig(os.path.join(THESIS_FIGURES_PATH, f'packet-loss-observe-ratio.pgf'))
