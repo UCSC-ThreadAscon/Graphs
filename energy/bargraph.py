@@ -32,24 +32,27 @@ def bargraph():
 
     multiplier += 1
 
-  axis.set_ylabel('Energy Consumption (milliampere-hours)')
-  axis.set_title(f'Average Energy Consumption')
+  axis.set_ylabel('Energy Consumption (milliampere-hours)', fontsize=FONT_SIZE)
+  axis.set_title(f'Average Energy Consumption', fontsize=FONT_SIZE)
+
+  axis.tick_params(axis='y', labelsize=FONT_SIZE)
+  axis.tick_params(axis='x', labelsize=FONT_SIZE)
 
   xWidthOffset = 0.30
   axis.set_xticks(xAxisValues + xWidthOffset, TX_POWERS_LABELS.values())
 
   y_min = 2
-  y_lim = 2.75
+  y_lim = 3
 
   tick_step = abs(y_lim - y_min) / 12
   ticks = np.arange(0, y_lim, tick_step)
-  ticks = np.append(ticks, [y_lim])
+  # ticks = np.append(ticks, [y_lim])
 
   axis.set_yticks(ticks)
-  axis.legend(loc='best', ncols=4)
+  axis.legend(loc='best', ncols=2, fontsize=FONT_SIZE)
   axis.set_ylim(y_min, y_lim)
 
-  axis.set_xlabel('TX Power (dBm)')
+  axis.set_xlabel('TX Power (dBm)', fontsize=FONT_SIZE)
 
   if RENDER_PGF:
     plt.savefig(os.path.join(THESIS_FIGURES_PATH, 'energy-bar-graph.pgf'))

@@ -33,10 +33,14 @@ def linegraph():
   ax.set_xticks(TX_POWERS)
   ax.set_ylim(y_min, y_lim)
 
-  ax.legend(loc='best', ncols=3)
-  ax.set_ylabel('Percentage (%)')
-  ax.set_xlabel('TX Power (dBm)')
-  ax.set_title(f'Energy Usage % Increase Relative to No Encryption (wakeups only)')
+  ax.legend(loc='best', ncols=2, fontsize=FONT_SIZE)
+  ax.set_ylabel('Percentage (%)', fontsize=FONT_SIZE)
+  ax.set_xlabel('TX Power (dBm)', fontsize=FONT_SIZE)
+  ax.set_title(f'Energy Usage Increase Relative to No Encryption \n (Wakeups Only)',
+               fontsize=FONT_SIZE)
+
+  ax.tick_params(axis='y', labelsize=FONT_SIZE)
+  ax.tick_params(axis='x', labelsize=FONT_SIZE)
 
   plt.axhline(linestyle='dotted', lw=1, color='gainsboro')
 
