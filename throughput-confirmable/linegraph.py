@@ -37,7 +37,7 @@ def linegraph():
   ax.legend(loc='best', ncols=2, fontsize=FONT_SIZE)
   ax.set_ylabel('Percentage (%)', fontsize=FONT_SIZE)
   ax.set_xlabel('TX Power (dBm)', fontsize=FONT_SIZE)
-  ax.set_title(f'Throughput (Confirmable) Increase \n Relative to No Encryption',
+  ax.set_title(f'Throughput Increase Relative to No Encryption \n (Confirmable)',
                fontsize=FONT_SIZE)
 
   plt.axhline(linestyle='dotted', lw=1, color='gainsboro')
