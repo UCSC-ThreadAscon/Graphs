@@ -26,7 +26,7 @@ def linegraph():
   plt.plot(TX_POWERS, ascon128, 'o-.', color=cipherColors['ASCON-128'],label='ASCON-128')
 
   y_ticks = np.arange(y_min, y_lim, y_interval)
-  # y_ticks = np.append(y_ticks, [y_lim])
+  y_ticks = np.append(y_ticks, [y_lim])
   ax.set_yticks(y_ticks)
   ax.set_xticks(TX_POWERS)
   ax.set_ylim(y_min, y_lim)
@@ -37,7 +37,7 @@ def linegraph():
   ax.legend(loc='best', ncols=2, fontsize=FONT_SIZE)
   ax.set_ylabel('Percentage (%)', fontsize=FONT_SIZE)
   ax.set_xlabel('TX Power (dBm)', fontsize=FONT_SIZE)
-  ax.set_title(f'Throughput Increase Relative to No Encryption',
+  ax.set_title(f'Throughput (Confirmable) Increase \n Relative to No Encryption',
                fontsize=FONT_SIZE)
 
   plt.axhline(linestyle='dotted', lw=1, color='gainsboro')

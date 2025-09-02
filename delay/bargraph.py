@@ -52,7 +52,10 @@ def bargraph():
   # ticks = np.append(ticks, [y_lim])
 
   axis.set_yticks(ticks)
+
   axis.tick_params(axis='y', labelsize=FONT_SIZE)
+  axis.tick_params(axis='x', labelsize=FONT_SIZE)
+
   axis.legend(loc='best', ncols=2, fontsize=FONT_SIZE)
   axis.set_ylim(y_min, y_lim)
 
