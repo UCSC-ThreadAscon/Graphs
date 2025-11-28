@@ -65,14 +65,17 @@ axis.set_ylabel('Throughput (bytes/second)', fontsize = FONT_SIZE)
 axis.set_xticks([r + bar_width for r in range(3)], powers)
 
 y_min = 40
-y_lim = 150
+y_lim = 135
 
 tick_step = abs(y_lim - y_min) / 13
 ticks = np.arange(0, y_lim, tick_step)
 
 axis.set_yticks(ticks)
 
-axis.legend(loc='best', ncols=2, fontsize=FONT_SIZE)
+axis.legend(loc='best', ncols=3, fontsize=FONT_SIZE)
+
+axis.tick_params(axis='y', labelsize=FONT_SIZE)
+axis.tick_params(axis='x', labelsize=FONT_SIZE)
 
 plt.tight_layout()
 
@@ -108,7 +111,10 @@ y_ticks = np.arange(y_min, y_lim, y_interval)
 y_ticks = np.append(y_ticks, [y_lim])
 axis.set_yticks(y_ticks)
 
-axis.legend(loc='best', ncols=2, fontsize=FONT_SIZE)
+axis.tick_params(axis='y', labelsize=FONT_SIZE)
+axis.tick_params(axis='x', labelsize=FONT_SIZE)
+
+axis.legend(loc='best', ncols=3, fontsize=FONT_SIZE)
 
 plt.axhline(linestyle='dotted', lw=1, color='gainsboro')
 plt.tight_layout()
