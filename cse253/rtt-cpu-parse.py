@@ -2,7 +2,7 @@ import os
 import re
 import json
 
-algs = ["AES", "AsconAead-128", "None"]
+algs = ["AES", "Ascon-AEAD128", "None"]
 powers = ["0dbm", "9dbm", "20dbm"]
 
 rtt_dict = {}

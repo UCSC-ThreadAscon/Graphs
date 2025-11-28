@@ -5,9 +5,14 @@ import matplotlib.pyplot as plt
 
 EXPORT_FOR_LATEX = False
 
-algs = ["None", "AES", "AsconAead-128"]
-powers = ["0dbm", "9dbm", "20dbm"]
-colors = {"None":"grey", "AES":"orange", "AsconAead-128":"blue"}
+algs = ["None", "AES", "Ascon-AEAD128"]
+powers = ["0 dBm", "9 dBm", "20 dBm"]
+lineType = {
+  "NoEncrypt": 'o--', 
+  "AES": 'o:',
+  "Ascon-AEAD128": 'o-.'
+}
+colors = {"None":"mediumaquamarine", "AES":"deepskyblue", "Ascon-AEAD128":"plum"}
 
 
 #----------------------------------- rtt
@@ -33,14 +38,16 @@ for alg in algs:
         rtt_mean[alg].append(mean)
 
 for alg in algs:
-    if (alg != "None"):
-        for i in range(3):
-            rtt_mean[alg][i] = (rtt_mean[alg][i] - rtt_mean["None"][i]) / rtt_mean["None"][i]
+  if (alg != "None"):
+    for i in range(3):
+      rtt_mean[alg][i] = (rtt_mean[alg][i] - rtt_mean["None"][i]) / rtt_mean["None"][i]
 
 x_points = [0, 9, 20]
 for alg in algs:
-    if (alg != "None"):
-        plt.plot(x_points, rtt_mean[alg], color = colors[alg], label = alg) 
+  print(alg)
+  if (alg != "None"):
+    plt.plot(x_points, rtt_mean[alg], lineType[alg],
+      color = colors[alg], label = alg) 
 
 plt.title("Delay Increase Relative To No Encryption", fontsize = fontsize)
 plt.xlabel('TX Power (dBm)', fontsize = fontsize) 
@@ -84,7 +91,8 @@ for alg in algs:
 x_points = [0, 9, 20]
 for alg in algs:
     if (alg != "None"):
-        plt.plot(x_points, rtt_mean[alg], color = colors[alg], label = alg)
+        plt.plot(x_points, rtt_mean[alg], lineType[alg.replace(" ", "")], 
+                 color = colors[alg], label = alg)
 
 plt.title("CPU Time Increase Relative To No Encryption", fontsize = fontsize)
 plt.xlabel('TX Power (dBm)', fontsize = fontsize) 

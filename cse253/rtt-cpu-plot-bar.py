@@ -7,9 +7,9 @@ import matplotlib.pyplot as plt
 EXPORT_FOR_LATEX = False
 FONT_SIZE = 'xx-large'
 
-algs = ["None", "AES", "AsconAead-128"]
+algs = ["None", "AES", "Ascon-AEAD128"]
 powers = ["0 dBm", "9 dBm", "20 dBm"]
-colors = {"None":"mediumaquamarine", "AES":"deepskyblue", "AsconAead-128":"plum"}
+colors = {"None":"mediumaquamarine", "AES":"deepskyblue", "Ascon-AEAD128":"plum"}
 
 
 #----------------------------------- rtt

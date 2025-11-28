@@ -20,7 +20,7 @@ def translate(alg): # labels are different for tp, show the same way as rtt/cpu 
     if (alg == "NoEncrypt"):
         return "None"
     elif(alg == " Ascon-AEAD128"):
-        return "AsconAead-128"
+        return "Ascon-AEAD128"
     else:
         return alg
 
