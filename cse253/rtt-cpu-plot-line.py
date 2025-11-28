@@ -4,6 +4,7 @@ import matplotlib as mpl
 import matplotlib.pyplot as plt
 
 EXPORT_FOR_LATEX = False
+FONT_SIZE = 'xx-large'
 
 algs = ["None", "AES", "Ascon-AEAD128"]
 powers = ["0 dBm", "9 dBm", "20 dBm"]
@@ -20,10 +21,7 @@ rtt_data = {}
 with open('RTT-results.json', 'r') as file:
     rtt_data = json.load(file)
 
-fontsize = "x-large"
-fig = plt.subplots() 
-
-
+fig, axis = plt.subplots()
 
 rtt_mean = {}
 for alg in algs:
@@ -46,18 +44,18 @@ x_points = [0, 9, 20]
 for alg in algs:
   print(alg)
   if (alg != "None"):
-    plt.plot(x_points, rtt_mean[alg], lineType[alg],
+    axis.plot(x_points, rtt_mean[alg], lineType[alg],
       color = colors[alg], label = alg) 
 
-plt.title("Delay Increase Relative To No Encryption", fontsize = fontsize)
-plt.xlabel('TX Power (dBm)', fontsize = fontsize) 
-plt.ylabel('Percentage (%)', fontsize = fontsize) 
-plt.xticks([1, 9, 20], powers)
+axis.set_title("RTT Increase Relative To No Encryption", fontsize = FONT_SIZE)
+axis.set_xlabel('TX Power (dBm)', fontsize = FONT_SIZE) 
+axis.set_ylabel('Percentage (%)', fontsize = FONT_SIZE) 
+axis.set_xticks([1, 9, 20], powers)
 
-plt.legend()
+axis.legend(loc='best', ncols=3, fontsize=FONT_SIZE)
 
 if (EXPORT_FOR_LATEX):
-    plt.savefig('rtt-plot-line.pgf', format='pgf')
+    axis.savefig('rtt-plot-line.pgf', format='pgf')
 else:
     plt.show()
 
@@ -67,7 +65,7 @@ with open('CPU-results.json', 'r') as file:
     cpu_data = json.load(file)
 
 fontsize = "x-large"
-fig = plt.subplots() 
+fig, axis = plt.subplots() 
 
 
 
@@ -91,18 +89,18 @@ for alg in algs:
 x_points = [0, 9, 20]
 for alg in algs:
   if (alg != "None"):
-    plt.plot(x_points, rtt_mean[alg], lineType[alg.replace(" ", "")], 
+    axis.plot(x_points, rtt_mean[alg], lineType[alg.replace(" ", "")], 
       color = colors[alg], label = alg)
 
-plt.title("CPU Time Increase Relative To No Encryption", fontsize = fontsize)
-plt.xlabel('TX Power (dBm)', fontsize = fontsize) 
-plt.ylabel('Percentage %', fontsize = fontsize) 
-plt.xticks([0, 9, 20], powers)
+axis.set_title("CPU Time Increase Relative To No Encryption", fontsize = FONT_SIZE)
+axis.set_xlabel('TX Power (dBm)', fontsize = FONT_SIZE) 
+axis.set_ylabel('Percentage (%)', fontsize = FONT_SIZE) 
+axis.set_xticks([0, 9, 20], powers)
 
-plt.legend()
+axis.legend(loc='best', ncols=3, fontsize=FONT_SIZE)
 
 if (EXPORT_FOR_LATEX):
-    plt.savefig('cpu-plot-line.pgf', format='pgf')
+    axis.savefig('cpu-plot-line.pgf', format='pgf')
 else:
     plt.show()
 
