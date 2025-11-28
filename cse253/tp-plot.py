@@ -70,6 +70,8 @@ axis.set_yticks(ticks)
 
 axis.legend(loc='best', ncols=2, fontsize=FONT_SIZE)
 
+plt.tight_layout()
+
 if (EXPORT_FOR_LATEX):
     axis.savefig('tp-plot-line.pgf', format='pgf')
 else:
@@ -92,6 +94,8 @@ axis.set_xlabel('TX Power (dBm)', fontsize = FONT_SIZE)
 axis.set_ylabel('Percentage %', fontsize = FONT_SIZE) 
 axis.set_xticks([0, 9, 20], powers)
 axis.legend(loc='best', ncols=2, fontsize=FONT_SIZE)
+
+plt.tight_layout()
 
 if (EXPORT_FOR_LATEX):
     axis.savefig('tp-plot-line.pgf', format='pgf')
