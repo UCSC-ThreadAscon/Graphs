@@ -18,7 +18,7 @@ with open('RTT-results.json', 'r') as file:
     rtt_data = json.load(file)
 
 bar_width = 0.25
-fig, axis = plt.subplots() 
+fig, axis = plt.subplots(layout='constrained') 
 
 
 
@@ -79,7 +79,7 @@ with open('CPU-results.json', 'r') as file:
     cpu_data = json.load(file)
 
 bar_width = 0.25
-fig, axis = plt.subplots() 
+fig, axis = plt.subplots(layout='constrained') 
 
 cpu_mean = {}
 cpu_err = {}

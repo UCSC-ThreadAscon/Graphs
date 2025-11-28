@@ -21,7 +21,7 @@ rtt_data = {}
 with open('RTT-results.json', 'r') as file:
     rtt_data = json.load(file)
 
-fig, axis = plt.subplots()
+fig, axis = plt.subplots(layout='constrained')
 
 rtt_mean = {}
 for alg in algs:
@@ -51,6 +51,7 @@ axis.set_title("RTT Increase Relative To No Encryption", fontsize = FONT_SIZE)
 axis.set_xlabel('TX Power (dBm)', fontsize = FONT_SIZE) 
 axis.set_ylabel('Percentage (%)', fontsize = FONT_SIZE) 
 axis.set_xticks([1, 9, 20], powers)
+plt.tight_layout()
 
 axis.legend(loc='best', ncols=3, fontsize=FONT_SIZE)
 
@@ -65,7 +66,7 @@ with open('CPU-results.json', 'r') as file:
     cpu_data = json.load(file)
 
 fontsize = "x-large"
-fig, axis = plt.subplots() 
+fig, axis = plt.subplots(layout='constrained') 
 
 
 
@@ -98,6 +99,7 @@ axis.set_ylabel('Percentage (%)', fontsize = FONT_SIZE)
 axis.set_xticks([0, 9, 20], powers)
 
 axis.legend(loc='best', ncols=3, fontsize=FONT_SIZE)
+plt.tight_layout()
 
 if (EXPORT_FOR_LATEX):
     axis.savefig('cpu-plot-line.pgf', format='pgf')

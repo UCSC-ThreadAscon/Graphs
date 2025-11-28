@@ -32,7 +32,7 @@ with open('TP-results.json', 'r') as file:
 
 bar_width = 0.25
 fontsize = "xx-large"
-fig, axis = plt.subplots() 
+fig, axis = plt.subplots(layout='constrained') 
 
 tp_mean = {}
 tp_err = {}
@@ -87,7 +87,7 @@ else:
 #----------------------------------- line
 
 
-fig, axis = plt.subplots() 
+fig, axis = plt.subplots(layout='constrained') 
 x_points = [0.0, 9.0, 20.0]
 for alg in algs:
   print(alg)
