@@ -97,9 +97,20 @@ for alg in algs:
 axis.set_title("Throughput Increase Relative To No Encryption", fontsize = FONT_SIZE)
 axis.set_xlabel('TX Power (dBm)', fontsize = FONT_SIZE) 
 axis.set_ylabel('Percentage %', fontsize = FONT_SIZE) 
+
 axis.set_xticks([0, 9, 20], powers)
+
+y_interval = 1
+y_lim = 5
+y_min = -10
+
+y_ticks = np.arange(y_min, y_lim, y_interval)
+y_ticks = np.append(y_ticks, [y_lim])
+axis.set_yticks(y_ticks)
+
 axis.legend(loc='best', ncols=2, fontsize=FONT_SIZE)
 
+plt.axhline(linestyle='dotted', lw=1, color='gainsboro')
 plt.tight_layout()
 
 if (EXPORT_FOR_LATEX):
