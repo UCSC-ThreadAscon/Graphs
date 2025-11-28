@@ -5,9 +5,10 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 EXPORT_FOR_LATEX = False
+FONT_SIZE = 'xx-large'
 
 algs = ["NoEncrypt", "AES", "AsconAead128"]
-powers = ["0dbm", "9dbm", "20dbm"]
+powers = ["0 dBm", "9 dBm", "20 dBm"]
 colors = {"NoEncrypt":"mediumaquamarine", "AES":"deepskyblue", "AsconAead128":"plum"}
 
 def translate(alg): # labels are different for tp, show the same way as rtt/cpu on plot
@@ -56,6 +57,7 @@ plt.title("Throughput", fontsize = fontsize)
 plt.xlabel('TX Power (dBm)', fontsize = fontsize) 
 plt.ylabel('bytes/second', fontsize = fontsize) 
 plt.xticks([r + bar_width for r in range(3)], powers)
+plt.legend(loc='best', ncols=2, fontsize=FONT_SIZE)
 
 plt.legend()
 
