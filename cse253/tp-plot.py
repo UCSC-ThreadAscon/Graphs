@@ -8,7 +8,7 @@ EXPORT_FOR_LATEX = False
 
 algs = ["NoEncrypt", "AES", "AsconAead128"]
 powers = ["0dbm", "9dbm", "20dbm"]
-colors = {"NoEncrypt":"grey", "AES":"orange", "AsconAead128":"blue"}
+colors = {"NoEncrypt":"mediumaquamarine", "AES":"deepskyblue", "AsconAead128":"plum"}
 
 def translate(alg): # labels are different for tp, show the same way as rtt/cpu on plot
     if (alg == "NoEncrypt"):
