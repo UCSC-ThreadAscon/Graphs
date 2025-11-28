@@ -59,7 +59,7 @@ for alg in algs:
   for i in range(len(bar_pos)):
       bar_pos[i] += bar_width
 
-axis.set_title("Average Throughput (Confirmable)", fontsize = FONT_SIZE)
+axis.set_title("Average Throughput", fontsize = FONT_SIZE)
 axis.set_xlabel('TX Power (dBm)', fontsize = FONT_SIZE) 
 axis.set_ylabel('Throughput (bytes/second)', fontsize = FONT_SIZE) 
 axis.set_xticks([r + bar_width for r in range(3)], powers)
