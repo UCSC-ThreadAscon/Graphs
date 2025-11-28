@@ -69,9 +69,9 @@ axis.tick_params(axis='x', labelsize=FONT_SIZE)
 plt.tight_layout()
 
 if (EXPORT_FOR_LATEX):
-    axis.savefig('rtt-plot-bar.pgf', format='pgf')
+  axis.savefig('rtt-plot-bar.pgf', format='pgf')
 else:
-    plt.show()
+  plt.show()
 
 #----------------------------------- cpu
 cpu_data = {}
@@ -126,8 +126,8 @@ plt.tight_layout()
 axis.legend(loc='best', ncols=3, fontsize=FONT_SIZE)
 
 if (EXPORT_FOR_LATEX):
-    axis.savefig('cpu-plot-bar.pgf', format='pgf')
+  axis.savefig('cpu-plot-bar.pgf', format='pgf')
 else:
-    plt.show()
+  plt.show()
 
 

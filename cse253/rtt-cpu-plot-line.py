@@ -73,26 +73,26 @@ fig = plt.subplots()
 
 cpu_mean = {}
 for alg in algs:
-    cpu_mean[alg] = []
-    for p in powers:
-        test = "RTT-" + alg + "-" + p
-        mean = 0
-        # average times, counting 10 backwards from last entry
-        for i in range(len(cpu_data[test]) - 1, len(cpu_data[test]) - 11, -1):
-            mean += cpu_data[test][i]
-        mean = mean / 10
-        cpu_mean[alg].append(mean)
+  cpu_mean[alg] = []
+  for p in powers:
+    test = "RTT-" + alg + "-" + p
+    mean = 0
+    # average times, counting 10 backwards from last entry
+    for i in range(len(cpu_data[test]) - 1, len(cpu_data[test]) - 11, -1):
+      mean += cpu_data[test][i]
+    mean = mean / 10
+    cpu_mean[alg].append(mean)
 
 for alg in algs:
-    if (alg != "None"):
-        for i in range(3):
-            rtt_mean[alg][i] = (rtt_mean[alg][i] - rtt_mean["None"][i]) / rtt_mean["None"][i]
+  if (alg != "None"):
+    for i in range(3):
+      rtt_mean[alg][i] = (rtt_mean[alg][i] - rtt_mean["None"][i]) / rtt_mean["None"][i]
 
 x_points = [0, 9, 20]
 for alg in algs:
-    if (alg != "None"):
-        plt.plot(x_points, rtt_mean[alg], lineType[alg.replace(" ", "")], 
-                 color = colors[alg], label = alg)
+  if (alg != "None"):
+    plt.plot(x_points, rtt_mean[alg], lineType[alg.replace(" ", "")], 
+      color = colors[alg], label = alg)
 
 plt.title("CPU Time Increase Relative To No Encryption", fontsize = fontsize)
 plt.xlabel('TX Power (dBm)', fontsize = fontsize) 
