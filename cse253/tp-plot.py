@@ -9,6 +9,11 @@ FONT_SIZE = 'xx-large'
 
 algs = ["NoEncrypt", "AES", " Ascon-AEAD128"]
 powers = ["0 dBm", "9 dBm", "20 dBm"]
+lineType = {
+  "NoEncrypt": 'o--', 
+  "AES": 'o:',
+  "Ascon-AEAD128": 'o-.'
+}
 colors = {"NoEncrypt":"mediumaquamarine", "AES":"deepskyblue", " Ascon-AEAD128":"plum"}
 
 def translate(alg): # labels are different for tp, show the same way as rtt/cpu on plot
@@ -48,12 +53,11 @@ print(tp_err)
 
 bar_pos = [0.0, 1.0, 2.0]
 for alg in algs:
-    print(alg)
-    print(tp_err[alg])
-    axis.bar(bar_pos, tp_mean[alg], color = colors[alg], width = bar_width, label = translate(alg)) 
-    axis.errorbar(bar_pos, tp_mean[alg], yerr=tp_err[alg], fmt="o", color="black")
-    for i in range(len(bar_pos)):
-        bar_pos[i] += bar_width
+  print(tp_err[alg])
+  axis.bar(bar_pos, tp_mean[alg], color = colors[alg], width = bar_width, label = translate(alg)) 
+  axis.errorbar(bar_pos, tp_mean[alg], yerr=tp_err[alg], fmt="o", color="black")
+  for i in range(len(bar_pos)):
+      bar_pos[i] += bar_width
 
 axis.set_title("Average Throughput (Confirmable)", fontsize = FONT_SIZE)
 axis.set_xlabel('TX Power (dBm)', fontsize = FONT_SIZE) 
@@ -83,11 +87,12 @@ else:
 fig, axis = plt.subplots() 
 x_points = [0.0, 9.0, 20.0]
 for alg in algs:
-    if (alg != "NoEncrypt"):
-        inc = []
-        for i in range(len(tp_mean["NoEncrypt"])):
-            inc.append( ((tp_mean[alg][i] - tp_mean["NoEncrypt"][i]) / tp_mean["NoEncrypt"][i]) * 100 )
-        axis.plot(x_points, inc, color = colors[alg], label = alg)
+  print(alg)
+  if (alg != "NoEncrypt"):
+    inc = []
+    for i in range(len(tp_mean["NoEncrypt"])):
+      inc.append( ((tp_mean[alg][i] - tp_mean["NoEncrypt"][i]) / tp_mean["NoEncrypt"][i]) * 100 )
+    axis.plot(x_points, inc, lineType[alg.replace(" ", "")], color = colors[alg], label = alg)
 
 axis.set_title("Throughput Increase Relative To No Encryption", fontsize = FONT_SIZE)
 axis.set_xlabel('TX Power (dBm)', fontsize = FONT_SIZE) 
