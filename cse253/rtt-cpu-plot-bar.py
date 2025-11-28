@@ -5,10 +5,11 @@ import matplotlib as mpl
 import matplotlib.pyplot as plt
 
 EXPORT_FOR_LATEX = False
+FONT_SIZE = 'xx-large'
 
 algs = ["None", "AES", "AsconAead-128"]
-powers = ["0dbm", "9dbm", "20dbm"]
-colors = {"None":"grey", "AES":"orange", "AsconAead-128":"blue"}
+powers = ["0 dBm", "9 dBm", "20 dBm"]
+colors = {"None":"mediumaquamarine", "AES":"deepskyblue", "AsconAead-128":"plum"}
 
 
 #----------------------------------- rtt
@@ -17,8 +18,7 @@ with open('RTT-results.json', 'r') as file:
     rtt_data = json.load(file)
 
 bar_width = 0.25
-fontsize = "x-large"
-fig = plt.subplots() 
+fig, axis = plt.subplots() 
 
 
 
@@ -44,20 +44,32 @@ for alg in algs:
 
 bar_pos = [0.0, 1.0, 2.0]
 for alg in algs:
-    plt.bar(bar_pos, rtt_mean[alg], color = colors[alg], width = bar_width, label = alg) 
-    plt.errorbar(bar_pos, rtt_mean[alg], yerr=rtt_err[alg], fmt="o", color="black")
+    axis.bar(bar_pos, rtt_mean[alg], color = colors[alg], width = bar_width, label = alg) 
+    axis.errorbar(bar_pos, rtt_mean[alg], yerr=rtt_err[alg], fmt="o", color="black")
     for i in range(len(bar_pos)):
         bar_pos[i] += bar_width
 
-plt.title("Round Trip Time", fontsize = fontsize)
-plt.xlabel('TX Power (dBm)', fontsize = fontsize) 
-plt.ylabel('RTT (ms)', fontsize = fontsize) 
-plt.xticks([r + bar_width for r in range(3)], powers)
+axis.set_title("Round Trip Time", fontsize = FONT_SIZE)
+axis.set_xlabel('TX Power (dBm)', fontsize = FONT_SIZE) 
+axis.set_ylabel('RTT (ms)', fontsize = FONT_SIZE) 
+axis.set_xticks([r + bar_width for r in range(3)], powers)
 
-plt.legend()
+y_min = 0
+y_lim = 90
+
+tick_step = abs(y_lim - y_min) / 13
+y_ticks = np.arange(0, y_lim, tick_step)
+y_ticks = np.append(y_ticks, [y_lim])
+axis.set_yticks(y_ticks)
+
+axis.legend(loc='best', ncols=3, fontsize=FONT_SIZE)
+
+axis.tick_params(axis='y', labelsize=FONT_SIZE)
+axis.tick_params(axis='x', labelsize=FONT_SIZE)
+plt.tight_layout()
 
 if (EXPORT_FOR_LATEX):
-    plt.savefig('rtt-plot-bar.pgf', format='pgf')
+    axis.savefig('rtt-plot-bar.pgf', format='pgf')
 else:
     plt.show()
 
@@ -67,10 +79,7 @@ with open('CPU-results.json', 'r') as file:
     cpu_data = json.load(file)
 
 bar_width = 0.25
-fontsize = "x-large"
-fig = plt.subplots() 
-
-
+fig, axis = plt.subplots() 
 
 cpu_mean = {}
 cpu_err = {}
@@ -93,20 +102,31 @@ for alg in algs:
 bar_pos = [0.0, 1.0, 2.0]
 for alg in algs:
     print(rtt_err[alg])
-    plt.bar(bar_pos, cpu_mean[alg], color = colors[alg], width = bar_width, label = alg) 
-    plt.errorbar(bar_pos, cpu_mean[alg], yerr=cpu_err[alg], fmt="o", color="black")
+    axis.bar(bar_pos, cpu_mean[alg], color = colors[alg], width = bar_width, label = alg) 
+    axis.errorbar(bar_pos, cpu_mean[alg], yerr=cpu_err[alg], fmt="o", color="black")
     for i in range(len(bar_pos)):
         bar_pos[i] += bar_width
 
-plt.title("CPU Time Spent on Working Threads", fontsize = fontsize)
-plt.xlabel('TX Power (dBm)', fontsize = fontsize) 
-plt.ylabel('Percent (%)', fontsize = fontsize) 
-plt.xticks([r + bar_width for r in range(3)], powers)
+axis.set_title("CPU Time Spent on Working Threads", fontsize = FONT_SIZE)
+axis.set_xlabel('TX Power (dBm)', fontsize = FONT_SIZE) 
+axis.set_ylabel('Percent (%)', fontsize = FONT_SIZE) 
+axis.set_xticks([r + bar_width for r in range(3)], powers)
 
-plt.legend()
+y_min = 0
+y_lim = 43
+
+tick_step = abs(y_lim - y_min) / 13
+ticks = np.arange(0, y_lim, tick_step)
+axis.set_yticks(ticks)
+
+axis.tick_params(axis='y', labelsize=FONT_SIZE)
+axis.tick_params(axis='x', labelsize=FONT_SIZE)
+plt.tight_layout()
+
+axis.legend(loc='best', ncols=3, fontsize=FONT_SIZE)
 
 if (EXPORT_FOR_LATEX):
-    plt.savefig('cpu-plot-bar.pgf', format='pgf')
+    axis.savefig('cpu-plot-bar.pgf', format='pgf')
 else:
     plt.show()
 
