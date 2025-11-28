@@ -7,14 +7,14 @@ import matplotlib.pyplot as plt
 EXPORT_FOR_LATEX = False
 FONT_SIZE = 'xx-large'
 
-algs = ["NoEncrypt", "AES", "AsconAead128"]
+algs = ["NoEncrypt", "AES", " Ascon-AEAD128"]
 powers = ["0 dBm", "9 dBm", "20 dBm"]
-colors = {"NoEncrypt":"mediumaquamarine", "AES":"deepskyblue", "AsconAead128":"plum"}
+colors = {"NoEncrypt":"mediumaquamarine", "AES":"deepskyblue", " Ascon-AEAD128":"plum"}
 
 def translate(alg): # labels are different for tp, show the same way as rtt/cpu on plot
     if (alg == "NoEncrypt"):
         return "None"
-    elif(alg == "AsconAead128"):
+    elif(alg == " Ascon-AEAD128"):
         return "AsconAead-128"
     else:
         return alg
@@ -26,8 +26,8 @@ with open('TP-results.json', 'r') as file:
     tp_data = json.load(file)
 
 bar_width = 0.25
-fontsize = "x-large"
-fig = plt.subplots() 
+fontsize = "xx-large"
+fig, axis = plt.subplots() 
 
 tp_mean = {}
 tp_err = {}
@@ -44,49 +44,56 @@ for alg in algs:
         tp_mean[alg].append(mean)
         tp_err[alg].append(np.std(tp_data[test]))
 
+print(tp_err)
+
 bar_pos = [0.0, 1.0, 2.0]
 for alg in algs:
     print(alg)
     print(tp_err[alg])
-    plt.bar(bar_pos, tp_mean[alg], color = colors[alg], width = bar_width, label = translate(alg)) 
-    plt.errorbar(bar_pos, tp_mean[alg], yerr=tp_err[alg], fmt="o", color="black")
+    axis.bar(bar_pos, tp_mean[alg], color = colors[alg], width = bar_width, label = translate(alg)) 
+    axis.errorbar(bar_pos, tp_mean[alg], yerr=tp_err[alg], fmt="o", color="black")
     for i in range(len(bar_pos)):
         bar_pos[i] += bar_width
 
-plt.title("Throughput", fontsize = fontsize)
-plt.xlabel('TX Power (dBm)', fontsize = fontsize) 
-plt.ylabel('bytes/second', fontsize = fontsize) 
-plt.xticks([r + bar_width for r in range(3)], powers)
-plt.legend(loc='best', ncols=2, fontsize=FONT_SIZE)
+axis.set_title("Average Throughput (Confirmable)", fontsize = FONT_SIZE)
+axis.set_xlabel('TX Power (dBm)', fontsize = FONT_SIZE) 
+axis.set_ylabel('Throughput (bytes/second)', fontsize = FONT_SIZE) 
+axis.set_xticks([r + bar_width for r in range(3)], powers)
 
-plt.legend()
+y_min = 40
+y_lim = 150
+
+tick_step = abs(y_lim - y_min) / 13
+ticks = np.arange(0, y_lim, tick_step)
+
+axis.set_yticks(ticks)
+
+axis.legend(loc='best', ncols=2, fontsize=FONT_SIZE)
 
 if (EXPORT_FOR_LATEX):
-    plt.savefig('tp-plot-line.pgf', format='pgf')
+    axis.savefig('tp-plot-line.pgf', format='pgf')
 else:
     plt.show()
 
 #----------------------------------- line
 
 
-fontsize = "x-large"
-fig = plt.subplots() 
+fig, axis = plt.subplots() 
 x_points = [0.0, 9.0, 20.0]
 for alg in algs:
     if (alg != "NoEncrypt"):
         inc = []
         for i in range(len(tp_mean["NoEncrypt"])):
             inc.append( ((tp_mean[alg][i] - tp_mean["NoEncrypt"][i]) / tp_mean["NoEncrypt"][i]) * 100 )
-        plt.plot(x_points, inc, color = colors[alg], label = alg)
+        axis.plot(x_points, inc, color = colors[alg], label = alg)
 
-plt.title("Throughput Increase Relative To No Encryption", fontsize = fontsize)
-plt.xlabel('TX Power (dBm)', fontsize = fontsize) 
-plt.ylabel('Percentage %', fontsize = fontsize) 
-plt.xticks([0, 9, 20], powers)
-
-plt.legend()
+axis.set_title("Throughput Increase Relative To No Encryption", fontsize = FONT_SIZE)
+axis.set_xlabel('TX Power (dBm)', fontsize = FONT_SIZE) 
+axis.set_ylabel('Percentage %', fontsize = FONT_SIZE) 
+axis.set_xticks([0, 9, 20], powers)
+axis.legend(loc='best', ncols=2, fontsize=FONT_SIZE)
 
 if (EXPORT_FOR_LATEX):
-    plt.savefig('tp-plot-line.pgf', format='pgf')
+    axis.savefig('tp-plot-line.pgf', format='pgf')
 else:
     plt.show()
