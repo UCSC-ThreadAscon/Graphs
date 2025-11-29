@@ -36,6 +36,8 @@ def getIndepVars(line):
   return cipher, txPower
 
 def parse(buffer):
+  # 1st line has the independent variables.
+  cipher, txPower = getIndepVars(buffer[0])
 
   # 10th line is deep sleep standard deviation.
   std = buffer[9].split()[7]
@@ -43,10 +45,11 @@ def parse(buffer):
   # The 13th line is the on wakeup standard deviation.
   stdWakeup = buffer[12].split()[6]
 
-  return std, stdWakeup
+  return cipher, txPower, std, stdWakeup
 
 def getStds():
   stdDict = initEmptyDict()
+  stdWakeupDict = initEmptyDict()
 
   with open(AVERAGES_TEXT_FILE, "r") as file:
     buffer = []
@@ -57,9 +60,11 @@ def getStds():
       buffer.append(line)
 
       if isBottomDelimiter(line):
-        parse(buffer)
+        cipher, txPower, std, stdWakeup = parse(buffer)
+        stdDict[cipher][txPower] = std
+        stdWakeupDict[cipher][txPower] = stdWakeup
 
-  return stdDict
+  return stdDict, stdWakeupDict
 
 if __name__ == "__main__":
   print(getStds())
