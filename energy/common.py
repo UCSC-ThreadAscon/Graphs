@@ -17,8 +17,8 @@ THESIS_FIGURES_PATH = '/Users/simeon/Desktop/Repositories/ThesisWriteup/images/p
 THESIS_PAPER_WIDTH_IN = 5.75113
 THESIS_PAPER_HEIGHT_IN = 8.12659
 
-CIPHERS = ["No Encryption", "AES", "ASCON-128a", "ASCON-128"]
-TX_POWERS = ["0 dBm", "9 dBm", "20 dBm"]
+CIPHERS = ["No Encryption", "AES", "AsconAead128"]
+TX_POWERS = ["9 dBm", "20 dBm"]
 
 cipherColors = \
 {
@@ -30,14 +30,13 @@ cipherColors = \
 
 TX_POWERS_LABELS = \
 {
-  "0dbm": "0 dBm",
   "9dbm": "9 dBm",
   "20dbm": "20 dBm"
 }
 
 initEmptyDict = lambda : { 
-    "No Encryption": { "0 dBm": None, "9 dBm": None, "20 dBm": None},
-    "AES": { "0 dBm": None, "9 dBm": None, "20 dBm": None },
-    "ASCON-128a": { "0 dBm": None, "9 dBm": None, "20 dBm": None },
-    "ASCON-128": { "0 dBm": None, "9 dBm": None, "20 dBm": None }
+    "No Encryption": { "9 dBm": None, "20 dBm": None},
+    "AES": { "9 dBm": None, "20 dBm": None },
+    "ASCON-128a": { "9 dBm": None, "20 dBm": None },
+    "ASCON-128": { "9 dBm": None, "20 dBm": None }
   }
