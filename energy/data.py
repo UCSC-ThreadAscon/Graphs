@@ -14,7 +14,7 @@ THESIS_ENERGY_CSV = {
     "20 dBm": Path(CSV_PATH, "AES-20dbm-trial-1.csv"),
     "9 dBm": Path(CSV_PATH, "AES-9dbm-trial-1.csv")
   },
-  "ASCON-128a": {
+  "AsconAead128": {
     "20 dBm": Path(CSV_PATH, "AsconAead128-20dbm-trial-2.csv"),
     "9 dBm": Path(CSV_PATH, "AsconAead128-9dbm-trial-1.csv")
   },

@@ -1,4 +1,4 @@
-Fri Nov 28 19:12:13 PST 2025
+Fri Nov 28 19:42:14 PST 2025
 The uA wakeup minimum threshold is set to 9 uA.
 Device power on detected @ 765.8 ms with current 24363.564 uA.
 Stop post-processing @ 10980765.8 ms with current 7.656 uA.
@@ -10,12 +10,12 @@ The average uA on wakeup is 30062.034790394777 uA.
 The average mA on wakeup is 30.062034790394776 mA.
 The average mAh on wakeup is 91.68920611070406 mAh.
 -------------------------------------------
-Device power on detected @ 0.0 ms with current 2.675 uA.
-Stop post-processing @ 10980000.0 ms with current 7.793 uA.
+Device power on detected @ 694.8 ms with current 675.331 uA.
+Stop post-processing @ 10980694.8 ms with current 7.717 uA.
 ---------- No Encryption 20 dBm ----------
-The average uA, deep sleep included, is 849.4567449867939 uA.
-The average mA, deep sleep included, is 0.8494567449867939 mA.
-The average mAh, deep sleep included, is 2.5908430722097213 mAh.
+The average uA, deep sleep included, is 849.457225371142 uA.
+The average mA, deep sleep included, is 0.8494572253711421 mA.
+The average mAh, deep sleep included, is 2.590844537381983 mAh.
 The average uA on wakeup is 30821.70691098303 uA.
 The average mA on wakeup is 30.821706910983032 mA.
 The average mAh on wakeup is 94.00620607849824 mAh.
