@@ -11,6 +11,9 @@ average:
 get_data:
 	python3 ./get_data.py
 
+get_std:
+	python3 ./get_std.py
+
 bargraph:
 	python3 ./bargraph.py
 
