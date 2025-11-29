@@ -6,7 +6,7 @@ from get_data import *
 
 SHOW_BAR_LABELS = False
 
-mahDict, _ = getAverages()
+mahDict, stds = getAverages()
 print(mahDict)
 
 def bargraph():
@@ -23,9 +23,11 @@ def bargraph():
   for cipher, averagesDict in mahDict.items():
 
     averages = [average for average in averagesDict.values()]
+    print(stds[cipher].values())
+
     offset = width * multiplier
     rects = axis.bar(xAxisValues + offset, averages, width, label=cipher,
-                     color=cipherColors[cipher])
+                     color=cipherColors[cipher], yerr=list(stds[cipher].values()))
 
     if SHOW_BAR_LABELS:
       axis.bar_label(rects, padding=3)
