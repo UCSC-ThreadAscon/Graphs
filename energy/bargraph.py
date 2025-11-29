@@ -3,11 +3,14 @@ import numpy as np
 import os
 
 from get_data import *
+from get_std import getStds
 
 SHOW_BAR_LABELS = False
 
 mahDict, _ = getAverages()
 print(mahDict)
+
+stdsDict, _ = getStds()
 
 def bargraph():
   xAxisValues = np.arange(len(TX_POWERS))
@@ -27,6 +30,7 @@ def bargraph():
     offset = width * multiplier
     rects = axis.bar(xAxisValues + offset, averages, width, label=cipher,
                      color=cipherColors[cipher])
+                    #  yerr=stdsDict[cipher].values())
 
     if SHOW_BAR_LABELS:
       axis.bar_label(rects, padding=3)

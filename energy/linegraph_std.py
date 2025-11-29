@@ -12,6 +12,7 @@ print(stdsDict)
 def linegraph():
   aes = stdsDict['AES'].values()
   asconaead128 = stdsDict["AsconAead128"].values()
+  noencrypt = stdsDict["No Encryption"].values()
 
   y_interval = 0.25
   y_lim = 19
@@ -26,6 +27,8 @@ def linegraph():
   plt.plot(TX_POWERS, aes, 'o--', color=cipherColors['AES'], label='AES')
   plt.plot(TX_POWERS, asconaead128, 'o:', color=cipherColors['AsconAead128'],
            label='AsconAead128')
+  plt.plot(TX_POWERS, noencrypt, 'o-.', color=cipherColors['No Encryption'],
+           label='No Encryption')
 
   y_ticks = np.arange(y_min, y_lim, y_interval)
   y_ticks = np.append(y_ticks, [y_lim])
@@ -36,8 +39,7 @@ def linegraph():
   ax.legend(loc='best', ncols=2, fontsize=FONT_SIZE)
   ax.set_ylabel('Standard Deviation (mAh)', fontsize=FONT_SIZE)
   ax.set_xlabel('TX Power (dBm)', fontsize=FONT_SIZE)
-  ax.set_title(f'Standard Deviations (Deep Sleep)',
-               fontsize=FONT_SIZE)
+  ax.set_title(f'Standard Deviations', fontsize=FONT_SIZE)
 
   ax.tick_params(axis='y', labelsize=FONT_SIZE)
   ax.tick_params(axis='x', labelsize=FONT_SIZE)
