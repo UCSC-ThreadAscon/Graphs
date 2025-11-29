@@ -31,3 +31,6 @@ linegraph_wakeup:
 
 linegraph_std:
 	python3 ./linegraph_std.py
+
+linegraph_wakeup_std:
+	python3 ./linegraph_wakeup_std.py
