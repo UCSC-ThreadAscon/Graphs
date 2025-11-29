@@ -1,4 +1,4 @@
-Fri Nov 28 21:14:25 PST 2025
+Fri Nov 28 21:20:56 PST 2025
 The uA wakeup minimum threshold is set to 9 uA.
 Device power on detected @ 765.8 ms with current 24363.564 uA.
 Stop post-processing @ 10980765.8 ms with current 7.656 uA.
@@ -7,10 +7,14 @@ The average uA, deep sleep included, is 852.3024989769314 uA.
 The average mA, deep sleep included, is 0.8523024989769313 mA.
 The average mAh, deep sleep included, is 2.5995226218796406 mAh.
 The standard deviation, deep sleep included, is 5581.050948730035 uA.
+The standard deviation, deep sleep included, is 5.581050948730035 mA.
+The standard deviation, deep sleep included, is 17.022205393626606 mAh.
 The average uA on wakeup is 30062.034790394777 uA.
 The average mA on wakeup is 30.062034790394776 mA.
 The average mAh on wakeup is 91.68920611070406 mAh.
 The standard deviation, on wakeup, is 15182.051523153506 uA.
+The standard deviation, on wakeup, is 15.182051523153508 mA.
+The standard deviation, on wakeup, is 46.30525714561819 mAh.
 -------------------------------------------
 Device power on detected @ 694.8 ms with current 675.331 uA.
 Stop post-processing @ 10980694.8 ms with current 7.717 uA.
@@ -19,10 +23,14 @@ The average uA, deep sleep included, is 849.457225371142 uA.
 The average mA, deep sleep included, is 0.8494572253711421 mA.
 The average mAh, deep sleep included, is 2.590844537381983 mAh.
 The standard deviation, deep sleep included, is 5718.106663161478 uA.
+The standard deviation, deep sleep included, is 5.718106663161477 mA.
+The standard deviation, deep sleep included, is 17.440225322642505 mAh.
 The average uA on wakeup is 30821.70691098303 uA.
 The average mA on wakeup is 30.821706910983032 mA.
 The average mAh on wakeup is 94.00620607849824 mAh.
 The standard deviation, on wakeup, is 16533.627301730827 uA.
+The standard deviation, on wakeup, is 16.533627301730828 mA.
+The standard deviation, on wakeup, is 50.42756327027902 mAh.
 -------------------------------------------
 Device power on detected @ 837.2 ms with current 9.639 uA.
 Stop post-processing @ 10980837.2 ms with current 7.712 uA.
@@ -31,9 +39,60 @@ The average uA, deep sleep included, is 867.8508417645211 uA.
 The average mA, deep sleep included, is 0.8678508417645211 mA.
 The average mAh, deep sleep included, is 2.646945067381789 mAh.
 The standard deviation, deep sleep included, is 5649.844163463871 uA.
+The standard deviation, deep sleep included, is 5.649844163463872 mA.
+The standard deviation, deep sleep included, is 17.232024698564807 mAh.
 The average uA on wakeup is 30275.25247798843 uA.
 The average mA on wakeup is 30.27525247798843 mA.
 The average mAh on wakeup is 92.3395200578647 mAh.
 The standard deviation, on wakeup, is 15269.926423296782 uA.
+The standard deviation, on wakeup, is 15.269926423296782 mA.
+The standard deviation, on wakeup, is 46.573275591055186 mAh.
 -------------------------------------------
 Device power on detected @ 987.7 ms with current 103.839 uA.
+Stop post-processing @ 10980987.7 ms with current 15428.153 uA.
+---------- AES 20 dBm ----------
+The average uA, deep sleep included, is 872.9744928663238 uA.
+The average mA, deep sleep included, is 0.8729744928663238 mA.
+The average mAh, deep sleep included, is 2.6625722032422874 mAh.
+The standard deviation, deep sleep included, is 5754.1085026752335 uA.
+The standard deviation, deep sleep included, is 5.754108502675233 mA.
+The standard deviation, deep sleep included, is 17.550030933159462 mAh.
+The average uA on wakeup is 30678.283182818217 uA.
+The average mA on wakeup is 30.678283182818216 mA.
+The average mAh on wakeup is 93.56876370759555 mAh.
+The standard deviation, on wakeup, is 16106.740830295676 uA.
+The standard deviation, on wakeup, is 16.106740830295674 mA.
+The standard deviation, on wakeup, is 49.1255595324018 mAh.
+-------------------------------------------
+Device power on detected @ 952.9 ms with current 8791.436 uA.
+Stop post-processing @ 10980952.9 ms with current 7.797 uA.
+---------- AsconAead128 9 dBm ----------
+The average uA, deep sleep included, is 861.9131275906536 uA.
+The average mA, deep sleep included, is 0.8619131275906536 mA.
+The average mAh, deep sleep included, is 2.6288350391514936 mAh.
+The standard deviation, deep sleep included, is 5615.817115414801 uA.
+The standard deviation, deep sleep included, is 5.615817115414801 mA.
+The standard deviation, deep sleep included, is 17.12824220201514 mAh.
+The average uA on wakeup is 30101.52016888851 uA.
+The average mA on wakeup is 30.10152016888851 mA.
+The average mAh on wakeup is 91.80963651510994 mAh.
+The standard deviation, on wakeup, is 15204.069634683841 uA.
+The standard deviation, on wakeup, is 15.204069634683842 mA.
+The standard deviation, on wakeup, is 46.372412385785715 mAh.
+-------------------------------------------
+Device power on detected @ 1018.4 ms with current 13325.851 uA.
+Stop post-processing @ 10981018.4 ms with current 7.671 uA.
+---------- AsconAead128 20 dBm ----------
+The average uA, deep sleep included, is 874.6679250076324 uA.
+The average mA, deep sleep included, is 0.8746679250076325 mA.
+The average mAh, deep sleep included, is 2.667737171273279 mAh.
+The standard deviation, deep sleep included, is 5794.002400724509 uA.
+The standard deviation, deep sleep included, is 5.7940024007245094 mA.
+The standard deviation, deep sleep included, is 17.671707322209752 mAh.
+The average uA on wakeup is 30650.211025057317 uA.
+The average mA on wakeup is 30.650211025057317 mA.
+The average mAh on wakeup is 93.4831436264248 mAh.
+The standard deviation, on wakeup, is 16557.901723457977 uA.
+The standard deviation, on wakeup, is 16.557901723457977 mA.
+The standard deviation, on wakeup, is 50.50160025654683 mAh.
+-------------------------------------------
