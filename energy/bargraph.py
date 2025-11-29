@@ -23,7 +23,6 @@ def bargraph():
   for cipher, averagesDict in mahDict.items():
 
     averages = [average for average in averagesDict.values()]
-    print(stds[cipher].values())
 
     offset = width * multiplier
     rects = axis.bar(xAxisValues + offset, averages, width, label=cipher,
