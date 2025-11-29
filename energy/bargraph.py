@@ -6,7 +6,7 @@ from get_data import *
 
 SHOW_BAR_LABELS = False
 
-mahDict, stds = getAverages()
+mahDict, _ = getAverages()
 print(mahDict)
 
 def bargraph():
