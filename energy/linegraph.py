@@ -10,11 +10,10 @@ RATIOS = getMahRatios(mahDict)
 
 def linegraph():
   aes = RATIOS['AES'].values()
-  ascon128 = RATIOS["ASCON-128"].values()
-  ascon128a = RATIOS["ASCON-128a"].values()
+  asconaead128 = RATIOS["AsconAead128"].values()
 
   y_interval = 1
-  y_lim = 3
+  y_lim = 10
   y_min = -1.5
 
   fig, ax = plt.subplots()
@@ -24,8 +23,8 @@ def linegraph():
   #   fig.set_figheight(THESIS_PAPER_HEIGHT_IN / 3)
 
   plt.plot(TX_POWERS, aes, 'o--', color=cipherColors['AES'], label='AES')
-  plt.plot(TX_POWERS, ascon128a, 'o:', color=cipherColors['ASCON-128a'], label='ASCON-128a')
-  plt.plot(TX_POWERS, ascon128, 'o-.', color=cipherColors['ASCON-128'],label='ASCON-128')
+  plt.plot(TX_POWERS, asconaead128, 'o:', color=cipherColors['AsconAead128'],
+           label='AsconAead128')
 
   y_ticks = np.arange(y_min, y_lim, y_interval)
   y_ticks = np.append(y_ticks, [y_lim])

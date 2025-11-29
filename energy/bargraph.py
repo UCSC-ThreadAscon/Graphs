@@ -27,7 +27,7 @@ def bargraph():
 
     offset = width * multiplier
     rects = axis.bar(xAxisValues + offset, averages, width, label=cipher,
-                     color=cipherColors[cipher], yerr=list(stds[cipher].values()))
+                     color=cipherColors[cipher])
 
     if SHOW_BAR_LABELS:
       axis.bar_label(rects, padding=3)
@@ -58,6 +58,10 @@ def bargraph():
 
   if RENDER_PGF:
     plt.savefig(os.path.join(THESIS_FIGURES_PATH, 'energy-bar-graph.pgf'))
+  return
+
+# TODO: Make bar graph showing standard deviations.
+def stdBargraph():
   return
 
 if __name__ == "__main__":
