@@ -97,7 +97,7 @@ def printAllAvgs():
       print(f"The average uA, deep sleep included, is {avgUa} uA.")
       print(f"The average mA, deep sleep included, is {avgMa} mA.")
       print(f"The average mAh, deep sleep included, is {avgMah} mAh.")
-      print(f"The standard deviation, deep sleep included, is {uaStd} uA.")
+      print(f"The standard deviation, deep sleep included, is {uAStd} uA.")
       print(f"The average uA on wakeup is {avgUaWakeup} uA.")
       print(f"The average mA on wakeup is {avgMaWakeup} mA.")
       print(f"The average mAh on wakeup is {avgMahWakeup} mAh.")
