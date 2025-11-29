@@ -23,8 +23,7 @@ TX_POWERS = ["9 dBm", "20 dBm"]
 cipherColors = \
 {
   'AES': 'deepskyblue',
-  'ASCON-128a': 'plum',
-  'ASCON-128': 'orange',
+  'AsconAead128': 'plum',
   'No Encryption': 'mediumaquamarine'
 }
 
@@ -37,6 +36,5 @@ TX_POWERS_LABELS = \
 initEmptyDict = lambda : { 
     "No Encryption": { "9 dBm": None, "20 dBm": None},
     "AES": { "9 dBm": None, "20 dBm": None },
-    "ASCON-128a": { "9 dBm": None, "20 dBm": None },
-    "ASCON-128": { "9 dBm": None, "20 dBm": None }
+    "AsconAead128": { "9 dBm": None, "20 dBm": None },
   }

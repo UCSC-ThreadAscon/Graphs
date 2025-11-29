@@ -3,7 +3,7 @@ from pathlib import Path
 SCRIPTS_PATH = Path(Path.home(), "Desktop", "Repositories", "graphs", "energy", "data", "cse253")
 CSV_PATH = Path(Path.home(), "Desktop", "Repositories", "graphs", "energy", "csv", "cse253")
 
-AVERAGES_TEXT_FILE = Path(SCRIPTS_PATH, "final-averages.txt")
+AVERAGES_TEXT_FILE = Path(Path.home(), "Desktop", "Repositories", "graphs", "energy", "final-averages.txt")
 
 THESIS_ENERGY_CSV = {
   "No Encryption": {

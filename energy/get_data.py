@@ -23,6 +23,8 @@ def getIndepVars(line):
     cipher = "ASCON-128a"
   elif "ASCON-128" in line:
     cipher = "ASCON-128"
+  elif "AsconAead128" in line:
+    cipher = "AsconAead128"
 
   if "20 dBm" in line:
     txPower = "20 dBm"
