@@ -61,8 +61,8 @@ def getStds():
 
       if isBottomDelimiter(line):
         cipher, txPower, std, stdWakeup = parse(buffer)
-        stdDict[cipher][txPower] = std
-        stdWakeupDict[cipher][txPower] = stdWakeup
+        stdDict[cipher][txPower] = float(std)
+        stdWakeupDict[cipher][txPower] = float(stdWakeup)
 
   return stdDict, stdWakeupDict
 
