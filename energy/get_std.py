@@ -36,13 +36,24 @@ def getIndepVars(line):
   return cipher, txPower
 
 def parse(buffer):
-  # 1st line has the independent variables.
-  cipher, txPower = getIndepVars(buffer[0])
+  print(buffer)
+  return
 
-  # 4th line has average mAh with deep sleep.
-  mah = float(buffer[3].split()[7])
+def getStds():
+  stdDict = initEmptyDict()
 
-  # 7th line has average mAh on wakeup.
-  mahWakeup = float(buffer[6].split()[6])
+  with open(AVERAGES_TEXT_FILE, "r") as file:
+    buffer = []
+    for line in file:
+      if isTopDelimiter(line):
+        buffer = []
 
-  return cipher, txPower, mah, mahWakeup
+      buffer.append(line)
+
+      if isBottomDelimiter(line):
+        parse(buffer)
+
+  return
+
+if __name__ == "__main__":
+  print(getStds())
