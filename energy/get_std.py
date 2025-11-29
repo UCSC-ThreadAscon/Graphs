@@ -36,8 +36,14 @@ def getIndepVars(line):
   return cipher, txPower
 
 def parse(buffer):
-  print(buffer)
-  return
+
+  # 10th line is deep sleep standard deviation.
+  std = buffer[9].split()[7]
+
+  # The 13th line is the on wakeup standard deviation.
+  stdWakeup = buffer[12].split()[6]
+
+  return std, stdWakeup
 
 def getStds():
   stdDict = initEmptyDict()
@@ -53,7 +59,7 @@ def getStds():
       if isBottomDelimiter(line):
         parse(buffer)
 
-  return
+  return stdDict
 
 if __name__ == "__main__":
   print(getStds())
