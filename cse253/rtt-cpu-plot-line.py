@@ -2,6 +2,7 @@ import json
 import matplotlib as mpl
 #mpl.use('pgf')
 import matplotlib.pyplot as plt
+import matplotlib as mpl
 
 import numpy as np
 
@@ -121,6 +122,10 @@ y_ticks = np.arange(y_min, y_lim, y_interval)
 y_ticks = np.append(y_ticks, [y_lim])
 # axis.set_ylim(y_min, y_lim)
 # axis.set_yticks(y_ticks)
+
+# https://stackoverflow.com/a/15572691/6621292
+t = axis.yaxis.get_offset_text()
+t.set_size(FONT_SIZE)
 
 axis.tick_params(axis='y', labelsize=FONT_SIZE)
 axis.tick_params(axis='x', labelsize=FONT_SIZE)
