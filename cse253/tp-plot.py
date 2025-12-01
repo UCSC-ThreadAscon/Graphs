@@ -79,7 +79,7 @@ axis.tick_params(axis='x', labelsize=FONT_SIZE)
 plt.tight_layout()
 
 if (RENDER_PGF):
-    axis.savefig('tp-plot-line.pgf', format='pgf')
+    plt.savefig(THESIS_FIGURES_PATH + '/tp-plot-bar.pgf', format='pgf')
 else:
     plt.show()
 
@@ -119,6 +119,6 @@ plt.axhline(linestyle='dotted', lw=1, color='gainsboro')
 plt.tight_layout()
 
 if (RENDER_PGF):
-    axis.savefig('tp-plot-line.pgf', format='pgf')
+    plt.savefig(THESIS_FIGURES_PATH + '/tp-plot-line.pgf', format='pgf')
 else:
     plt.show()
