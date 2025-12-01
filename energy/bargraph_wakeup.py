@@ -42,7 +42,7 @@ def bargraph():
   axis.set_xticks(xAxisValues + xWidthOffset, TX_POWERS_LABELS.values())
 
   y_min = 80
-  y_lim = 98
+  y_lim = 100
 
   tick_step = abs(y_lim - y_min) / 12
   ticks = np.arange(0, y_lim, tick_step)
