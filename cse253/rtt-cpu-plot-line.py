@@ -3,8 +3,7 @@ import matplotlib as mpl
 #mpl.use('pgf')
 import matplotlib.pyplot as plt
 
-EXPORT_FOR_LATEX = False
-FONT_SIZE = 'xx-large'
+from common import *
 
 algs = ["None", "AES", "Ascon-AEAD128"]
 powers = ["0 dBm", "9 dBm", "20 dBm"]
@@ -55,7 +54,7 @@ plt.tight_layout()
 
 axis.legend(loc='best', ncols=3, fontsize=FONT_SIZE)
 
-if (EXPORT_FOR_LATEX):
+if (RENDER_PGF):
     axis.savefig('rtt-plot-line.pgf', format='pgf')
 else:
     plt.show()
@@ -101,7 +100,7 @@ axis.set_xticks([0, 9, 20], powers)
 axis.legend(loc='best', ncols=3, fontsize=FONT_SIZE)
 plt.tight_layout()
 
-if (EXPORT_FOR_LATEX):
+if (RENDER_PGF):
     axis.savefig('cpu-plot-line.pgf', format='pgf')
 else:
     plt.show()

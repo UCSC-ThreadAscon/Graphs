@@ -4,8 +4,7 @@ import matplotlib as mpl
 #mpl.use('pgf')
 import matplotlib.pyplot as plt
 
-EXPORT_FOR_LATEX = False
-FONT_SIZE = 'xx-large'
+from common import *
 
 algs = ["None", "AES", "Ascon-AEAD128"]
 powers = ["0 dBm", "9 dBm", "20 dBm"]
@@ -68,7 +67,7 @@ axis.tick_params(axis='y', labelsize=FONT_SIZE)
 axis.tick_params(axis='x', labelsize=FONT_SIZE)
 plt.tight_layout()
 
-if (EXPORT_FOR_LATEX):
+if (RENDER_PGF):
   axis.savefig('rtt-plot-bar.pgf', format='pgf')
 else:
   plt.show()
@@ -125,7 +124,7 @@ plt.tight_layout()
 
 axis.legend(loc='best', ncols=3, fontsize=FONT_SIZE)
 
-if (EXPORT_FOR_LATEX):
+if (RENDER_PGF):
   axis.savefig('cpu-plot-bar.pgf', format='pgf')
 else:
   plt.show()
