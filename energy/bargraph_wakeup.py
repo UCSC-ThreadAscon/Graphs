@@ -24,7 +24,12 @@ def bargraph():
 
     averages = [average for average in averagesDict.values()]
     offset = width * multiplier
-    rects = axis.bar(xAxisValues + offset, averages, width, label=cipher,
+
+    label = cipher
+    if cipher == "AsconAead128":
+      label = "Ascon-AEAD128"
+
+    rects = axis.bar(xAxisValues + offset, averages, width, label=label,
                      color=cipherColors[cipher])
 
     if SHOW_BAR_LABELS:

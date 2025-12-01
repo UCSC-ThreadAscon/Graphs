@@ -26,7 +26,7 @@ def linegraph():
 
   plt.plot(TX_POWERS, aes, 'o--', color=cipherColors['AES'], label='AES')
   plt.plot(TX_POWERS, asconaead128, 'o:', color=cipherColors['AsconAead128'],
-           label='AsconAead128')
+           label='Ascon-AEAD128')
   plt.plot(TX_POWERS, noencrypt, 'o-.', color=cipherColors['No Encryption'],
            label='No Encryption')
 
@@ -36,7 +36,7 @@ def linegraph():
   ax.set_xticks(TX_POWERS)
   ax.set_ylim(y_min, y_lim)
 
-  ax.legend(loc='best', ncols=2, fontsize=FONT_SIZE)
+  ax.legend(loc='best', ncols=1, fontsize=FONT_SIZE)
   ax.set_ylabel('Standard Deviation (mAh)', fontsize=FONT_SIZE)
   ax.set_xlabel('TX Power (dBm)', fontsize=FONT_SIZE)
   ax.set_title(f'Standard Deviations (Wakeups Only)', fontsize=FONT_SIZE)
