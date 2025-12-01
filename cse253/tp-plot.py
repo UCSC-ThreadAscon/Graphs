@@ -4,8 +4,7 @@ import numpy as np
 #mpl.use('pgf')
 import matplotlib.pyplot as plt
 
-EXPORT_FOR_LATEX = False
-FONT_SIZE = 'xx-large'
+from common import *
 
 algs = ["NoEncrypt", "AES", " Ascon-AEAD128"]
 powers = ["0 dBm", "9 dBm", "20 dBm"]
@@ -79,7 +78,7 @@ axis.tick_params(axis='x', labelsize=FONT_SIZE)
 
 plt.tight_layout()
 
-if (EXPORT_FOR_LATEX):
+if (RENDER_PGF):
     axis.savefig('tp-plot-line.pgf', format='pgf')
 else:
     plt.show()
@@ -119,7 +118,7 @@ axis.legend(loc='best', ncols=3, fontsize=FONT_SIZE)
 plt.axhline(linestyle='dotted', lw=1, color='gainsboro')
 plt.tight_layout()
 
-if (EXPORT_FOR_LATEX):
+if (RENDER_PGF):
     axis.savefig('tp-plot-line.pgf', format='pgf')
 else:
     plt.show()
