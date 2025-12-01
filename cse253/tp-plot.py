@@ -68,7 +68,6 @@ y_lim = 140
 
 tick_step = abs(y_lim - y_min) / 13
 ticks = np.arange(y_min, y_lim, tick_step)
-print(ticks)
 
 axis.set_yticks(ticks)
 axis.set_ylim(y_min, y_lim)
@@ -100,7 +99,7 @@ for alg in algs:
 
 axis.set_title("Throughput Increase Relative To No Encryption", fontsize = FONT_SIZE)
 axis.set_xlabel('TX Power (dBm)', fontsize = FONT_SIZE) 
-axis.set_ylabel('Percentage %', fontsize = FONT_SIZE) 
+axis.set_ylabel('Percentage (%)', fontsize = FONT_SIZE) 
 
 axis.set_xticks([0, 9, 20], powers)
 
@@ -110,7 +109,9 @@ y_min = -10
 
 y_ticks = np.arange(y_min, y_lim, y_interval)
 y_ticks = np.append(y_ticks, [y_lim])
+
 axis.set_yticks(y_ticks)
+axis.set_ylim(y_min, y_lim)
 
 axis.tick_params(axis='y', labelsize=FONT_SIZE)
 axis.tick_params(axis='x', labelsize=FONT_SIZE)
