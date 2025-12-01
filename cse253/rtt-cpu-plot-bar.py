@@ -68,7 +68,7 @@ axis.tick_params(axis='x', labelsize=FONT_SIZE)
 plt.tight_layout()
 
 if (RENDER_PGF):
-  axis.savefig(THESIS_FIGURES_PATH + '/rtt-plot-bar.pgf', format='pgf')
+  plt.savefig(THESIS_FIGURES_PATH + '/rtt-plot-bar.pgf', format='pgf')
 else:
   plt.show()
 
@@ -125,7 +125,7 @@ plt.tight_layout()
 axis.legend(loc='best', ncols=3, fontsize=FONT_SIZE)
 
 if (RENDER_PGF):
-  axis.savefig(THESIS_FIGURES_PATH + '/cpu-plot-bar.pgf', format='pgf')
+  plt.savefig(THESIS_FIGURES_PATH + '/cpu-plot-bar.pgf', format='pgf')
 else:
   plt.show()
 
