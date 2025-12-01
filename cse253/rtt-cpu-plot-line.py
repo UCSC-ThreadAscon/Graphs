@@ -3,6 +3,8 @@ import matplotlib as mpl
 #mpl.use('pgf')
 import matplotlib.pyplot as plt
 
+import numpy as np
+
 from common import *
 
 algs = ["None", "AES", "Ascon-AEAD128"]
@@ -50,6 +52,19 @@ axis.set_title("RTT Increase Relative To No Encryption", fontsize = FONT_SIZE)
 axis.set_xlabel('TX Power (dBm)', fontsize = FONT_SIZE) 
 axis.set_ylabel('Percentage (%)', fontsize = FONT_SIZE) 
 axis.set_xticks([1, 9, 20], powers)
+
+y_min = -1
+y_lim = 3
+y_interval = 0.5
+
+y_ticks = np.arange(y_min, y_lim, y_interval)
+axis.set_yticks(y_ticks)
+y_ticks = np.append(y_ticks, [y_lim])
+axis.set_ylim(y_min, y_lim)
+axis.set_yticks(y_ticks)
+
+axis.tick_params(axis='y', labelsize=FONT_SIZE)
+axis.tick_params(axis='x', labelsize=FONT_SIZE)
 plt.tight_layout()
 
 axis.legend(loc='best', ncols=3, fontsize=FONT_SIZE)
@@ -97,6 +112,18 @@ axis.set_xlabel('TX Power (dBm)', fontsize = FONT_SIZE)
 axis.set_ylabel('Percentage (%)', fontsize = FONT_SIZE) 
 axis.set_xticks([0, 9, 20], powers)
 
+y_min = -1.5
+y_lim = 0.5
+y_interval = 0.5
+
+y_ticks = np.arange(y_min, y_lim, y_interval)
+# axis.set_yticks(y_ticks)
+y_ticks = np.append(y_ticks, [y_lim])
+# axis.set_ylim(y_min, y_lim)
+# axis.set_yticks(y_ticks)
+
+axis.tick_params(axis='y', labelsize=FONT_SIZE)
+axis.tick_params(axis='x', labelsize=FONT_SIZE)
 axis.legend(loc='best', ncols=3, fontsize=FONT_SIZE)
 plt.tight_layout()
 
