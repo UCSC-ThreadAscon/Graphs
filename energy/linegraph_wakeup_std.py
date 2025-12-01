@@ -48,7 +48,7 @@ def linegraph():
   plt.tight_layout()
 
   if RENDER_PGF:
-    plt.savefig(os.path.join(THESIS_FIGURES_PATH, f'std-linegraph.pgf'))
+    plt.savefig(os.path.join(THESIS_FIGURES_PATH, f'std-linegraph-wakeup.pgf'))
   return
 
 if __name__ == "__main__":
