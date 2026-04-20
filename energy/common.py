@@ -13,7 +13,7 @@ if RENDER_PGF:
       'pgf.rcfonts': False,
   })
 
-THESIS_FIGURES_PATH = '/Users/simeon/Desktop/Repositories/ThesisWriteup/images/pgfs'
+THESIS_FIGURES_PATH = '/Users/simeon/Desktop/Repositories/gemini/images/final-pgfs'
 THESIS_PAPER_WIDTH_IN = 5.75113
 THESIS_PAPER_HEIGHT_IN = 8.12659
 

@@ -36,8 +36,8 @@ def linegraph():
   ax.legend(loc='best', ncols=2, fontsize=FONT_SIZE)
   ax.set_ylabel('Percentage (%)', fontsize=FONT_SIZE)
   ax.set_xlabel('TX Power (dBm)', fontsize=FONT_SIZE)
-  ax.set_title(f'Energy Usage Increase Relative to No Encryption \n (Wakeups Only)',
-               fontsize=FONT_SIZE)
+  ax.set_title(f'Energy Consumption Increase Relative to No Encryption',
+               fontsize=FONT_SIZE, pad=20)
 
   ax.tick_params(axis='y', labelsize=FONT_SIZE)
   ax.tick_params(axis='x', labelsize=FONT_SIZE)
