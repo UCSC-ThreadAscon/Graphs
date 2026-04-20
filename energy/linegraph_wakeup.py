@@ -39,7 +39,7 @@ def linegraph():
   
   # https://stackoverflow.com/a/49394620
   ax.set_title(f'Energy Consumption Increase Relative to No Encryption',
-               fontsize=FONT_SIZE, pad=20)
+               fontsize=FONT_SIZE, pad=15)
 
   ax.tick_params(axis='y', labelsize=FONT_SIZE)
   ax.tick_params(axis='x', labelsize=FONT_SIZE)
